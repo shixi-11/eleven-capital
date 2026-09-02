@@ -12,7 +12,7 @@ const arrow = '<span aria-hidden="true">↗</span>';
 const version = async (file) => createHash("sha256").update(await readFile(file)).digest("hex").slice(0, 12);
 const cssPath = `/styles.${await version("src/styles.css")}.css`;
 const jsPath = `/main.${await version("src/main.js")}.js`;
-const lines = (a) => a.map((s) => `<span>${esc(s)}</span>`).join("");
+const lines = (a) => a.map((s) => `<span>${esc(s).replace(/\b(?:long term|digital products)\b/g, (phrase) => phrase.replaceAll(" ", "&nbsp;"))}</span>`).join("");
 const inquiryHref = (c) => "mailto:info@elevencapital.ltd?subject=" + encodeURIComponent(c.inquirySubject) + "&body=" + encodeURIComponent(c.inquiryBody);
 const paragraphs = (a) => a.map((s) => `<p>${esc(s)}</p>`).join("");
 
@@ -20,11 +20,11 @@ const sections = ["home", "about", "services", "founder", "partners"];
 const navSections = sections.slice(1);
 const route = (c, section = "home") => c.path + (section === "home" ? "" : section + "/");
 function ui(c) {
-  return c.lang === "en" ? { home: "Home", more: "Explore", services: "Explore our services", about: "About Eleven Capital", founder: "Meet our founder", partners: "Our partnerships" } : c.lang === "zh-Hans" ? { home: "首页", more: "了解服务", services: "了解全部服务", about: "了解十一资本", founder: "了解创始人", partners: "了解合作伙伴" } : { home: "首頁", more: "了解服務", services: "了解全部服務", about: "了解十一資本", founder: "了解創始人", partners: "了解合作夥伴" };
+  return c.lang === "en" ? { home: "Home", more: "Explore", services: "Explore our services", about: "About Eleven Capital", founder: "Meet our founder", partners: "Meet our partners" } : c.lang === "zh-Hans" ? { home: "首页", more: "了解服务", services: "了解全部服务", about: "了解十一资本", founder: "了解创始人", partners: "了解合作伙伴" } : { home: "首頁", more: "了解服務", services: "了解全部服務", about: "了解十一資本", founder: "了解創始人", partners: "了解合作夥伴" };
 }
 const more = (c, section, label = ui(c)[section]) => '<a class="text-link" href="' + route(c, section) + '">' + label + arrow + '</a>';
 function heroSection(c) { return `<section class="hero" aria-labelledby="hero-title"><div class="hero-copy"><p class="hero-eyebrow">${c.heroEyebrow}</p><h1 id="hero-title">${lines(c.heroLines)}</h1>${c.heroEnglish ? `<p class="hero-english" lang="en">${c.heroEnglish}</p>` : ""}<p class="hero-intro">${
-    esc(c.heroIntro).replace(/[創创][業业][團团][隊队]|成[長长]型企[業业]|多[語语]言官[網网]|AI智能[体體][開开][發发]|[應应]用|持[續续][維维][護护]|[維维][護护][與与]迭代|AI智能[体體]|Web3|Web4/g, (term) => `<span class="phrase">${term}</span>`)
+    esc(c.heroIntro).replace(/\b(?:startup teams|AI agents)\b/g, (phrase) => phrase.replaceAll(" ", "&nbsp;")).replace(/[創创][業业][團团][隊队]|成[長长]型企[業业]|多[語语]言官[網网]|AI智能[体體][開开][發发]|[應应]用|持[續续][維维][護护]|[維维][護护][與与]迭代|AI智能[体體]|Web3|Web4/g, (term) => `<span class="phrase">${term}</span>`)
   }</p><div class="hero-actions"><a class="button-outline" href="#contact">${c.projectCta}<span aria-hidden="true">→</span></a><a class="hero-secondary" href="${route(c, "services")}">${c.heroCta}</a></div><p class="hero-location"><span class="location-line" aria-hidden="true"></span>${c.location}</p></div><figure class="hero-image"><img src="/assets/hong-kong.png" alt="${c.photoAlt}" width="1086" height="1448" fetchpriority="high"></figure></section>
 `; }
 function pillarsSection(c) { return `<nav class="focus-strip" aria-label="${c.focusLabel}">${c.pillars.map(([id, title]) => `<a href="${route(c, "services")}#${id}">${title}<span aria-hidden="true">↘</span></a>`).join("")}</nav>
@@ -141,7 +141,7 @@ await writeFile(
 );
 await writeFile(
   "dist/404.html",
-  '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | Eleven Capital</title><link rel="icon" href="/assets/favicon-tree.png" type="image/png" sizes="72x72"><link rel="stylesheet" href="/styles.css"><main class="not-found"><p>404</p><h1>Let’s find your way.</h1><p>The page you are looking for does not exist.</p><a class="button-outline" href="/">Back to home →</a></main></html>',
+  '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | Eleven Capital</title><link rel="icon" href="/assets/favicon-tree.png" type="image/png" sizes="72x72"><link rel="stylesheet" href="/styles.css"><main class="not-found"><p>404</p><h1>Page not found.</h1><p>The page you’re looking for could not be found.</p><a class="button-outline" href="/">Return to homepage →</a></main></html>',
 );
 console.log(
   "Built 15 static pages across English, Simplified Chinese and Traditional Chinese.",

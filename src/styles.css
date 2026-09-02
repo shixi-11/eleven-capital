@@ -63,6 +63,7 @@ section[id],article[id] { scroll-margin-top: 24px; }
 html[lang="en"] .hero-eyebrow { text-transform: uppercase; letter-spacing: .12em; }
 h1 { font: 500 54px/1.18 var(--serif); color: var(--green); }
 h1 span,h2 span { display: block; }
+html[lang="en"] .hero h1 > span { text-wrap: balance; }
 html[lang^="zh"] h1 { font-size: 52px; line-height: 1.4; }
 .hero-intro { max-width: 490px; margin-top: 26px; font-size: 16px; line-height: 1.85; color: var(--muted); text-wrap: balance; }
 .phrase { display: inline-block; max-width: 100%; }

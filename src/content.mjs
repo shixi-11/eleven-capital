@@ -323,7 +323,7 @@ export const content = {
     "otherLabel": "繁中",
     "otherLang": "zh-Hant",
     "title": "Eleven Capital | Technology that creates lasting value",
-    "description": "Eleven Capital connects technology and business through AI agents, custom product development, ongoing maintenance, Web3 and Web4 exploration, investment research and international collaboration.",
+    "description": "Eleven Capital brings technology and business together through AI agents, custom application development, ongoing maintenance, Web3 and Web4 exploration, investment research, incubation, acceleration and international business collaboration.",
     "skip": "Skip to content",
     "menu": "Menu",
     "languageLabel": "Language",
@@ -339,21 +339,21 @@ export const content = {
       "Built for the long term."
     ],
     "heroEnglish": "",
-    "heroIntro": "We help founders and growing businesses create multilingual websites, custom applications and AI agents, then maintain and develop them as the business evolves.",
+    "heroIntro": "We build multilingual websites, applications and AI agents for startup teams and growing businesses, with ongoing maintenance and development.",
     "heroCta": "Explore our services",
-    "location": "Hong Kong · A global perspective",
-    "photoAlt": "Architectural impression of Victoria Harbour framed by green Hong Kong hills",
+    "location": "Hong Kong · Global connections",
+    "photoAlt": "An architectural illustration of Hong Kong’s Victoria Harbour and surrounding green hills",
     "focusLabel": "Our services",
     "focusTitle": [
       "From idea to product.",
       "From launch to growth."
     ],
-    "focusIntro": "Business goals shape the technology. Development, ongoing operations and the right partnerships carry it forward.",
+    "focusIntro": "We shape technical solutions around business goals, coordinating development, ongoing operations and the resources needed to support them.",
     "services": [
       {
         "id": "technology",
         "title": "AI agents & workflow automation",
-        "text": "Design agents for company knowledge, research, content operations and everyday collaboration. Connect them to the data and tools they need to move work forward, with appropriate permissions and human review.",
+        "text": "We design agents that use tools, work with business data and support knowledge management, research, content operations and day-to-day collaboration. We bring AI into specific workflows, with appropriate access controls and human review.",
         "examples": [
           "Internal knowledge assistants",
           "Business workflow automation",
@@ -362,28 +362,28 @@ export const content = {
       },
       {
         "id": "development",
-        "title": "Custom applications & products",
-        "text": "From requirements and prototypes to design, development and deployment, we build websites, applications and internal tools. Validate the essential use cases first, then develop the experience and functionality around them.",
+        "title": "Custom application & product development",
+        "text": "We build websites, applications and internal tools, from requirements and prototypes through design, development and launch. We validate the key use cases first, then refine the user experience and business functionality.",
         "examples": [
           "Corporate and brand websites",
           "Applications and admin tools",
-          "Interactive prototypes and experiences"
+          "Interactive prototypes and digital experiences"
         ]
       },
       {
         "id": "operations",
         "title": "Maintenance & ongoing development",
-        "text": "Keep a product moving after launch. Within an agreed scope, we support troubleshooting, fixes, releases, deployment and new features, providing continuity as your business and its technology evolve.",
+        "text": "We support the day-to-day running and continued development of products after launch. Within an agreed scope, we provide bug fixes, release updates, deployment support and new features, giving businesses continuity in their technical support.",
         "examples": [
           "Troubleshooting and bug fixes",
-          "Deployment and release maintenance",
+          "Deployment support and release updates",
           "Performance and feature improvements"
         ]
       },
       {
         "id": "blockchain",
         "title": "Web3 & Web4 exploration",
-        "text": "Research, prototype and integrate applications across blockchain, on-chain data and agent collaboration. Explore emerging Web4 directions in intelligent connectivity and blended digital and physical experiences through specific, testable use cases.",
+        "text": "We research, prototype and integrate systems that combine blockchain applications, on-chain data and collaboration between AI agents. Our exploration of emerging Web4 applications focuses on intelligent connectivity and the convergence of physical and digital experiences, starting with concrete use cases.",
         "examples": [
           "Blockchain application integration",
           "Agent collaboration prototypes",
@@ -392,67 +392,67 @@ export const content = {
       },
       {
         "id": "investment",
-        "title": "Research, incubation & acceleration",
-        "text": "Combine industry research and market insight with product validation, strategic positioning and resource connections. Help growing businesses clarify their direction and connect technological innovation with commercial opportunity.",
+        "title": "Investment research, incubation & acceleration",
+        "text": "Drawing on industry research and market insight, we support product validation and strategic positioning, and bring together relevant expertise and resources. We help growing businesses clarify their direction and connect technological innovation with commercial opportunities.",
         "examples": [
           "Industry and market research",
           "Business model and product validation",
-          "Incubation and resource connections"
+          "Incubation support and access to resources"
         ]
       },
       {
         "id": "trade",
         "title": "International business & digital presence",
-        "text": "Draw on international trade experience and cross-cultural understanding to connect businesses with markets and supply-chain partners. Support expansion with multilingual websites, brand content and digital tools that communicate consistently across markets.",
+        "text": "We draw on international trade experience and cross-cultural insight to help businesses connect with markets and partners across their value chains. Multilingual websites, brand content and digital tools give cross-border businesses a clear, consistent presence.",
         "examples": [
-          "Trade and market collaboration",
-          "Multilingual websites and localization",
+          "International trade and market collaboration",
+          "Multilingual websites and localisation",
           "Brand content and digital support"
         ]
       }
     ],
     "aboutLabel": "About Eleven Capital",
     "aboutTitle": [
-      "Technical possibility.",
-      "Commercial perspective."
+      "Technical insight.",
+      "Commercial judgement."
     ],
     "about": [
-      "Originating in Hong Kong, Eleven Capital Limited builds on a foundation in blockchain technology, investment research and international trade, extending its services into AI agents, digital product development and ongoing operations.",
-      "Professionalism, diversity and innovation guide our work. We bring technical practice, business insight and resource integration together under one brand, tailoring our support to each company’s goals and stage of growth. Tangible delivery and lasting relationships matter equally."
+      "With roots in Hong Kong, Eleven Capital Limited builds on its work in blockchain technology, investment research and international trade to offer AI agents, digital product development and ongoing operations.",
+      "Specialist expertise, a diversified range of services and innovation guide our work. We bring technical practice, commercial insight and complementary resources together under one brand, tailoring our services to each business’s goals and stage of development. We value tangible results and long-term partnerships."
     ],
     "visionTitle": "Value that endures.",
-    "vision": "Our ambition is to become a leading international financial services group and build an enterprise that lasts a century, creating enduring value for clients, shareholders, our people and society.",
+    "vision": "Our vision is to become a leading international group providing comprehensive financial services and to build a business that lasts a century, creating ever greater value for clients, shareholders, employees and society.",
     "mission": [
       [
         "Shareholders",
-        "Pursue stable returns and asset growth with a strong sense of responsibility."
+        "Pursue steady returns and asset growth, guided by shareholders’ interests."
       ],
       [
         "Clients",
-        "Deliver excellent service with integrity and respect for long-term trust."
+        "Deliver excellent service with integrity, and value the trust built over time."
       ],
       [
         "Our people",
-        "Support career development and a better quality of life."
+        "Support career development and a better quality of life, so that employees and the business grow together."
       ],
       [
         "Society",
-        "Give back to communities and contribute to national development."
+        "Give back to society and contribute to the continued development of communities and the nation."
       ]
     ],
     "valuesSummary": "Our values and business philosophy",
     "values": [
       [
         "Personal values",
-        "Honesty, trust, ambition and achievement. We see creating value as an ongoing pursuit, grounded in character and meaningful contribution."
+        "Honesty, trust, initiative and achievement. We strive to maximise value through sustained effort, personal integrity and tangible contributions."
       ],
       [
         "Team values",
-        "Unity, vitality, learning and innovation. Competition, incentives and performance-based selection keep our team motivated and adaptable."
+        "Unity, energy, learning and innovation. Competition, incentives and performance-based retention sustain the team’s drive and vitality."
       ],
       [
         "Business philosophy",
-        "Differentiation, professionalism, leadership and a long-term view. We assess each decision by its lasting contribution to our stakeholders."
+        "Differentiation, specialisation, a commitment to leading the field and a long-term outlook. We judge each decision by the lasting value it creates for stakeholders."
       ]
     ],
     "founderLabel": "Our founder",
@@ -460,30 +460,30 @@ export const content = {
     "founderChinese": "林拾汐",
     "founderRole": "Founder & President",
     "founderAlt": "Shixi Lin, Founder and President of Eleven Capital",
-    "founderLead": "Bringing business insight and a human perspective to companies, people and global opportunity.",
+    "founderLead": "Combining business insight with a humanistic outlook to connect companies, talent and global opportunities.",
     "bio": [
-      "Shixi Lin brings experience in investment, business incubation and international trade. Having served as CEO of three companies, with an EMBA background, she combines strategic positioning and market insight to support sustainable business growth.",
-      "Since 2016, she has explored blockchain technology and the potential of Web3, building connections between Web2 and Web3 ecosystems and between emerging technology and business practice."
+      "Shixi Lin has worked in investment, business incubation and international trade. She has an EMBA background and has served as chief executive of three companies. She focuses on strategic positioning for brands and businesses, using market insight to support sustainable growth.",
+      "Since 2016, she has continued to explore blockchain technology and the potential of Web3, with an interest in connections between Web2 and Web3 ecosystems and in bringing emerging technology into business practice."
     ],
     "bioMore": [
-      "Nearly seven years in the psychology field shaped her approach to negotiation and resource integration. Her management philosophy emphasizes empowerment, cohesion and strategic alignment, bringing teams together around shared goals and outcomes while remaining adaptable to emerging trends.",
-      "Her interest in holistic perspectives extends to mysticism and theosophy. She draws on Zen and Taoist philosophy in her thinking about business and management, balancing strategic insight with philosophical depth.",
-      "Extensive travel and international trade experience inform her understanding of global market shifts and cross-industry trends. She builds strategic, cross-functional relationships and aligns diverse stakeholders around substantive collaboration and shared success."
+      "Nearly seven years of experience in the field of psychology have strengthened her negotiation skills and ability to bring resources together. Her approach to team management centres on empowerment, cohesion and strategic alignment, with an emphasis on shared goals and results, adaptability and an understanding of emerging trends.",
+      "Her interest in a holistic perspective extends to the study of esotericism and theosophy. She draws on Zen and Taoist philosophy in her thinking about business and management, seeking a balance between strategic judgement and philosophical depth.",
+      "Through extensive travel and international trade, she has developed a cross-cultural understanding of global market shifts and trends across industries. She is skilled at building strategic relationships across functions and coordinating diverse stakeholders to achieve tangible results."
     ],
     "bioSummary": "Full biography",
-    "partnerLabel": "Our partnerships",
+    "partnerLabel": "Our partners",
     "partnerTitle": [
       "Different strengths.",
       "Shared possibilities."
     ],
-    "partnerIntro": "Connect expertise across technology, finance and industry through complementary partnerships.",
-    "partnerText": "Our global outlook and cross-industry experience support market expansion, resource connections and technology exploration, with each collaboration grounded in clear goals and shared growth.",
+    "partnerIntro": "We bring together resources from technology, finance and industry through partnerships built on complementary expertise.",
+    "partnerText": "We draw on a global perspective and experience across industries to support market expansion, bring complementary resources together and explore technology. Each collaboration is guided by clear goals and shared growth.",
     "partnerLink": "Visit official website",
     "contactTitle": [
       "Let’s build",
       "what’s next."
     ],
-    "contactText": "Tell us what you want to achieve, where things stand and your preferred timeframe. We can work out the next step together.",
+    "contactText": "Tell us your goals, where the project stands and your preferred timeframe. We can plan the next step together.",
     "legalName": "Eleven Capital Limited",
     "copyright": "All rights reserved.",
     "backTop": "Back to top",
@@ -495,16 +495,16 @@ export const content = {
       ],
       [
         "operations",
-        "Maintenance & iteration"
+        "Maintenance & development"
       ],
       [
         "investment",
-        "Research & global connections"
+        "Investment research & global collaboration"
       ]
     ],
     "engagementLabel": "Working together",
-    "engagementTitle": "A project today. A partner for what follows.",
-    "engagementIntro": "Commission a defined development project or establish ongoing maintenance and iteration. We clarify requirements, deliverables and support before work begins.",
+    "engagementTitle": "A project can be the start of a lasting partnership.",
+    "engagementIntro": "Work with us on a defined development project or arrange ongoing maintenance and improvements. We agree requirements, deliverables and follow-up support before work begins.",
     "engagementSteps": [
       [
         "Understand",
@@ -516,11 +516,11 @@ export const content = {
       ],
       [
         "Launch & hand over",
-        "Deploy, document and support the handover."
+        "Launch, prepare documentation and hand over the product for use."
       ],
       [
         "Maintain & evolve",
-        "Fix, improve and iterate within the agreed scope."
+        "Maintain, improve and develop the product within the agreed scope."
       ]
     ],
     "projectCta": "Discuss your project",
@@ -531,62 +531,62 @@ export const content = {
       [
         "Businesses entering new markets",
         "Your website needs an update, or your brand is preparing to reach a new audience.",
-        "Multilingual websites, brand content and clear contact paths help prospective customers understand your business.",
+        "Multilingual websites, brand content and clear ways to get in touch help overseas customers understand your business.",
         "trade",
         "Websites & international business"
       ],
       [
-        "Founders & product teams",
-        "You have a product direction and need a working version people can try.",
-        "Move from requirements and interactive prototypes to an initial application. Validate core workflows, then iterate on feedback.",
+        "Startups & product teams",
+        "You have a product concept and need a version people can try.",
+        "We help you define requirements, develop interactive prototypes and build the first version of your application. We validate the core workflows first, then refine the product based on feedback.",
         "development",
-        "Applications & product development"
+        "Application & product development"
       ],
       [
-        "Growing small businesses",
-        "Scattered information and repetitive research or content tasks take time from your team.",
-        "Introduce knowledge assistants, AI agents and internal tools around specific workflows, with human review where it matters.",
+        "Growing small and medium-sized businesses",
+        "Information is scattered, and research, organisation and content work take up too much time.",
+        "We build knowledge assistants, AI agents and internal tools around specific workflows, with human review where needed.",
         "technology",
         "AI & workflow automation"
       ],
       [
         "Teams needing ongoing support",
-        "Your product is live, but updates and maintenance lack continuity.",
-        "Review the existing system, then agree on a scope for fixes, releases and further development.",
+        "Your product is live, but you need reliable support for updates and maintenance.",
+        "We first assess the existing system and its issues, then agree on a scope for fixes, updates and further development.",
         "operations",
         "Maintenance & ongoing development"
       ]
     ],
-    "deliveryLabel": "Deliverables we can agree on",
+    "deliveryLabel": "What your project can include",
     "deliveries": [
-      "A workflow outline, a working assistant or automation, tool connections and usage guidance.",
+      "A mapped workflow, a working assistant or automated process, connections to relevant tools, and usage guidance.",
       "A defined scope, interactive prototypes, an initial product with agreed features, and deployment and handover documentation.",
-      "A review of the existing system, fixes and releases, change records and an ongoing development plan.",
-      "Feasibility research, application prototypes and an integration plan.",
-      "Industry and market research, product validation approaches, milestones and collaboration recommendations.",
-      "Multilingual websites and brand content, digital tools and a plan for market collaboration."
+      "A review of the existing system, fixes and updates, a record of changes and a plan for further development.",
+      "Feasibility research, application prototypes and a technical integration plan.",
+      "Industry and market research, approaches to product validation, milestones and recommendations for collaboration.",
+      "Multilingual websites and brand content, digital tools and a plan for collaborating on market expansion."
     ],
     "faqTitle": "Before we work together",
     "faq": [
       [
-        "How does a project begin?",
-        "Tell us what you want to improve or build, where the project stands and your preferred timeframe. We clarify priorities together, then agree on the first phase, its deliverables and the engagement terms."
+        "How do we get started?",
+        "Tell us what you want to build or improve, where the project stands and your preferred timeframe. We clarify priorities together, then agree on the scope of the first phase, its deliverables and how we will work together."
       ],
       [
-        "How are cost and timing determined?",
-        "We assess the scope, existing systems, external integrations and available content. A proposal sets out deliverables and timing, along with any maintenance or third-party service costs to be agreed separately."
+        "How are costs and timelines determined?",
+        "We assess the scope, existing systems, external integrations and how much content is ready. Our proposal sets out the deliverables and schedule, with maintenance and third-party service fees agreed separately where needed."
       ],
       [
         "Can you take over an existing website or application?",
-        "We can first review its code, deployment, documentation and outstanding issues. That review establishes a practical scope for taking over, addressing gaps and providing ongoing support."
+        "We can start by reviewing the code, deployment environment, documentation and outstanding issues. We then agree on what can be taken on, what needs attention first and how ongoing maintenance would work."
       ],
       [
         "What happens after launch?",
-        "Code, usage guidance and deployment documentation are handed over as agreed, with clear responsibility for accounts and resources. Ongoing maintenance has its own agreed scope, working cadence and cost."
+        "We provide the agreed code and documentation for use and deployment, and clarify how accounts and resources will be managed. For ongoing maintenance, we separately agree the scope, support schedule and fees."
       ]
     ],
-    "inquirySubject": "Project inquiry | Eleven Capital",
-    "inquiryBody": "Hello, I would like to discuss a project.\n\nWhat I would like to build or improve:\nCurrent stage / existing website:\nPreferred timeframe:\nPreferred contact details:"
+    "inquirySubject": "Project enquiry | Eleven Capital",
+    "inquiryBody": "Hello, I would like to discuss a project.\n\nWhat I would like to build or improve:\nCurrent stage / existing website:\nPreferred timeframe:\nBest way to contact me:"
   }
 };
 

@@ -6,9 +6,9 @@
 
 **From an idea to a working product, with support beyond launch.**
 
-Eleven Capital Limited helps founders and growing businesses build websites, custom applications and AI tools, then maintain and improve them over time. Rooted in Hong Kong, we bring technology development together with research, business collaboration and an international perspective.
+Eleven Capital Limited helps founders and growing businesses build websites, custom applications and AI tools, then maintain and improve them over time. With roots in Hong Kong and an international outlook, we combine technical development, research and business collaboration to help products reach the market and businesses grow.
 
-This is the open-source repository for our **official company website**. It introduces our services, founder and partnerships, and provides a starting point for project enquiries.
+This is the open-source repository for our **official company website**. Visit the website to explore our services, meet our founder, learn about our partners and discuss a project.
 
 **[Visit our website](https://elevencapital.ltd/)**
 
@@ -17,7 +17,7 @@ This is the open-source repository for our **official company website**. It intr
 | Your business need | Our services |
 | --- | --- |
 | Present your business to a new market | Multilingual websites, brand content and clear ways for prospective customers to contact you. |
-| Turn a product idea into something people can use | Requirements, interactive prototypes, custom applications, launch and handover. |
+| Turn a product idea into something people can use | Requirements definition, interactive prototypes, custom application development, launch and handover. |
 | Reduce repetitive work and make information easier to use | Knowledge assistants, AI agents and workflow automation, with human review where needed. |
 | Keep an existing website or application running and improving | System assessment, bug fixes, updates, ongoing maintenance and further development. |
 
@@ -25,7 +25,7 @@ Our broader work includes Web3 application research, product validation and incu
 
 ### Start a conversation
 
-You may be preparing a website, testing a product idea, introducing AI into a workflow or looking for someone to maintain an existing system. Tell us your goal, the current stage and your preferred timeframe. We can then define a first phase, its deliverables, timing and cost, with ongoing support agreed separately.
+You may be preparing a website, testing a product idea, introducing AI into a workflow or looking for someone to maintain an existing system. Tell us your goals, where the project stands and your preferred timeframe. We can then define a first phase, its deliverables, timing and cost, with ongoing support agreed separately.
 
 **Project enquiries: [info@elevencapital.ltd](mailto:info@elevencapital.ltd)**
 
@@ -33,9 +33,9 @@ You may be preparing a website, testing a product idea, introducing AI into a wo
 
 ### About this repository
 
-The website is available in English, Simplified Chinese and Traditional Chinese. Its source is shared for developers to explore, learn from and adapt under the [MIT license](LICENSE).
+The website is available in English, Simplified Chinese and Traditional Chinese. Its source is shared for developers to explore, learn from and adapt under the [MIT licence](LICENSE).
 
-For setup, development and deployment, see the [developer guide](DEVELOPMENT.md#english). Company branding, portraits, partner logos and company-specific copy have separate rights; see [asset credits and usage](ASSETS.md).
+For setup, development and deployment, see the [developer guide](DEVELOPMENT.md#english). Company branding, portraits, partner logos and company-specific copy are subject to separate usage terms; see [asset credits and usage](ASSETS.md).
 
 ---
 
