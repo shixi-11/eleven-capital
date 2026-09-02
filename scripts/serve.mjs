@@ -10,6 +10,7 @@ const types = {
   ".png": "image/png",
   ".xml": "application/xml",
   ".txt": "text/plain",
+  ".woff2": "font/woff2",
 };
 http
   .createServer(async (req, res) => {

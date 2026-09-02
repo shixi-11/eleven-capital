@@ -206,14 +206,12 @@ export const content = {
     ],
     "partnerIntro": "連接技術、金融與產業資源，在互補的專業能力之間建立合作。",
     "partnerText": "我們以全球視野與跨行業經驗，推進市場拓展、資源對接與技術探索，讓每一次協作回到具體目標與共同成長。",
-    "partnerListLabel": "戰略合作夥伴",
     "partnerLink": "訪問官方網站",
     "contactTitle": [
       "下一個構想",
       "一起把它實現"
     ],
     "contactText": "無論是開發一款產品、引入AI智能體，還是尋找長期維護與商業合作，歡迎與我們談談。",
-    "emailLabel": "發送郵件",
     "legalName": "十一資本有限公司",
     "copyright": "保留所有權利。",
     "backTop": "回到頂部",
@@ -416,14 +414,12 @@ export const content = {
     ],
     "partnerIntro": "Connect expertise across technology, finance and industry through complementary partnerships.",
     "partnerText": "Our global outlook and cross-industry experience support market expansion, resource connections and technology exploration, with each collaboration grounded in clear goals and shared growth.",
-    "partnerListLabel": "Strategic partners",
     "partnerLink": "Visit official website",
     "contactTitle": [
       "Your next idea.",
       "Let’s make it happen."
     ],
     "contactText": "Building a product, introducing AI agents or looking for ongoing technical support and business collaboration? Let’s talk.",
-    "emailLabel": "Send an email",
     "legalName": "Eleven Capital Limited",
     "copyright": "All rights reserved.",
     "backTop": "Back to top",

@@ -12,8 +12,11 @@ incubation and international business.
 
 A trilingual, responsive static site with English at `/`, Traditional Chinese
 at `/zh-hant/` and Simplified Chinese at `/zh-hans/`. The former `/en/` URL
-redirects to `/`. It includes accessible navigation, an expanded biography,
-optional values and original brand assets. Every page renders complete HTML without JavaScript.
+redirects to `/`. Each language has dedicated `about/`, `services/`, `founder/`
+and `partners/` pages. Navigation opens those pages and language switching
+preserves the current section. Values and the full biography open by default.
+Self-hosted fonts provide consistent Chinese and English typography.
+Every page renders complete HTML without JavaScript.
 No third-party analytics, cookies, or runtime dependencies are required.
 
 ### Development
@@ -34,7 +37,7 @@ editing; `npm run check` verifies content, links, assets and metadata.
 - `src/styles.css`: responsive design tokens and layouts.
 - `src/main.js`: mobile navigation and language-switch anchor continuity.
 - `scripts/build.mjs`: static HTML and SEO metadata generation.
-- `public/assets/`: website images and brand assets.
+- `public/assets/`: website images, brand assets and licensed web fonts.
 - `vercel.json`: deployment, security headers and legacy page redirects.
 
 On Vercel, import this repository. Framework: **Other**; build command:
@@ -51,7 +54,7 @@ are excluded; see [ASSETS.md](ASSETS.md).
 
 **正式网站：**[elevencapital.ltd](https://elevencapital.ltd/)
 
-网站默认使用英文，提供简体中文、繁体中文和英文独立页面，支持手机与桌面浏览，包含移动导航、完整履历与价值观展开、搜索与社交分享信息，以及旧页面地址跳转。页面正文预先生成为 HTML，关闭 JavaScript 也能阅读。不接入第三方分析，不使用 Cookie，无运行时依赖。
+网站默认使用英文，提供简体中文、繁体中文和英文独立页面。每种语言都包含首页、关于我们、服务与能力、创始人、合作伙伴，共15个页面。导航直接进入子页面，切换语言保留当前栏目；完整履历与价值观默认展开。自托管字体统一中英文排版，支持手机与桌面浏览、搜索与社交分享信息，以及旧页面地址跳转。页面正文预先生成为 HTML，关闭 JavaScript 也能阅读。不接入第三方分析，不使用 Cookie，无运行时依赖。
 
 ### 本地运行
 
