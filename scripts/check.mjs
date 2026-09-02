@@ -40,7 +40,10 @@ for (const c of Object.values(content)) for (const section of sections) {
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
   assert(html.includes("mailto:info@elevencapital.ltd"));
   assert(html.includes('class="contact-inner"') && html.includes('class="copyright-owner"'));
-  if (!section) assert(html.includes('<title>Eleven Capital | 十一資本</title>'));
+  const brandTitle = c.lang === "en" ? "Eleven Capital | 十一資本" : "十一資本 | Eleven Capital";
+  const pageTitle = section ? c.nav[sections.indexOf(section) - 1] + " | " + brandTitle : brandTitle;
+  assert(html.includes(`<title>${pageTitle}</title>`), `Wrong title order: ${path}`);
+  assert(html.includes(`property="og:title" content="${pageTitle}"`), `Wrong share title: ${path}`);
   assert(/href="\/styles\.[a-f0-9]{12}\.css"/.test(html), "Styles must be versioned");
   assert(/src="\/main\.[a-f0-9]{12}\.js"/.test(html), "Scripts must be versioned");
   const inquiry = html.match(/href="(mailto:[^"]+)"/)[1].replaceAll("&amp;", "&");

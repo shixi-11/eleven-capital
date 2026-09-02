@@ -88,7 +88,8 @@ function page(c, section = "home") {
       .join("") +
     "</div></details>";
   const canonical = `https://elevencapital.ltd${route(c, section)}`;
-  const title = section === "home" ? siteTitle : c.nav[navSections.indexOf(section)] + " | " + siteTitle;
+  const brandTitle = siteTitle(c.lang);
+  const title = section === "home" ? brandTitle : c.nav[navSections.indexOf(section)] + " | " + brandTitle;
   const description = ({ about: c.about[0], services: c.focusIntro, founder: c.founderLead, partners: c.partnerIntro })[section] || c.description;
   const schema = {
     "@context": "https://schema.org",

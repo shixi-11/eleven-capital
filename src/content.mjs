@@ -1,5 +1,7 @@
 import OpenCC from "opencc-js";
-export const siteTitle = "Eleven Capital | 十一資本";
+export const siteTitle = (lang) => lang === "en"
+  ? "Eleven Capital | 十一資本"
+  : "十一資本 | Eleven Capital";
 export const partners = [
   [
     "ALUX",
