@@ -1,70 +1,75 @@
-# Eleven Capital
+# Eleven Capital | 十一資本
 
 [English](#english) · [简体中文](#简体中文)
 
 ## English
 
-The open-source website for Eleven Capital Limited, connecting AI agents,
-custom product development and maintenance with blockchain research,
-incubation and international business.
+**From an idea to a working product, with support beyond launch.**
 
-**Website:** [elevencapital.ltd](https://elevencapital.ltd/)
+Eleven Capital Limited helps founders and growing businesses build websites, custom applications and AI tools, then maintain and improve them over time. Rooted in Hong Kong, we bring technology development together with research, business collaboration and an international perspective.
 
-A trilingual, responsive static site with English at `/`, Traditional Chinese
-at `/zh-hant/` and Simplified Chinese at `/zh-hans/`. The former `/en/` URL
-redirects to `/`. Each language has dedicated `about/`, `services/`, `founder/`
-and `partners/` pages. Navigation opens those pages and language switching
-preserves the current section. Values and the full biography open by default.
-Self-hosted fonts provide consistent Chinese and English typography.
-The homepage connects four customer needs to relevant services. Service pages
-outline deliverables and answer questions about scope, cost and ongoing support;
-email links open a localized project inquiry template.
-Every page renders complete HTML without JavaScript.
-No third-party analytics, cookies, or runtime dependencies are required.
+This is the open-source repository for our **official company website**. It introduces our services, founder and partnerships, and provides a starting point for project enquiries.
 
-### Development
+**[Visit our website](https://elevencapital.ltd/)**
 
-Requires Node.js 24.x. Install the build-time OpenCC dependency first.
+### What we can help you with
 
-```sh
-npm ci
-npm run dev
-```
+| Your business need | Our services |
+| --- | --- |
+| Present your business to a new market | Multilingual websites, brand content and clear ways for prospective customers to contact you. |
+| Turn a product idea into something people can use | Requirements, interactive prototypes, custom applications, launch and handover. |
+| Reduce repetitive work and make information easier to use | Knowledge assistants, AI agents and workflow automation, with human review where needed. |
+| Keep an existing website or application running and improving | System assessment, bug fixes, updates, ongoing maintenance and further development. |
 
-Open `http://127.0.0.1:4187`. Run `npm run build` to regenerate the site after
-editing; `npm run check` verifies content, links, assets and metadata.
+Our broader work includes Web3 application research, product validation and incubation, and international business collaboration. Emerging areas such as Web4 are explored through research and prototypes, with the scope shaped by a concrete business need.
 
-### Content and deployment
+### Start a conversation
 
-- `src/content.mjs`: Traditional Chinese and English source content; Simplified Chinese generated at build time, partner links.
-- `src/styles.css`: responsive design tokens and layouts.
-- `src/main.js`: mobile navigation and language-switch anchor continuity.
-- `scripts/build.mjs`: static HTML and SEO metadata generation.
-- `public/assets/`: website images, brand assets and licensed web fonts.
-- `vercel.json`: deployment, security headers and legacy page redirects.
+You may be preparing a website, testing a product idea, introducing AI into a workflow or looking for someone to maintain an existing system. Tell us your goal, the current stage and your preferred timeframe. We can then define a first phase, its deliverables, timing and cost, with ongoing support agreed separately.
 
-On Vercel, import this repository. Framework: **Other**; build command:
-`npm run build`; output directory: `dist`. Add the apex and `www` domains in
-project settings and follow the project's current DNS instructions. Preserve
-mail and unrelated DNS records at the registrar.
+**Project enquiries: [info@elevencapital.ltd](mailto:info@elevencapital.ltd)**
 
-The code is MIT-licensed. Brand assets, the portrait and company-specific copy
-are excluded; see [ASSETS.md](ASSETS.md).
+[Explore our services](https://elevencapital.ltd/services/) · [About the company](https://elevencapital.ltd/about/) · [Meet our founder](https://elevencapital.ltd/founder/)
+
+### About this repository
+
+The website is available in English, Simplified Chinese and Traditional Chinese. Its source is shared for developers to explore, learn from and adapt under the [MIT license](LICENSE).
+
+For setup, development and deployment, see the [developer guide](DEVELOPMENT.md#english). Company branding, portraits, partner logos and company-specific copy have separate rights; see [asset credits and usage](ASSETS.md).
+
+---
 
 ## 简体中文
 
-十一资本官方网站源码。服务涵盖AI智能体、应用产品代开发、代维护、区块链与前沿应用研究、投研孵化及国际业务协同。
+**把构想做成可用的产品，让上线后的每一步有人支持。**
 
-**正式网站：**[elevencapital.ltd](https://elevencapital.ltd/)
+十一资本有限公司为创业者与成长型企业提供网站建设、应用产品定制开发、AI工具开发及长期维护服务。公司起源于香港，将技术开发、研究与商业协作相结合，以国际视野支持产品落地与业务发展。
 
-网站默认使用英文，提供简体中文、繁体中文和英文独立页面。每种语言都包含首页、关于我们、服务与能力、创始人、合作伙伴，共15个页面。导航直接进入子页面，切换语言保留当前栏目；完整履历与价值观默认展开。自托管字体统一中英文排版，支持手机与桌面浏览、搜索与社交分享信息，以及旧页面地址跳转。页面正文预先生成为 HTML，关闭 JavaScript 也能阅读。不接入第三方分析，不使用 Cookie，无运行时依赖。
+这里是**十一资本官方网站的开源代码仓库**。您可以通过官网了解我们的服务、创始人与合作伙伴，也可以从这里开始洽谈项目合作。
 
-首页按四类客户需求提供服务入口。服务页说明可约定的交付成果、合作流程、费用与维护安排；邮箱链接打开对应语言的项目咨询草稿。
+**[访问官方网站](https://elevencapital.ltd/zh-hans/)**
 
-### 本地运行
+### 我们能为您做什么
 
-安装 Node.js 24.x 后运行 `npm ci`、`npm run dev`，打开 `http://127.0.0.1:4187`。修改后用 `npm run build` 重新生成，用 `npm run check` 核对内容、链接、素材与元信息。
+| 您的业务需求 | 我们提供的服务 |
+| --- | --- |
+| 向新的市场介绍企业和品牌 | 多语言官网、品牌内容与清晰的客户联系入口。 |
+| 把产品想法变成可以使用的应用 | 需求梳理、交互原型、应用定制开发、部署上线与交接。 |
+| 减少重复工作，让资料更容易使用 | 知识助手、AI智能体与工作流程自动化，保留必要的人工确认。 |
+| 让现有网站或应用持续运行、不断改进 | 系统评估、问题修复、版本更新、代维护与后续功能开发。 |
 
-中英文内容维护在 `src/content.mjs`，样式维护在 `src/styles.css`。Vercel 使用 Other 框架、`npm run build` 构建命令与 `dist` 输出目录。域名解析以 Vercel 当前项目实际要求为准，保留邮箱及无关解析。
+我们的业务也涵盖Web3应用研究、产品验证与孵化，以及国际业务协作。对于Web4等前沿方向，我们从研究和原型验证入手，围绕具体业务需求确定探索范围。
 
-代码采用 MIT 许可证；品牌名称、Logo、人物照片与公司专属文案不随代码开放使用权，详见 [ASSETS.md](ASSETS.md)。
+### 怎样开始合作
+
+无论您准备建设官网、验证产品想法、把AI引入工作流程，还是为现有系统寻找维护支持，都可以先告诉我们您的目标、目前进展与期望时间。我们会一起明确第一阶段的范围、交付成果、周期与费用，并另行约定持续维护安排。
+
+**项目合作：[info@elevencapital.ltd](mailto:info@elevencapital.ltd)**
+
+[了解服务与能力](https://elevencapital.ltd/zh-hans/services/) · [了解十一资本](https://elevencapital.ltd/zh-hans/about/) · [了解创始人](https://elevencapital.ltd/zh-hans/founder/)
+
+### 关于这个开源项目
+
+官网提供英文、简体中文和繁体中文三个版本。网站源代码采用[MIT许可证](LICENSE)，欢迎开发者阅读、学习和改造。
+
+本地运行、开发与部署方法见[开发指南](DEVELOPMENT.md#简体中文)。公司品牌、人物照片、合作伙伴标志与公司专属文案另有使用范围，详见[素材来源与使用说明](ASSETS.md)。

@@ -6,6 +6,11 @@ and remain the property of their respective rights holders. Their inclusion
 does not grant permission to impersonate the company or reuse its identity.
 
 - `public/assets/logo.png` and `favicon.png`: owner-supplied original logos.
+- `public/assets/favicon-tree.png`: unmodified evergreen tree emoji (U+1F332)
+  from [Twemoji](https://github.com/jdecked/twemoji), artwork by Twitter, Inc.
+  and other contributors, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+  [Original PNG](https://raw.githubusercontent.com/jdecked/twemoji/main/assets/72x72/1f332.png);
+  the license text is included as `public/assets/twemoji-LICENSE.txt`.
 - `public/assets/shixi-lin.jpg`: owner-supplied professional portrait, used
   without retouching or cropping. Portrait rights are reserved.
 - `public/assets/hong-kong.png`: AI-generated architectural illustration for
