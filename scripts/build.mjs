@@ -1,6 +1,6 @@
 import { mkdir, cp, writeFile, readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
-import { content, partners, languages } from "../src/content.mjs";
+import { content, partners, languages, siteTitle } from "../src/content.mjs";
 
 const esc = (s) =>
   String(s)
@@ -88,8 +88,7 @@ function page(c, section = "home") {
       .join("") +
     "</div></details>";
   const canonical = `https://elevencapital.ltd${route(c, section)}`;
-  const brandTitle = "Eleven Capital | 十一資本";
-  const title = section === "home" ? brandTitle : c.nav[navSections.indexOf(section)] + " | " + brandTitle;
+  const title = section === "home" ? siteTitle : c.nav[navSections.indexOf(section)] + " | " + siteTitle;
   const description = ({ about: c.about[0], services: c.focusIntro, founder: c.founderLead, partners: c.partnerIntro })[section] || c.description;
   const schema = {
     "@context": "https://schema.org",

@@ -1,4 +1,5 @@
 import OpenCC from "opencc-js";
+export const siteTitle = "Eleven Capital | 十一資本";
 export const partners = [
   [
     "ALUX",
@@ -50,7 +51,6 @@ export const content = {
     "otherPath": "/",
     "otherLabel": "EN",
     "otherLang": "en",
-    "title": "十一資本｜技術落地與長期價值",
     "description": "十一資本連接技術與商業，提供AI智能體、應用產品代開發、代維護、Web3與Web4前沿探索，並結合投資研究、孵化加速及國際業務協同。",
     "skip": "跳至主要內容",
     "menu": "選單",
@@ -322,7 +322,6 @@ export const content = {
     "otherPath": "/zh-hant/",
     "otherLabel": "繁中",
     "otherLang": "zh-Hant",
-    "title": "Eleven Capital | Technology that creates lasting value",
     "description": "Eleven Capital brings technology and business together through AI agents, custom application development, ongoing maintenance, Web3 and Web4 exploration, investment research, incubation, acceleration and international business collaboration.",
     "skip": "Skip to content",
     "menu": "Menu",
