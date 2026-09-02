@@ -1,0 +1,20 @@
+{
+  "name": "eleven-capital",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Eleven Capital official bilingual website",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "devDependencies": {
+    "opencc-js": "1.4.2"
+  }
+}
