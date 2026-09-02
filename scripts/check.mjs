@@ -39,6 +39,22 @@ for (const c of Object.values(content)) for (const section of sections) {
   );
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
   assert(html.includes("mailto:info@elevencapital.ltd"));
+  assert(html.includes('class="contact-inner"') && html.includes('class="copyright-owner"'));
+  if (!section) assert(html.includes('<title>Eleven Capital | 十一資本</title>'));
+  assert(/href="\/styles\.[a-f0-9]{12}\.css"/.test(html), "Styles must be versioned");
+  assert(/src="\/main\.[a-f0-9]{12}\.js"/.test(html), "Scripts must be versioned");
+  const inquiry = html.match(/href="(mailto:[^"]+)"/)[1].replaceAll("&amp;", "&");
+  const inquiryUrl = new URL(inquiry);
+  assert.equal(inquiryUrl.searchParams.get("subject"), c.inquirySubject);
+  assert.equal(inquiryUrl.searchParams.get("body"), c.inquiryBody);
+  if (!section) {
+    assert(html.includes('class="client-grid"') && html.includes(c.projectCta));
+    for (const [title] of c.clients) assert(html.includes(title));
+  }
+  if (section === "services/") {
+    assert(html.includes('class="project-faq"'));
+    assert.equal((html.match(/class="service-delivery"/g) || []).length, 6);
+  }
   if (section === "founder/") assert(html.includes('class="disclosure biography" open'), "Biography must open by default");
   if (section === "about/") assert(html.includes('class="disclosure values" open'), "Values must open by default");
   assert(!html.includes('class="hero-english"') && !html.includes('class="service-en"'), "Remove bilingual subtitles");

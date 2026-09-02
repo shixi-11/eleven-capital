@@ -63,11 +63,11 @@ export const content = {
     ],
     "contact": "聯繫我們",
     "heroLines": [
-      "讓前沿技術",
-      "成為商業價值"
+      "AI與數字產品",
+      "從開發到長期維護"
     ],
     "heroEnglish": "",
-    "heroIntro": "從香港出發，連接技術、資本與全球市場。以AI智能體、產品開發與持續維護，支持企業把構想變成可用的產品，讓創新持續成長。",
+    "heroIntro": "為創業團隊與成長型企業提供多語言官網、應用與AI智能體開發，並持續維護與迭代。",
     "heroCta": "探索我們的服務",
     "location": "香港 · 連接全球",
     "photoAlt": "香港維多利亞港與山間綠意的建築意象",
@@ -208,12 +208,12 @@ export const content = {
     "partnerText": "我們以全球視野與跨行業經驗，推進市場拓展、資源對接與技術探索，讓每一次協作回到具體目標與共同成長。",
     "partnerLink": "訪問官方網站",
     "contactTitle": [
-      "下一個構想",
-      "一起把它實現"
+      "攜手同行",
+      "推進下一步"
     ],
-    "contactText": "無論是開發一款產品、引入AI智能體，還是尋找長期維護與商業合作，歡迎與我們談談。",
+    "contactText": "歡迎告訴我們您的目標、目前進展與期望時間，一起梳理下一步。",
     "legalName": "十一資本有限公司",
-    "copyright": "保留所有權利。",
+    "copyright": "版權所有。",
     "backTop": "回到頂部",
     "heroEyebrow": "十一資本",
     "pillars": [
@@ -250,7 +250,71 @@ export const content = {
         "維護與演進",
         "按約定持續修復、優化與迭代。"
       ]
-    ]
+    ],
+    "projectCta": "洽談您的項目",
+    "clientLabel": "適合您的合作起點",
+    "clientTitle": "從具體需求開始",
+    "clientIntro": "無論是開拓市場、驗證構想，還是改善日常運營，先找到值得推進的下一步。",
+    "clients": [
+      [
+        "出海企業與品牌",
+        "官網需要升級，或正準備面向新的市場。",
+        "多語言網站、品牌內容與清楚的業務聯繫入口，讓海外客戶更容易了解您。",
+        "trade",
+        "官網與國際業務"
+      ],
+      [
+        "創業與產品團隊",
+        "有產品方向，需要把想法變成可以試用的版本。",
+        "從需求梳理、交互原型到首版應用，先驗證核心流程，再按反饋持續迭代。",
+        "development",
+        "應用與產品開發"
+      ],
+      [
+        "成長型中小企業",
+        "資料分散，研究、整理與內容工作耗費大量時間。",
+        "圍繞具體流程引入知識助手、AI智能體與內部工具，保留必要的人工確認。",
+        "technology",
+        "AI與流程自動化"
+      ],
+      [
+        "需要技術支持的團隊",
+        "產品已經上線，卻缺少穩定的更新和維護支持。",
+        "先了解現有系統與問題，再約定修復、版本更新和後續功能開發的範圍。",
+        "operations",
+        "代維護與持續迭代"
+      ]
+    ],
+    "deliveryLabel": "可約定的交付成果",
+    "deliveries": [
+      "流程梳理、可試用的助手或自動化流程、工具連接與使用說明。",
+      "需求範圍、交互原型、約定功能的首版產品、部署與交接文檔。",
+      "系統現況梳理、修復與版本更新、變更記錄及後續迭代安排。",
+      "可行性研究、應用原型與技術集成方案。",
+      "行業與市場研究、產品驗證思路、階段目標與協作建議。",
+      "多語言網站與品牌內容、數字化工具及市場拓展的協作方案。"
+    ],
+    "faqTitle": "合作前，您可能關心",
+    "faq": [
+      [
+        "怎樣開始第一個項目？",
+        "告訴我們希望解決的問題、目前進展與期望時間。一起梳理優先事項後，再確認第一階段的範圍、交付成果與合作安排。"
+      ],
+      [
+        "費用和週期如何確定？",
+        "根據功能範圍、現有基礎、外部系統連接及內容準備情況評估。報價時明確階段成果、時間安排，以及需要另行約定的維護或第三方服務費用。"
+      ],
+      [
+        "可以接手現有網站或應用嗎？",
+        "可以先評估現有程式碼、部署環境、文檔與待解決問題，再確認接手範圍、必要的整理工作和後續維護安排。"
+      ],
+      [
+        "上線後如何交接與維護？",
+        "按約定提供程式碼、使用與部署說明，明確帳號和資源的管理方式。持續維護另行約定服務範圍、處理節奏與費用，讓後續合作有據可循。"
+      ]
+    ],
+    "inquirySubject": "項目合作諮詢｜十一資本",
+    "inquiryBody": "您好，我想了解項目合作。\n\n希望解決的問題：\n目前進展／現有網站：\n期望完成時間：\n方便聯繫的方式："
   },
   "en": {
     "lang": "en",
@@ -271,11 +335,11 @@ export const content = {
     ],
     "contact": "Get in touch",
     "heroLines": [
-      "New technology.",
-      "Lasting value."
+      "AI & digital products.",
+      "Built for the long term."
     ],
     "heroEnglish": "",
-    "heroIntro": "From Hong Kong to global markets, we connect technology, capital and opportunity. We help businesses turn ideas into useful products through AI agents, custom development and ongoing support.",
+    "heroIntro": "We help founders and growing businesses create multilingual websites, custom applications and AI agents, then maintain and develop them as the business evolves.",
     "heroCta": "Explore our services",
     "location": "Hong Kong · A global perspective",
     "photoAlt": "Architectural impression of Victoria Harbour framed by green Hong Kong hills",
@@ -416,10 +480,10 @@ export const content = {
     "partnerText": "Our global outlook and cross-industry experience support market expansion, resource connections and technology exploration, with each collaboration grounded in clear goals and shared growth.",
     "partnerLink": "Visit official website",
     "contactTitle": [
-      "Your next idea.",
-      "Let’s make it happen."
+      "Let’s build",
+      "what’s next."
     ],
-    "contactText": "Building a product, introducing AI agents or looking for ongoing technical support and business collaboration? Let’s talk.",
+    "contactText": "Tell us what you want to achieve, where things stand and your preferred timeframe. We can work out the next step together.",
     "legalName": "Eleven Capital Limited",
     "copyright": "All rights reserved.",
     "backTop": "Back to top",
@@ -458,7 +522,71 @@ export const content = {
         "Maintain & evolve",
         "Fix, improve and iterate within the agreed scope."
       ]
-    ]
+    ],
+    "projectCta": "Discuss your project",
+    "clientLabel": "A starting point for your business",
+    "clientTitle": "Start with a real need.",
+    "clientIntro": "Reach a new market, test a product idea or improve everyday operations. Choose the next step that matters to your business.",
+    "clients": [
+      [
+        "Businesses entering new markets",
+        "Your website needs an update, or your brand is preparing to reach a new audience.",
+        "Multilingual websites, brand content and clear contact paths help prospective customers understand your business.",
+        "trade",
+        "Websites & international business"
+      ],
+      [
+        "Founders & product teams",
+        "You have a product direction and need a working version people can try.",
+        "Move from requirements and interactive prototypes to an initial application. Validate core workflows, then iterate on feedback.",
+        "development",
+        "Applications & product development"
+      ],
+      [
+        "Growing small businesses",
+        "Scattered information and repetitive research or content tasks take time from your team.",
+        "Introduce knowledge assistants, AI agents and internal tools around specific workflows, with human review where it matters.",
+        "technology",
+        "AI & workflow automation"
+      ],
+      [
+        "Teams needing ongoing support",
+        "Your product is live, but updates and maintenance lack continuity.",
+        "Review the existing system, then agree on a scope for fixes, releases and further development.",
+        "operations",
+        "Maintenance & ongoing development"
+      ]
+    ],
+    "deliveryLabel": "Deliverables we can agree on",
+    "deliveries": [
+      "A workflow outline, a working assistant or automation, tool connections and usage guidance.",
+      "A defined scope, interactive prototypes, an initial product with agreed features, and deployment and handover documentation.",
+      "A review of the existing system, fixes and releases, change records and an ongoing development plan.",
+      "Feasibility research, application prototypes and an integration plan.",
+      "Industry and market research, product validation approaches, milestones and collaboration recommendations.",
+      "Multilingual websites and brand content, digital tools and a plan for market collaboration."
+    ],
+    "faqTitle": "Before we work together",
+    "faq": [
+      [
+        "How does a project begin?",
+        "Tell us what you want to improve or build, where the project stands and your preferred timeframe. We clarify priorities together, then agree on the first phase, its deliverables and the engagement terms."
+      ],
+      [
+        "How are cost and timing determined?",
+        "We assess the scope, existing systems, external integrations and available content. A proposal sets out deliverables and timing, along with any maintenance or third-party service costs to be agreed separately."
+      ],
+      [
+        "Can you take over an existing website or application?",
+        "We can first review its code, deployment, documentation and outstanding issues. That review establishes a practical scope for taking over, addressing gaps and providing ongoing support."
+      ],
+      [
+        "What happens after launch?",
+        "Code, usage guidance and deployment documentation are handed over as agreed, with clear responsibility for accounts and resources. Ongoing maintenance has its own agreed scope, working cadence and cost."
+      ]
+    ],
+    "inquirySubject": "Project inquiry | Eleven Capital",
+    "inquiryBody": "Hello, I would like to discuss a project.\n\nWhat I would like to build or improve:\nCurrent stage / existing website:\nPreferred timeframe:\nPreferred contact details:"
   }
 };
 
@@ -469,7 +597,7 @@ function simplify(value) {
   if (value && typeof value === "object") return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, simplify(item)]));
   return value;
 }
-content.zhHans = { ...simplify(content.zh), lang: "zh-Hans", path: "/zh-hans/" };
+content.zhHans = { ...simplify(content.zh), lang: "zh-Hans", path: "/zh-hans/", copyright: "版权所有。" };
 export const languages = [
   {
     "lang": "en",

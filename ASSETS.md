@@ -33,5 +33,6 @@ After changing copy, build the HTML and use `scripts/prepare-fonts.py` with
 afterward to include the updated WOFF2 assets. The production build uses the
 checked-in font assets and does not need Python or a font service.
 
-Partner artwork remains unmodified. CSS blend mode integrates white artwork
-backgrounds into the site's paper color; no cropped or retouched logo is used.
+Partner artwork remains unmodified. All six original files are PNGs with real
+alpha transparency and are displayed in a transparent container. White details
+inside the ALUX and Xiaomi marks are part of their artwork and are preserved.

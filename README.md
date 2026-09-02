@@ -16,6 +16,9 @@ redirects to `/`. Each language has dedicated `about/`, `services/`, `founder/`
 and `partners/` pages. Navigation opens those pages and language switching
 preserves the current section. Values and the full biography open by default.
 Self-hosted fonts provide consistent Chinese and English typography.
+The homepage connects four customer needs to relevant services. Service pages
+outline deliverables and answer questions about scope, cost and ongoing support;
+email links open a localized project inquiry template.
 Every page renders complete HTML without JavaScript.
 No third-party analytics, cookies, or runtime dependencies are required.
 
@@ -55,6 +58,8 @@ are excluded; see [ASSETS.md](ASSETS.md).
 **正式网站：**[elevencapital.ltd](https://elevencapital.ltd/)
 
 网站默认使用英文，提供简体中文、繁体中文和英文独立页面。每种语言都包含首页、关于我们、服务与能力、创始人、合作伙伴，共15个页面。导航直接进入子页面，切换语言保留当前栏目；完整履历与价值观默认展开。自托管字体统一中英文排版，支持手机与桌面浏览、搜索与社交分享信息，以及旧页面地址跳转。页面正文预先生成为 HTML，关闭 JavaScript 也能阅读。不接入第三方分析，不使用 Cookie，无运行时依赖。
+
+首页按四类客户需求提供服务入口。服务页说明可约定的交付成果、合作流程、费用与维护安排；邮箱链接打开对应语言的项目咨询草稿。
 
 ### 本地运行
 
