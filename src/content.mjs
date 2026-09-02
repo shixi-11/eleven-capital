@@ -1,11 +1,11 @@
 import OpenCC from "opencc-js";
 export const partners = [
-  ["ALUX", "https://alux.network/"],
-  ["ConcurSys", "https://concursys.io/"],
-  ["Mineski", "https://www.mineskiglobal.com/"],
-  ["HOFAN", "https://www.hofan.cn/"],
-  ["Xiaomi", "https://www.mi.com/"],
-  ["Solaire", "https://sn.solaireresort.com/gaming"],
+  ["ALUX", "https://alux.network/", "alux", 9680, 3775],
+  ["ConcurSys", "https://concursys.io/", "concursys", 5319, 1382],
+  ["Mineski", "https://www.mineskiglobal.com/", "mineski", 2160, 2160],
+  ["HOFAN", "https://www.hofan.cn/", "hofan", 3509, 2481],
+  ["Xiaomi", "https://www.mi.com/", "xiaomi", 900, 600],
+  ["Solaire", "https://sn.solaireresort.com/gaming", "solaire", 1113, 620],
 ];
 
 export const content = {
