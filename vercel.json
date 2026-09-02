@@ -7,6 +7,11 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/en/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/%E4%B8%BB%E9%A0%81%EF%BC%88home%EF%BC%89/",
       "destination": "/",
       "permanent": true

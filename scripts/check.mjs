@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 import { content, partners } from "../src/content.mjs";
+assert.equal(content.en.path, "/", "English must be the default homepage");
+assert.equal(content.zh.path, "/zh-hant/", "Traditional Chinese needs its own route");
 for (const c of Object.values(content)) {
   const html = await readFile(`dist${c.path}index.html`, "utf8");
   assert(
@@ -30,6 +32,10 @@ for (const c of Object.values(content)) {
   );
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
   assert(html.includes("mailto:info@elevencapital.ltd"));
+  assert(html.includes('class="disclosure biography" open'), "Biography must open by default");
+  assert(!html.includes('class="hero-english"') && !html.includes('class="service-en"'), "Remove bilingual subtitles");
+  assert(html.includes('class="language-icon"') && html.includes(c.languageLabel), "Language switch needs a visible label");
+  assert.equal((html.match(/class="service"/g) || []).length, 6, "Keep all six services");
 }
 console.log(
   "All three languages: content exclusions, anchors, assets, partners and metadata passed.",

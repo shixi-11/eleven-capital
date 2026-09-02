@@ -24,7 +24,7 @@ document.addEventListener("keydown", (event) => {
 document.addEventListener("click", (event) => {
   if (!event.target.closest(".site-header")) closeMenu();
 });
-window.matchMedia("(min-width: 1001px)").addEventListener("change", closeMenu);
+window.matchMedia("(min-width: 851px)").addEventListener("change", closeMenu);
 document.querySelectorAll("[data-language]").forEach((language) =>
   language.addEventListener("click", (event) => {
     const link = event.currentTarget;

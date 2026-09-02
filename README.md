@@ -4,15 +4,16 @@
 
 ## English
 
-The open-source website for Eleven Capital Limited, a Hong Kong-originated
-group focused on blockchain technology, investment research, incubation and
-acceleration, and international trade.
+The open-source website for Eleven Capital Limited, connecting AI agents,
+custom product development and maintenance with blockchain research,
+incubation and international business.
 
 **Website:** [elevencapital.ltd](https://elevencapital.ltd/)
 
-A trilingual, responsive static site with separate Traditional Chinese and
-Simplified Chinese and English pages, accessible mobile navigation, expandable biography and values,
-and original brand assets. Every page renders complete HTML without JavaScript.
+A trilingual, responsive static site with English at `/`, Traditional Chinese
+at `/zh-hant/` and Simplified Chinese at `/zh-hans/`. The former `/en/` URL
+redirects to `/`. It includes accessible navigation, an expanded biography,
+optional values and original brand assets. Every page renders complete HTML without JavaScript.
 No third-party analytics, cookies, or runtime dependencies are required.
 
 ### Development
@@ -46,11 +47,11 @@ are excluded; see [ASSETS.md](ASSETS.md).
 
 ## 简体中文
 
-十一资本官方网站源码。公司起源于香港，业务涵盖区块链技术、投资研究与孵化加速、国际贸易。
+十一资本官方网站源码。服务涵盖AI智能体、应用产品代开发、代维护、区块链与前沿应用研究、投研孵化及国际业务协同。
 
 **正式网站：**[elevencapital.ltd](https://elevencapital.ltd/)
 
-网站提供简体中文、繁体中文和英文独立页面，支持手机与桌面浏览，包含移动导航、完整履历与价值观展开、搜索与社交分享信息，以及旧页面地址跳转。页面正文预先生成为 HTML，关闭 JavaScript 也能阅读。不接入第三方分析，不使用 Cookie，无运行时依赖。
+网站默认使用英文，提供简体中文、繁体中文和英文独立页面，支持手机与桌面浏览，包含移动导航、完整履历与价值观展开、搜索与社交分享信息，以及旧页面地址跳转。页面正文预先生成为 HTML，关闭 JavaScript 也能阅读。不接入第三方分析，不使用 Cookie，无运行时依赖。
 
 ### 本地运行
 
