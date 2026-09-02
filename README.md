@@ -17,7 +17,7 @@ No third-party analytics, cookies, or runtime dependencies are required.
 
 ### Development
 
-Requires Node.js 22 or later. Install the build-time OpenCC dependency first.
+Requires Node.js 24.x. Install the build-time OpenCC dependency first.
 
 ```sh
 npm ci
@@ -54,7 +54,7 @@ are excluded; see [ASSETS.md](ASSETS.md).
 
 ### 本地运行
 
-安装 Node.js 22 或以上版本后运行 `npm ci`、`npm run dev`，打开 `http://127.0.0.1:4187`。修改后用 `npm run build` 重新生成，用 `npm run check` 核对内容、链接、素材与元信息。
+安装 Node.js 24.x 后运行 `npm ci`、`npm run dev`，打开 `http://127.0.0.1:4187`。修改后用 `npm run build` 重新生成，用 `npm run check` 核对内容、链接、素材与元信息。
 
 中英文内容维护在 `src/content.mjs`，样式维护在 `src/styles.css`。Vercel 使用 Other 框架、`npm run build` 构建命令与 `dist` 输出目录。域名解析以 Vercel 当前项目实际要求为准，保留邮箱及无关解析。
 

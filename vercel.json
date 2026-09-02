@@ -6,14 +6,44 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "redirects": [
-    { "source": "/主頁（home）", "destination": "/", "permanent": true },
-    { "source": "/關於我們（about-us）", "destination": "/#about", "permanent": true },
-    { "source": "/核心團隊（core-team）", "destination": "/#founder", "permanent": true },
-    { "source": "/合作夥伴（partner）", "destination": "/#partners", "permanent": true }
+    {
+      "source": "/%E4%B8%BB%E9%A0%81%EF%BC%88home%EF%BC%89/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/%E9%97%9C%E6%96%BC%E6%88%91%E5%80%91%EF%BC%88about-us%EF%BC%89/",
+      "destination": "/#about",
+      "permanent": true
+    },
+    {
+      "source": "/%E6%A0%B8%E5%BF%83%E5%9C%98%E9%9A%8A%EF%BC%88core-team%EF%BC%89/",
+      "destination": "/#founder",
+      "permanent": true
+    },
+    {
+      "source": "/%E5%90%88%E4%BD%9C%E5%A4%A5%E4%BC%B4%EF%BC%88partner%EF%BC%89/",
+      "destination": "/#partners",
+      "permanent": true
+    }
   ],
-  "headers": [{ "source": "/(.*)", "headers": [
-    { "key": "X-Content-Type-Options", "value": "nosniff" },
-    { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-    { "key": "X-Frame-Options", "value": "DENY" }
-  ] }]
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        }
+      ]
+    }
+  ]
 }
