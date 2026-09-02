@@ -11,6 +11,9 @@ does not grant permission to impersonate the company or reuse its identity.
   and other contributors, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
   [Original PNG](https://raw.githubusercontent.com/jdecked/twemoji/main/assets/72x72/1f332.png);
   the license text is included as `public/assets/twemoji-LICENSE.txt`.
+- `public/assets/favicon-christmas-tree.png`: unmodified Christmas tree emoji
+  (U+1F384), the current browser tab icon, from the same Twemoji project under
+  CC BY 4.0. [Original PNG](https://raw.githubusercontent.com/jdecked/twemoji/main/assets/72x72/1f384.png).
 - `public/assets/shixi-lin.jpg`: owner-supplied professional portrait, used
   without retouching or cropping. Portrait rights are reserved.
 - `public/assets/hong-kong.png`: AI-generated architectural illustration for
