@@ -18,13 +18,16 @@ Open `http://127.0.0.1:4187`. After editing, run `npm run build` to regenerate t
 ### Project structure
 
 - `src/content.mjs`: English and Traditional Chinese content, with Simplified Chinese generated using OpenCC.
+- `src/locales/`: Japanese, Korean, French, German and Arabic translations, each with complete page content and interface labels.
 - `src/styles.css`: typography and responsive layouts.
 - `src/main.js`: mobile navigation and language switching.
 - `scripts/build.mjs`: static pages, metadata and sitemap generation.
 - `public/assets/`: images, icons and licensed self-hosted fonts.
 - `vercel.json`: deployment settings, headers and redirects.
 
-English uses `/`, Simplified Chinese `/zh-hans/`, and Traditional Chinese `/zh-hant/`. Each language has a home page and `about/`, `services/`, `founder/` and `partners/` pages. Language switching retains the current section.
+English uses `/`. The other language roots are `/zh-hant/`, `/zh-hans/`, `/ja/`, `/ko/`, `/fr/`, `/de/` and `/ar/`, in that menu order. Each language has a home page and `about/`, `services/`, `founder/` and `partners/` pages: 40 pages in total. Language switching retains the current page and section anchor.
+
+Chinese is the editorial source for translation. Preserve the scope of services, factual qualifications and brand tone while writing naturally in each language. Keep locale keys and array order aligned with the source. Arabic pages use `dir="rtl"`, logical CSS properties and isolated left-to-right email addresses. Check translated layouts on desktop, tablet and mobile after copy changes, including long words, menu labels and Arabic text shaping. The build emits canonical URLs, all eight language alternatives and a sitemap; `npm run check` verifies translation structure, language order, routes and font coverage.
 
 Font updates and asset licensing are documented in [ASSETS.md](ASSETS.md). If you adapt the code for another organisation, replace the company content, branding, contact details and domain references.
 
@@ -47,9 +50,11 @@ npm run dev
 
 ### 维护与部署
 
-英文与繁体中文内容位于`src/content.mjs`，简体中文通过OpenCC生成。排版位于`src/styles.css`，页面交互位于`src/main.js`，构建脚本位于`scripts/build.mjs`，素材位于`public/assets/`。
+英文与繁体中文内容位于`src/content.mjs`，简体中文通过OpenCC生成，日文、韩文、法文、德文和阿拉伯文位于`src/locales/`。排版位于`src/styles.css`，页面交互位于`src/main.js`，构建脚本位于`scripts/build.mjs`，素材位于`public/assets/`。
 
-英文首页为`/`，简体中文为`/zh-hans/`，繁体中文为`/zh-hant/`。每种语言包含首页、关于我们、服务与能力、创始人、合作伙伴，共15个页面。语言切换保留当前栏目。
+语言菜单依次为英文`/`、繁体中文`/zh-hant/`、简体中文`/zh-hans/`、日文`/ja/`、韩文`/ko/`、法文`/fr/`、德文`/de/`、阿拉伯文`/ar/`。每种语言包含首页、关于我们、服务与能力、创始人、合作伙伴，共40个页面。切换语言时保留当前页面和章节锚点。
+
+以中文为翻译原文，保留服务范围、事实限定与品牌语气，同时使用各语言自然的表达。各语言的字段和数组顺序须与原文对应。阿拉伯文页面采用从右向左的阅读方向、逻辑方向样式，并单独处理邮箱的从左向右顺序。文案更新后检查桌面、平板与手机端的长词、菜单、断行和阿拉伯文字形连接。构建自动生成规范网址、八种语言互链和站点地图，`npm run check`检查翻译结构、语言顺序、页面地址与字体覆盖。
 
 字体更新及素材授权见[ASSETS.md](ASSETS.md)。将代码用于其他机构时，请替换公司文案、品牌素材、联系方式和域名。
 

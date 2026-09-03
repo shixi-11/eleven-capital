@@ -1,9 +1,31 @@
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
-import { content, partners } from "../src/content.mjs";
+import { content, partners, languages } from "../src/content.mjs";
 assert.equal(content.en.path, "/", "English must be the default homepage");
 assert.equal(content.zh.path, "/zh-hant/", "Traditional Chinese needs its own route");
 const sections = ["", "about/", "services/", "founder/", "partners/"];
+assert.deepEqual(languages.map(l => l.lang), ['en','zh-Hant','zh-Hans','ja','ko','fr','de','ar']);
+assert.equal(Object.keys(content).length, languages.length);
+function checkShape(source, target, path) {
+  assert.equal(Array.isArray(target), Array.isArray(source), path);
+  if (Array.isArray(source)) {
+    assert.equal(target.length, source.length, `Incomplete translation: ${path}`);
+    source.forEach((value, i) => checkShape(value, target[i], `${path}.${i}`));
+  } else if (source && typeof source === 'object') {
+    assert.deepEqual(Object.keys(target).sort(), Object.keys(source).sort(), `Translation keys: ${path}`);
+    for (const key of Object.keys(source)) checkShape(source[key], target[key], `${path}.${key}`);
+  } else {
+    assert.equal(typeof target, typeof source, path);
+    if (typeof source === 'string' && source.trim()) assert(target.trim(), `Empty translation: ${path}`);
+  }
+}
+for (const lang of ['ja','ko','ar','fr','de']) {
+  const c = content[lang];
+  checkShape(content.zh, c, lang);
+  assert.deepEqual(c.services.map(s => s.id), content.zh.services.map(s => s.id));
+  assert.deepEqual(c.pillars.map(p => p[0]), content.zh.pillars.map(p => p[0]));
+  assert.deepEqual(c.clients.map(p => p[3]), content.zh.clients.map(p => p[3]));
+}
 const pages = new Map();
 for (const c of Object.values(content)) for (const section of sections) {
   const path = c.path + section;
@@ -40,10 +62,13 @@ for (const c of Object.values(content)) for (const section of sections) {
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
   assert(html.includes("mailto:info@elevencapital.ltd"));
   assert(html.includes('class="contact-inner"') && html.includes('class="copyright-owner"'));
-  const brandTitle = c.lang === "en" ? "Eleven Capital | 十一資本" : "十一資本 | Eleven Capital";
+  const brandTitle = c.lang.startsWith('zh') ? "十一資本 | Eleven Capital" : "Eleven Capital | 十一資本";
   const pageTitle = section ? c.nav[sections.indexOf(section) - 1] + " | " + brandTitle : brandTitle;
   assert(html.includes(`<title>${pageTitle}</title>`), `Wrong title order: ${path}`);
   assert(html.includes(`property="og:title" content="${pageTitle}"`), `Wrong share title: ${path}`);
+  assert(html.includes(`lang="${c.lang}" dir="${c.lang === 'ar' ? 'rtl' : 'ltr'}"`), `Wrong reading direction: ${path}`);
+  assert.deepEqual([...html.matchAll(/<a data-language href="[^"]+" hreflang="([^"]+)"/g)].map(m=>m[1]), languages.map(l=>l.lang), `Language order: ${path}`);
+  if (c.lang === 'ar') assert(html.includes('<bdi dir="ltr">info@elevencapital.ltd</bdi>'));
   assert(/href="\/styles\.[a-f0-9]{12}\.css"/.test(html), "Styles must be versioned");
   assert(/src="\/main\.[a-f0-9]{12}\.js"/.test(html), "Scripts must be versioned");
   const inquiry = html.match(/href="(mailto:[^"]+)"/)[1].replaceAll("&amp;", "&");
@@ -91,9 +116,9 @@ for (const font of manifest.fonts) {
   assert((await stat("dist/assets/fonts/" + font.file)).size > 10000);
 }
 for (const c of Object.values(content)) {
-  const suffix = c.lang === "en" ? "latin" : c.lang === "zh-Hant" ? "tc" : "sc";
-  const visibleText = sections.map(section => pages.get(c.path + section).replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "").replace(/<div class="language-options">[\s\S]*?<\/div>/g, "").replace(/<[^>]+>/g, "")).join("");
-  const required = [...new Set(visibleText.match(c.lang === "en" ? /[\x20-\x7E’‘“”]/g : /[\u3400-\u9FFF]/g) || [])];
+  const suffix = ({en:'latin',fr:'latin',de:'latin','zh-Hant':'tc','zh-Hans':'sc',ja:'jp',ko:'kr',ar:'arabic'})[c.lang];
+  const visibleText = sections.map(section => pages.get(c.path + section).replace(/<head\b[^>]*>[\s\S]*?<\/head>/g, "").replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "").replace(/<div class="language-options">[\s\S]*?<\/div>/g, "").replace(/<[^>]+>/g, "")).join("");
+  const required = [...new Set(visibleText.match(/[\p{L}\p{M}\p{N}]/gu) || [])];
   for (const kind of ["sans", "serif"]) {
     const font = manifest.fonts.find(f => f.file === `${kind}-${suffix}.woff2`);
     assert(font, `Missing ${kind} ${suffix} font`);
@@ -104,5 +129,5 @@ for (const c of Object.values(content)) {
 const sitemap = await readFile("dist/sitemap.xml", "utf8");
 for (const path of pages.keys()) assert(sitemap.includes(`<loc>https://elevencapital.ltd${path}</loc>`));
 console.log(
-  "15 pages passed: routes, anchors, language continuity, headings, expansions, fonts, assets and exclusions.",
+  `${pages.size} pages passed: translation completeness, routes, reading direction, language order, headings, fonts and assets.`,
 );

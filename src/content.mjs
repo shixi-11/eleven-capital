@@ -1,7 +1,12 @@
 import OpenCC from "opencc-js";
-export const siteTitle = (lang) => lang === "en"
-  ? "Eleven Capital | 十一資本"
-  : "十一資本 | Eleven Capital";
+import ja from './locales/ja.mjs';
+import ko from './locales/ko.mjs';
+import ar from './locales/ar.mjs';
+import fr from './locales/fr.mjs';
+import de from './locales/de.mjs';
+export const siteTitle = (lang) => lang.startsWith('zh')
+  ? "十一資本 | Eleven Capital"
+  : "Eleven Capital | 十一資本";
 export const partners = [
   [
     "ALUX",
@@ -599,6 +604,10 @@ function simplify(value) {
   return value;
 }
 content.zhHans = { ...simplify(content.zh), lang: "zh-Hans", path: "/zh-hans/", copyright: "版权所有。" };
+Object.assign(content, {ja, ko, fr, de, ar});
+content.en.ui = {home:'Home',more:'Explore',services:'Explore our services',about:'About Eleven Capital',founder:'Meet our founder',partners:'Meet our partners'};
+content.zh.ui = {home:'首頁',more:'了解服務',services:'了解全部服務',about:'了解十一資本',founder:'了解創始人',partners:'了解合作夥伴'};
+content.zhHans.ui = {home:'首页',more:'了解服务',services:'了解全部服务',about:'了解十一资本',founder:'了解创始人',partners:'了解合作伙伴'};
 export const languages = [
   {
     "lang": "en",
@@ -607,15 +616,20 @@ export const languages = [
     "short": "EN"
   },
   {
+    "lang": "zh-Hant",
+    "path": "/zh-hant/",
+    "label": "繁體中文",
+    "short": "繁"
+  },
+  {
     "lang": "zh-Hans",
     "path": "/zh-hans/",
     "label": "简体中文",
     "short": "简"
   },
-  {
-    "lang": "zh-Hant",
-    "path": "/zh-hant/",
-    "label": "繁體中文",
-    "short": "繁"
-  }
+  {lang:'ja',path:'/ja/',label:'日本語',short:'JA'},
+  {lang:'ko',path:'/ko/',label:'한국어',short:'KO'},
+  {lang:'fr',path:'/fr/',label:'Français',short:'FR'},
+  {lang:'de',path:'/de/',label:'Deutsch',short:'DE'},
+  {lang:'ar',path:'/ar/',label:'العربية',short:'AR',dir:'rtl'}
 ];

@@ -29,15 +29,19 @@ website archives are included in the public repository.
 
 ## Web fonts
 
-`public/assets/fonts/` contains self-hosted subsets derived from Noto Sans SC/TC
-and Noto Serif SC/TC, plus Inter and Source Serif 4 for English. They are renamed
-Eleven Sans/Serif SC/TC/Latin and remain under
+`public/assets/fonts/` contains self-hosted subsets derived from Noto Sans and
+Noto Serif SC/TC/JP/KR, Inter and Source Serif 4 for English/French/German,
+and Noto Sans Arabic and Noto Naskh Arabic for Arabic. They are renamed
+Eleven Sans/Serif SC/TC/JP/KR/Latin/Arabic and remain under
 the SIL Open Font License 1.1. Each source license is included beside the files.
 The manifest records upstream sources, versions, hashes and covered characters.
 System fallbacks are referenced by name only, not distributed.
 
 After changing copy, build the HTML and use `scripts/prepare-fonts.py` with
-`fonttools[woff]` and the licensed source fonts to refresh the subsets. Rebuild
+`fonttools[woff]` and the licensed source fonts to refresh the subsets. Supply
+the SC/TC/JP/KR variable fonts through `--source-dir` and Inter, Source Serif 4,
+Noto Sans Arabic and Noto Naskh Arabic through `--latin-source-dir`. Subsets
+follow each language group's actual copy and preserve shaping tables. Rebuild
 afterward to include the updated WOFF2 assets. The production build uses the
 checked-in font assets and does not need Python or a font service.
 

@@ -4,6 +4,12 @@
 @font-face { font-family: "Eleven Serif TC"; src: url("/assets/fonts/serif-tc.woff2") format("woff2"); font-style: normal; font-weight: 400 600; font-display: swap; }
 @font-face { font-family: "Eleven Sans Latin"; src: url("/assets/fonts/sans-latin.woff2") format("woff2"); font-style: normal; font-weight: 400 600; font-display: swap; }
 @font-face { font-family: "Eleven Serif Latin"; src: url("/assets/fonts/serif-latin.woff2") format("woff2"); font-style: normal; font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Eleven Sans JP"; src: url("/assets/fonts/sans-jp.woff2") format("woff2"); font-style: normal; font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Eleven Serif JP"; src: url("/assets/fonts/serif-jp.woff2") format("woff2"); font-style: normal; font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Eleven Sans KR"; src: url("/assets/fonts/sans-kr.woff2") format("woff2"); font-style: normal; font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Eleven Serif KR"; src: url("/assets/fonts/serif-kr.woff2") format("woff2"); font-style: normal; font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Eleven Sans Arabic"; src: url("/assets/fonts/sans-arabic.woff2") format("woff2"); font-style: normal; font-weight: 400 600; font-display: swap; }
+@font-face { font-family: "Eleven Serif Arabic"; src: url("/assets/fonts/serif-arabic.woff2") format("woff2"); font-style: normal; font-weight: 400 600; font-display: swap; }
 :root {
   --paper: #f7f7f2;
   --white: #fff;
@@ -18,7 +24,11 @@
   --ease: cubic-bezier(.2,.7,.3,1);
 }
 html[lang="zh-Hant"] { --serif: "Eleven Serif TC", "Noto Serif TC", Georgia, serif; --sans: "Eleven Sans TC", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif; }
-html[lang="en"] { --serif: "Eleven Serif Latin", Georgia, serif; --sans: "Eleven Sans Latin", Arial, sans-serif; }
+html:is([lang="en"],[lang="fr"],[lang="de"]) { --serif: "Eleven Serif Latin", Georgia, serif; --sans: "Eleven Sans Latin", Arial, sans-serif; }
+html[lang="ja"] { --serif: "Eleven Serif JP", serif; --sans: "Eleven Sans JP", sans-serif; line-break: strict; }
+html[lang="ko"] { --serif: "Eleven Serif KR", serif; --sans: "Eleven Sans KR", sans-serif; word-break: keep-all; overflow-wrap: anywhere; }
+html[lang="ar"] { --serif: "Eleven Serif Arabic", serif; --sans: "Eleven Sans Arabic", sans-serif; }
+html[lang="de"] { hyphens: auto; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 24px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.85 var(--sans); -webkit-font-smoothing: antialiased; }
@@ -36,21 +46,25 @@ section[id],article[id] { scroll-margin-top: 24px; }
 .site-header { position: relative; z-index: 20; display: flex; align-items: center; gap: 26px; max-width: 1120px; min-height: 96px; margin: auto; padding: 18px var(--gutter); border-bottom: 1px solid var(--line); background: var(--paper); }
 .brand { display: block; flex-shrink: 0; width: 172px; }
 .brand img { width: 100%; }
-.desktop-nav { display: flex; gap: 22px; margin-left: auto; }
+.desktop-nav { display: flex; gap: 22px; margin-inline-start: auto; }
 .desktop-nav a, .header-contact { font-size: 14px; white-space: nowrap; }
 .desktop-nav a { padding: 12px 0; }
 .desktop-nav a:hover { color: var(--bronze); }
 .header-actions { display: flex; align-items: center; gap: 18px; }
-.header-contact { display: flex; align-items: center; gap: 13px; min-height: 44px; padding-left: 22px; border-left: 1px solid var(--line); }
+.header-contact { display: flex; align-items: center; gap: 13px; min-height: 44px; padding-inline-start: 22px; border-inline-start: 1px solid var(--line); }
 .language-picker { position: relative; font-size: 14px; }
 .language-picker summary { display: flex; align-items: center; gap: 7px; min-height: 44px; cursor: pointer; list-style: none; white-space: nowrap; }
 .language-picker summary::-webkit-details-marker { display: none; }
 .language-icon { flex-shrink: 0; }
 .language-current { padding: 0 5px; color: var(--bronze); font-size: 14px; line-height: 22px; border: 1px solid var(--line); border-radius: 3px; }
-.language-options { position: absolute; top: 100%; right: 0; z-index: 30; min-width: 168px; padding: 7px; border: 1px solid var(--line); background: var(--white); box-shadow: 0 8px 22px #183f3510; }
+.language-options { position: absolute; top: 100%; inset-inline-end: 0; z-index: 30; min-width: 168px; padding: 7px; border: 1px solid var(--line); background: var(--white); box-shadow: 0 8px 22px #183f3510; }
 .language-options a { display: block; min-height: 44px; padding: 9px 13px; font-size: 14px; white-space: nowrap; }
 .language-options a[lang="en"] { font-family: "Eleven Sans Latin", Arial, sans-serif; }
 .language-options a[lang="zh-Hans"] { font-family: "Eleven Sans SC", "Microsoft YaHei", sans-serif; }
+ .language-options a:is([lang="fr"],[lang="de"]) { font-family: "Eleven Sans Latin", sans-serif; }
+ .language-options a[lang="ja"] { font-family: "Eleven Sans JP", sans-serif; }
+ .language-options a[lang="ko"] { font-family: "Eleven Sans KR", sans-serif; }
+ .language-options a[lang="ar"] { font-family: "Eleven Sans Arabic", sans-serif; }
 .language-options a[lang="zh-Hant"] { font-family: "Eleven Sans TC", "Microsoft JhengHei", sans-serif; }
 .language-options a:hover, .language-options a[aria-current] { background: #edf1e8; }
 .menu-toggle { display: none; border: 0; background: transparent; padding: 8px 0; min-height: 44px; }
@@ -78,9 +92,9 @@ html[lang^="zh"] h1 { font-size: 52px; line-height: 1.4; }
 .hero-image { width: 100%; }
 .hero-image img { width: 100%; height: auto; }
 .focus-strip { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); max-width: 1120px; margin: auto; padding: 20px var(--gutter); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.focus-strip a { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 2px 24px; border-right: 1px solid var(--line); font-size: 14px; }
-.focus-strip a:first-child { padding-left: 0; }
-.focus-strip a:last-child { padding-right: 0; border: 0; }
+.focus-strip a { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 2px 24px; border-inline-end: 1px solid var(--line); font-size: 14px; }
+.focus-strip a:first-child { padding-inline-start: 0; }
+.focus-strip a:last-child { padding-inline-end: 0; border: 0; }
 .focus-strip span { color: var(--bronze); }
 .section { max-width: 1120px; margin: auto; padding: 80px var(--gutter); }
 .section-heading { max-width: 800px; margin-bottom: 40px; }
@@ -95,8 +109,8 @@ html[lang^="zh"] h2 { font-size: 38px; line-height: 1.5; }
 .service h3 { color: var(--green); font: 500 25px/1.45 var(--sans); text-wrap: balance; }
 .service p { margin-top: 13px; color: var(--muted); font-size: 16px; line-height: 1.9; }
 .service-examples { display: flex; flex-wrap: wrap; gap: 6px 15px; list-style: none; padding: 0; margin: 17px 0 0; color: var(--bronze); font-size: 14px; }
-.service-examples li::before { content: '·'; margin-right: 6px; }
-.service-delivery { margin-top: 20px; padding-left: 16px; border-left: 2px solid var(--line); }
+.service-examples li::before { content: '·'; margin-inline-end: 6px; }
+.service-delivery { margin-top: 20px; padding-inline-start: 16px; border-inline-start: 2px solid var(--line); }
 .service-delivery h4 { margin: 0; color: var(--green); font-size: 14px; font-weight: 500; }
 .service-delivery p { margin-top: 6px; font-size: 15px; }
 .client-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px 56px; }
@@ -139,7 +153,7 @@ html[lang^="zh"] h2 { font-size: 38px; line-height: 1.5; }
 .portrait { width: 100%; }
 .portrait img { width: 100%; height: auto; object-fit: contain; }
 .portrait figcaption { display: flex; justify-content: space-between; gap: 12px; margin-top: 12px; color: var(--muted); font-size: 14px; }
-.portrait figcaption span { text-align: right; }
+.portrait figcaption span { text-align: end; }
 .founder-copy h2 { font: 500 43px/1.35 var(--serif); }
 .founder-role { margin-top: 8px; color: var(--bronze); font-size: 14px; }
 .founder-lead { margin-top: 22px; color: var(--green); font: 400 22px/1.65 var(--serif); text-wrap: pretty; }
@@ -203,7 +217,7 @@ footer a { grid-column: 3; justify-self: end; display: flex; align-items: center
   .hero-eyebrow { margin-bottom: 16px; }
   .hero-location { margin-top: 23px; }
   .button-outline { margin-top: 23px; }
-  .focus-strip a { font-size: 14px; padding-left: 17px; padding-right: 17px; }
+  .focus-strip a { font-size: 14px; padding-inline-start: 17px; padding-inline-end: 17px; }
   .section { padding-top: 60px; padding-bottom: 60px; }
   h2,html[lang^="zh"] h2 { font-size: 35px; }
   .service h3 { font-size: 23px; }
@@ -211,7 +225,7 @@ footer a { grid-column: 3; justify-self: end; display: flex; align-items: center
   .mission { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
   .founder { grid-template-columns: 230px minmax(0,1fr); gap: 30px; }
   .portrait figcaption { display: block; }
-  .portrait figcaption span { display: block; text-align: left; }
+  .portrait figcaption span { display: block; text-align: start; }
   .founder-copy h2 { font-size: 36px; }
   .founder-lead { font-size: 20px; }
   .prose { font-size: 14px; }
@@ -237,7 +251,7 @@ footer a { grid-column: 3; justify-self: end; display: flex; align-items: center
   .hero-location { margin-top: 24px; }
   .hero-image { max-width: 400px; align-self: center; }
   .focus-strip { grid-template-columns: 1fr; padding-top: 0; padding-bottom: 0; }
-  .focus-strip a,.focus-strip a:first-child,.focus-strip a:last-child { padding: 15px 0; border-right: 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .focus-strip a,.focus-strip a:first-child,.focus-strip a:last-child { padding: 15px 0; border-inline-end: 0; border-bottom: 1px solid var(--line); font-size: 14px; }
   .focus-strip a:last-child { border-bottom: 0; }
   .section { padding-top: 48px; padding-bottom: 48px; }
   .section-heading { margin-bottom: 28px; }
@@ -263,11 +277,11 @@ footer a { grid-column: 3; justify-self: end; display: flex; align-items: center
   .founder { display: flex; flex-direction: column; gap: 30px; }
   .portrait { width: 220px; max-width: 100%; align-self: center; }
   .portrait figcaption { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; }
-  .portrait figcaption span { text-align: right; }
+  .portrait figcaption span { text-align: end; }
   .founder-copy h2 { font-size: 38px; }
   .founder-lead { font-size: 22px; }
   .prose { font-size: 16px; }
-  .partners .section-heading { text-align: left; }
+  .partners .section-heading { text-align: start; }
   .partner-prose { font-size: 14px; }
   .partner-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px 20px; padding: 14px 0; }
   .partner-grid a { min-height: 92px; }
@@ -333,7 +347,7 @@ html[lang^="zh"] .page-heading { font-size: 42px; line-height: 1.5; }
   .hero-eyebrow,.section-label { font-size: 14px; }
   .service-examples { font-size: 14px; }
   .portrait figcaption { display: block; font-size: 13px; }
-  .portrait figcaption span { text-align: left; }
+  .portrait figcaption span { text-align: start; }
   .page-heading,html[lang^="zh"] .page-heading { font-size: 32px; }
   html[lang="en"] .page-heading,html[lang="en"] h2 { font-size: 30px; }
   .page-breadcrumb { padding-top: 18px; }
@@ -353,4 +367,43 @@ html[lang^="zh"] .page-heading { font-size: 42px; line-height: 1.5; }
 @media(prefers-reduced-motion:reduce) {
   html { scroll-behavior: auto; }
   *,*::before,*::after { transition: none!important; animation: none!important; }
+}
+
+/* Locale typography and bidirectional layout. */
+.language-options { max-height: min(70vh, 430px); overflow-y: auto; }
+.language-options a { text-align: start; }
+.language-current { font-family: "Eleven Sans Latin", "Eleven Sans TC", "Eleven Sans SC", sans-serif; }
+.email-link bdi { min-width: 0; font-family: "Eleven Serif Latin", Georgia, serif; }
+html:is([lang="ja"],[lang="ko"]) .hero h1 { font-size: clamp(29px, 3.4vw, 43px); line-height: 1.55; }
+html[lang="ja"] .hero h1>span { text-wrap: balance; }
+.hero h1 .phrase { display: inline-block; }
+html:is([lang="ja"],[lang^="zh"]) .phrase { display: inline; white-space: nowrap; }
+html:is([lang="fr"],[lang="de"]) .hero h1 { font-size: clamp(30px, 3.8vw, 48px); line-height: 1.2; }
+html:is([lang="fr"],[lang="de"]) .hero h1>span { text-wrap: balance; }
+html:is([lang="ja"],[lang="ko"]) .page-heading { line-height: 1.5; }
+html[lang="ar"] .hero h1 { font-size: clamp(33px, 4vw, 48px); line-height: 1.6; }
+html[lang="ar"] .hero h1>span { text-wrap: balance; }
+html[lang="ar"] :is(h2,h3,.page-heading) { line-height: 1.6; }
+html[lang="ar"] .hero-eyebrow { font-family: "Eleven Sans Latin", sans-serif; }
+html[lang="ar"] :is(.text-link,.button-outline,.hero-secondary,.header-contact,.email-link,.focus-strip a)>span[aria-hidden="true"] { transform: scaleX(-1); }
+html[lang="ar"] :is(.copyright-owner,.social-links a) { font-family: "Eleven Sans Latin", sans-serif; }
+.section-heading>*,.partner-heading>*,.contact-inner>*,.hero-actions>* { min-width: 0; }
+@media (max-width:1100px) {
+  html:is([lang="ja"],[lang="ko"],[lang="fr"],[lang="de"]) .hero { grid-template-columns: minmax(0,1fr) minmax(0,290px); gap: 30px; }
+}
+@media (min-width:851px) and (max-width:1000px) {
+  html:is([lang="ja"],[lang="fr"],[lang="de"]) .desktop-nav { gap: 14px; }
+  html:is([lang="ja"],[lang="fr"],[lang="de"]) .desktop-nav a { font-size: 13px; }
+}
+@media (max-width:850px) {
+  html:is([lang="ja"],[lang="ko"],[lang="fr"],[lang="de"],[lang="ar"]) .hero { grid-template-columns: minmax(0,1fr) minmax(0,230px); gap: 28px; }
+}
+@media (max-width:650px) {
+  html:is([lang="ja"],[lang="ko"],[lang="fr"],[lang="de"]) .page-heading { font-size: 30px; }
+  html[lang="ar"] .page-heading { font-size: 34px; }
+  html:is([lang="ja"],[lang="ko"],[lang="fr"],[lang="de"],[lang="ar"]) .contact h2 { font-size: 31px; }
+  .copyright { max-width: 100%; }
+  .copyright span { white-space: normal; }
+  .hero-actions a { max-width: 100%; }
+  .email-link { max-width: 100%; }
 }

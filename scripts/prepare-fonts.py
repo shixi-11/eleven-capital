@@ -1,7 +1,8 @@
 """Prepare OFL-licensed Noto subsets after building the site's HTML.
 
-Requires fonttools[woff]. Pass a directory containing NotoSansSC-VF.ttf,
-NotoSansTC-VF.ttf, NotoSerifSC-VF.ttf and NotoSerifTC-VF.ttf.
+Requires fonttools[woff]. Pass NotoSans/Serif{SC,TC,JP,KR}-VF.ttf through
+--source-dir and Inter.ttf, SourceSerif4.ttf, NotoSansArabic.ttf and
+NotoNaskhArabic.ttf through --latin-source-dir.
 Font sources are never copied into the public directory.
 """
 import argparse
@@ -16,19 +17,29 @@ from fontTools.ttLib import TTFont
 parser = argparse.ArgumentParser()
 parser.add_argument('--source-dir', type=Path, required=True)
 parser.add_argument('--latin-source-dir', type=Path, required=True,
-                    help='Directory with Inter.ttf and SourceSerif4.ttf from Google Fonts')
+                    help='Directory with Inter, Source Serif 4, Noto Sans Arabic and Noto Naskh Arabic source TTFs')
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 target = root / 'public/assets/fonts'
 pages = list((root / 'dist').rglob('*.html'))
-text = ''.join(html.unescape(re.sub('<[^>]+>', '', p.read_text('utf-8'))) for p in pages)
-text += ''.join(chr(n) for n in range(32, 127)) + '©＋⌄↗↘→↑繁简語言语言首頁首页完整經歷完整经历'
-characters = sorted(set(text))
+region_languages = {'SC': ['zh-Hans'], 'TC': ['zh-Hant'], 'Latin': ['en', 'fr', 'de'],
+                    'JP': ['ja'], 'KR': ['ko'], 'Arabic': ['ar']}
+region_text = {region: '' for region in region_languages}
+for page in pages:
+    markup = page.read_text('utf-8')
+    language = re.search(r'<html\s+lang="([^"]+)"', markup).group(1)
+    markup = re.sub(r'<script\b[^>]*>[\s\S]*?</script>', '', markup)
+    text = html.unescape(re.sub('<[^>]+>', '', markup))
+    for region, languages in region_languages.items():
+        if language in languages:
+            region_text[region] += text
+common = ''.join(chr(n) for n in range(32, 127)) + '©＋⌄↗↘→↑繁简語言语言首頁首页完整經歷完整经历'
 manifest = {'license': 'SIL Open Font License 1.1', 'fonts': []}
 for kind in ('Sans', 'Serif'):
-    for region in ('SC', 'TC', 'Latin'):
-        filename = ('Inter.ttf' if kind == 'Sans' else 'SourceSerif4.ttf') if region == 'Latin' else f'Noto{kind}{region}-VF.ttf'
-        source = (args.latin_source_dir if region == 'Latin' else args.source_dir) / filename
+    for region in region_languages:
+        characters = sorted(set(region_text[region] + common))
+        filename = ('Inter.ttf' if kind == 'Sans' else 'SourceSerif4.ttf') if region == 'Latin' else ('NotoSansArabic.ttf' if kind == 'Sans' else 'NotoNaskhArabic.ttf') if region == 'Arabic' else f'Noto{kind}{region}-VF.ttf'
+        source = (args.latin_source_dir if region in ('Latin', 'Arabic') else args.source_dir) / filename
         font = TTFont(source)
         names = font['name']
         source_family = names.getDebugName(1)
@@ -45,7 +56,8 @@ for kind in ('Sans', 'Serif'):
                 continue
             value = record.toUnicode()
             for original in ('SourceSerif4', 'NotoSansSC', 'NotoSansTC',
-                             'NotoSerifSC', 'NotoSerifTC', 'Inter'):
+                             'NotoSerifSC', 'NotoSerifTC', 'NotoSansJP', 'NotoSerifJP',
+                             'NotoSansKR', 'NotoSerifKR', 'NotoSansArabic', 'NotoNaskhArabic', 'Inter'):
                 value = value.replace(original, family.replace(' ', ''))
             record.string = value.encode(record.getEncoding(), errors='replace')
         for name_id, value in [(1, family), (2, 'Regular'), (4, family),
@@ -67,7 +79,7 @@ for kind in ('Sans', 'Serif'):
         manifest['fonts'].append({
             'file': output.name, 'family': family, 'sourceFamily': source_family,
             'version': version, 'copyright': copyright,
-            'source': 'https://github.com/google/fonts/tree/main/ofl/' + (('inter' if kind == 'Sans' else 'sourceserif4') if region == 'Latin' else f'noto{kind.lower()}{region.lower()}'),
+            'source': 'https://github.com/google/fonts/tree/main/ofl/' + (('inter' if kind == 'Sans' else 'sourceserif4') if region == 'Latin' else ('notosansarabic' if kind == 'Sans' else 'notonaskharabic') if region == 'Arabic' else f'noto{kind.lower()}{region.lower()}'),
             'sourceSha256': hashlib.sha256(source.read_bytes()).hexdigest(),
             'sha256': hashlib.sha256(output.read_bytes()).hexdigest(),
             'bytes': output.stat().st_size,

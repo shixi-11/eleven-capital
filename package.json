@@ -2,7 +2,7 @@
   "name": "eleven-capital",
   "version": "1.0.0",
   "private": true,
-  "description": "Eleven Capital official trilingual website",
+  "description": "Eleven Capital official multilingual website",
   "type": "module",
   "license": "MIT",
   "engines": {
