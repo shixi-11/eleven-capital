@@ -133,6 +133,38 @@ html[lang^="zh"] h2 { font-size: 38px; line-height: 1.5; }
 .engagement-steps { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 24px; margin-top: 28px; }
 .engagement-steps h4 { margin: 0; font-size: 14px; font-weight: 500; }
 .engagement-steps p { margin-top: 7px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.process-steps { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 24px; list-style: none; padding: 0; margin: 28px 0 0; }
+.process-steps li { position: relative; min-width: 0; }
+.process-steps li:not(:last-child)::after { content: ''; position: absolute; top: 20px; inset-inline-start: 52px; width: calc(100% - 28px); height: 1px; background: var(--line); }
+.process-node { display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: 16px; border: 1px solid var(--line); border-radius: 50%; color: var(--green); background: var(--paper); }
+.process-node svg { display: block; flex-shrink: 0; }
+.process-steps strong { display: block; color: var(--green); font-size: 16px; font-weight: 500; line-height: 1.6; text-wrap: balance; }
+.process-steps p { margin: 6px 0 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.service-process { margin: 24px 0 0; padding-top: 20px; border-top: 1px solid var(--line); }
+.service-process figcaption { margin-bottom: 18px; color: var(--green); font-size: 16px; font-weight: 500; }
+.service-process .process-steps { grid-template-columns: 1fr; gap: 18px; margin: 0; }
+.service-process .process-steps li { display: grid; grid-template-columns: 40px minmax(0,1fr); gap: 16px; }
+.service-process .process-node { margin: 0; }
+.service-process .process-steps li:not(:last-child)::after { inset-inline-start: 19px; top: 46px; bottom: -12px; width: 1px; height: auto; }
+.service-process .process-steps p { margin-top: 3px; font-size: 14px; }
+.service-process .process-note { margin: 18px 0 0; padding-inline-start: 56px; font-size: 13px; line-height: 1.8; }
+#technology .process-steps li:nth-child(3) .process-node { background: var(--green); border-color: var(--green); color: var(--paper); }
+.home-process { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
+.home-process>.text-link { margin: 0; }
+.home-process .process-steps { margin-top: 22px; }
+@media(max-width:850px) {
+  .process-steps { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .process-steps li:nth-child(2)::after { display: none; }
+  .service-process .process-steps li:nth-child(2)::after { display: block; }
+}
+@media(max-width:650px) {
+  .process-steps { grid-template-columns: 1fr; gap: 20px; }
+  .process-steps li { display: grid; grid-template-columns: 40px minmax(0,1fr); gap: 16px; align-items: start; }
+  .process-node { margin-bottom: 0; }
+  .process-steps li:not(:last-child)::after { display: block; inset-inline-start: 19px; top: 46px; bottom: -14px; width: 1px; height: auto; }
+  .process-steps--compact li { align-items: center; }
+  .process-steps--compact strong { text-wrap: pretty; }
+}
 .about { border-top: 1px solid var(--line); }
 .prose { color: var(--muted); font-size: 17px; line-height: 1.95; }
 .prose p+p { margin-top: 18px; }

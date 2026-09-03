@@ -204,8 +204,8 @@ export const content = {
     "founderLabel": "創始人",
     "founderTitle": "林拾汐",
     "founderChinese": "林拾汐",
-    "founderRole": "創始人兼總裁",
-    "founderAlt": "十一資本創始人兼總裁林拾汐職業照",
+    "founderRole": "創始人兼董事長",
+    "founderAlt": "十一資本創始人兼董事長林拾汐職業照",
     "founderLead": "融合商業洞察與人文視野，連接企業、人才與全球機遇。",
     "bio": [
       "林拾汐擁有投資、企業孵化與國際貿易經驗，曾擔任三家公司的首席執行官，並擁有 EMBA 背景。她重視品牌與企業的戰略定位，以市場洞察推動可持續成長。",
@@ -486,8 +486,8 @@ export const content = {
     "founderLabel": "Our founder",
     "founderTitle": "Shixi Lin",
     "founderChinese": "林拾汐",
-    "founderRole": "Founder & President",
-    "founderAlt": "Shixi Lin, Founder and President of Eleven Capital",
+    "founderRole": "Founder & Chair",
+    "founderAlt": "Shixi Lin, Founder and Chair of Eleven Capital",
     "founderLead": "Combining business insight with a humanistic outlook to connect companies, talent and global opportunities.",
     "bio": [
       "Shixi Lin has worked in investment, business incubation and international trade. She has an EMBA background and has served as chief executive of three companies. She focuses on strategic positioning for brands and businesses, using market insight to support sustainable growth.",

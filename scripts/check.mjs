@@ -1,6 +1,15 @@
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 import { content, partners, languages } from "../src/content.mjs";
+import { processCopy } from '../src/processes.mjs';
+assert.equal(content.zh.founderRole, '創始人兼董事長');
+assert.equal(content.en.founderRole, 'Founder & Chair');
+assert.deepEqual(Object.keys(processCopy).sort(),languages.map(l=>l.lang).sort());
+for(const copy of Object.values(processCopy)) for(const key of ['ai','capital']) {
+  assert.equal(copy[key].length,4);
+  assert(copy[key+'Title']);
+  for(const step of copy[key]) assert(step.length===2 && step.every(value=>typeof value==='string' && value.trim()));
+}
 assert.equal(content.en.path, "/", "English must be the default homepage");
 assert.equal(content.zh.path, "/zh-hant/", "Traditional Chinese needs its own route");
 const sections = ["", "about/", "services/", "founder/", "partners/"];
@@ -78,6 +87,7 @@ for (const c of Object.values(content)) for (const section of sections) {
   if (!section) {
     assert(html.includes('class="client-grid"') && html.includes(c.projectCta));
     for (const [title] of c.clients) assert(html.includes(title));
+    assert(html.includes('class="home-process"') && html.includes(`${c.path}services/#engagement`));
   }
   if (!section || section === 'services/') {
     for (const image of ['product-building.png','enterprise-growth.png']) assert(html.includes(`/assets/${image}`), `Missing service illustration: ${path}`);
@@ -87,6 +97,8 @@ for (const c of Object.values(content)) for (const section of sections) {
   if (section === "services/") {
     assert(html.includes('class="project-faq"'));
     assert.equal((html.match(/class="service-delivery"/g) || []).length, 7);
+    for(const id of ['technology-process-title','capital-process-title','engagement']) assert(html.includes(`id="${id}"`));
+    for(const key of ['ai','capital']) for(const [title] of processCopy[c.lang][key]) assert(html.includes(title.replaceAll('&','&amp;')));
   }
   if (section === "founder/") assert(html.includes('class="disclosure biography" open'), "Biography must open by default");
   if (section === "about/") assert(html.includes('class="disclosure values" open'), "Values must open by default");
