@@ -86,74 +86,84 @@ export const content = {
     ],
     "focusIntro": "以商業目標定義技術方案，將開發、運營與資源協同連成完整的服務路徑。",
     "services": [
-      {
-        "id": "technology",
-        "title": "AI智能體與流程自動化",
-        "text": "圍繞企業知識、研究分析、內容運營與日常協作，設計能使用工具、連接資料並推進工作的智能體。讓AI進入具體流程，並保留必要的權限控制與人工覆核。",
-        "examples": [
-          "企業知識助手",
-          "業務流程自動化",
-          "多語言內容工作流"
-        ]
-      },
-      {
-        "id": "development",
-        "title": "應用與產品代開發",
-        "text": "從需求梳理、產品原型到設計開發與部署上線，為企業打造網站、應用及內部工具。先驗證關鍵使用場景，再逐步完善產品體驗與業務功能。",
-        "examples": [
-          "企業官網與品牌網站",
-          "應用與管理後台",
-          "互動原型與數字體驗"
-        ]
-      },
-      {
-        "id": "operations",
-        "title": "代維護與持續迭代",
-        "text": "上線之後，繼續照顧產品的日常運行與演進。按約定範圍提供問題修復、版本更新、部署維護與功能迭代，讓企業有持續可依靠的技術協作。",
-        "examples": [
-          "故障排查與修復",
-          "部署與版本維護",
-          "性能優化與功能迭代"
-        ]
-      },
-      {
-        "id": "blockchain",
-        "title": "Web3與Web4前沿探索",
-        "text": "結合區塊鏈應用、鏈上資料與智能體協作，開展技術研究、原型驗證及系統集成。面向Web4的智能互聯與虛實融合方向，從具體場景探索下一代應用。",
-        "examples": [
-          "區塊鏈應用集成",
-          "智能體協作原型",
-          "前沿技術可行性研究"
-        ]
-      },
-      {
-        "id": "investment",
-        "title": "創業孵化與資本對接",
-        "text": "面向創業團隊與成長型企業，提供創業指導、戰略定位、產業、市場與投資研究、商業模式及產品驗證。協助梳理商業計劃、融資材料與階段目標，並結合孵化與加速支持、產業資源與資本對接，推進從創業構想到業務成長的每一步。",
-        "examples": [
-          "創業指導與商業模式",
-          "項目孵化與產品驗證",
-          "融資準備與資本對接"
-        ]
-      },
-      {
-        "id": "trade",
-        "title": "國際業務與品牌數字化",
-        "text": "以國際貿易經驗與跨文化視野，支持企業連接市場和產業鏈夥伴。結合多語言網站、品牌內容與數字化工具，為跨境業務建立清晰、一致的對外表達。",
-        "examples": [
-          "國際貿易與市場協同",
-          "多語言網站與本地化",
-          "品牌內容與數字化支持"
-        ]
-      }
-    ],
+  {
+    "id": "technology",
+    "title": "AI智能體與流程自動化",
+    "text": "圍繞企業知識、研究分析、內容運營與日常協作，設計能使用工具、連接資料並推進工作的智能體。讓AI進入具體流程，並保留必要的權限控制與人工覆核。",
+    "examples": [
+      "企業知識助手",
+      "業務流程自動化",
+      "多語言內容工作流"
+    ]
+  },
+  {
+    "id": "development",
+    "title": "應用與產品代開發",
+    "text": "從需求梳理、產品原型到設計開發與部署上線，為企業打造網站、應用及內部工具。先驗證關鍵使用場景，再逐步完善產品體驗與業務功能。",
+    "examples": [
+      "企業官網與品牌網站",
+      "應用與管理後台",
+      "互動原型與數字體驗"
+    ]
+  },
+  {
+    "id": "operations",
+    "title": "代維護與持續迭代",
+    "text": "上線之後，繼續照顧產品的日常運行與演進。按約定範圍提供問題修復、版本更新、部署維護與功能迭代，讓企業有持續可依靠的技術協作。",
+    "examples": [
+      "故障排查與修復",
+      "部署與版本維護",
+      "性能優化與功能迭代"
+    ]
+  },
+  {
+    "id": "blockchain",
+    "title": "Web3與Web4前沿探索",
+    "text": "結合區塊鏈應用、鏈上資料與智能體協作，開展技術研究、原型驗證及系統集成。面向Web4的智能互聯與虛實融合方向，從具體場景探索下一代應用。",
+    "examples": [
+      "區塊鏈應用集成",
+      "智能體協作原型",
+      "前沿技術可行性研究"
+    ]
+  },
+  {
+    "id": "investment",
+    "title": "創業孵化與資本對接",
+    "text": "面向創業團隊與成長型企業，提供創業指導、戰略定位、產業、市場與投資研究、商業模式及產品驗證。協助梳理商業計劃、融資材料與階段目標，並結合孵化與加速支持、產業資源與資本對接，推進從創業構想到業務成長的每一步。",
+    "examples": [
+      "創業指導與商業模式",
+      "項目孵化與產品驗證",
+      "融資準備與資本對接"
+    ]
+  },
+  {
+    "id": "capital",
+    "title": "資本戰略與企業發展",
+    "text": "圍繞企業不同發展階段的資本運作需求，協助規劃融資路徑、梳理股權結構，準備商業計劃與估值分析，並對接戰略投資者及併購合作機會。從前期研究、材料準備到合作溝通，讓資本安排與業務目標相互配合；具體交易按項目條件與相關專業機構協作推進。",
+    "examples": [
+      "融資路徑與股權結構",
+      "商業計劃與估值分析",
+      "戰略投資與併購合作對接"
+    ]
+  },
+  {
+    "id": "trade",
+    "title": "國際業務與品牌數字化",
+    "text": "以國際貿易經驗與跨文化視野，支持企業連接市場和產業鏈夥伴。結合多語言網站、品牌內容與數字化工具，為跨境業務建立清晰、一致的對外表達。",
+    "examples": [
+      "國際貿易與市場協同",
+      "多語言網站與本地化",
+      "品牌內容與數字化支持"
+    ]
+  }
+],
     "aboutLabel": "關於十一資本",
     "aboutTitle": [
       "懂技術的可能",
       "也懂商業的分量"
     ],
     "about": [
-      "十一資本有限公司起源於香港，以區塊鏈技術、投資研究與國際貿易為業務基礎，將服務延伸至AI智能體、數字產品開發及持續運營。同時，為創業團隊提供創業指導與孵化支持，協同產業與資本資源。",
+      "十一資本有限公司起源於香港，以區塊鏈技術、投資研究與國際貿易為業務基礎，將服務延伸至AI智能體、數字產品開發及持續運營。同時，為創業團隊提供創業指導與孵化支持，協同產業與資本資源。亦提供資本戰略規劃、融資準備與戰略投資及併購合作對接，支持企業發展。",
       "我們以專業化、多元化與創新化為方向，將技術實踐、商業洞察與資源整合相結合。在統一品牌下，為不同發展階段的企業提供與其目標相適應的服務，重視可交付的成果，也重視長期合作。"
     ],
     "visionTitle": "讓價值，經得起時間。",
@@ -295,13 +305,14 @@ export const content = {
     ],
     "deliveryLabel": "可約定的交付成果",
     "deliveries": [
-      "流程梳理、可試用的助手或自動化流程、工具連接與使用說明。",
-      "需求範圍、交互原型、約定功能的首版產品、部署與交接文檔。",
-      "系統現況梳理、修復與版本更新、變更記錄及後續迭代安排。",
-      "可行性研究、應用原型與技術集成方案。",
-      "商業計劃與融資材料、商業模式及產品驗證方案、階段發展規劃，以及產業與資本對接建議。",
-      "多語言網站與品牌內容、數字化工具及市場拓展的協作方案。"
-    ],
+  "流程梳理、可試用的助手或自動化流程、工具連接與使用說明。",
+  "需求範圍、交互原型、約定功能的首版產品、部署與交接文檔。",
+  "系統現況梳理、修復與版本更新、變更記錄及後續迭代安排。",
+  "可行性研究、應用原型與技術集成方案。",
+  "商業計劃與融資材料、商業模式及產品驗證方案、階段發展規劃，以及產業與資本對接建議。",
+  "資本發展路線圖、股權結構梳理、商業計劃與估值分析材料，以及投資者或併購合作方的對接方案。",
+  "多語言網站與品牌內容、數字化工具及市場拓展的協作方案。"
+],
     "faqTitle": "合作前，您可能關心",
     "faq": [
       [
@@ -357,74 +368,84 @@ export const content = {
     ],
     "focusIntro": "We shape technical solutions around business goals, coordinating development, ongoing operations and the resources needed to support them.",
     "services": [
-      {
-        "id": "technology",
-        "title": "AI agents & workflow automation",
-        "text": "We design agents that use tools, work with business data and support knowledge management, research, content operations and day-to-day collaboration. We bring AI into specific workflows, with appropriate access controls and human review.",
-        "examples": [
-          "Internal knowledge assistants",
-          "Business workflow automation",
-          "Multilingual content workflows"
-        ]
-      },
-      {
-        "id": "development",
-        "title": "Custom application & product development",
-        "text": "We build websites, applications and internal tools, from requirements and prototypes through design, development and launch. We validate the key use cases first, then refine the user experience and business functionality.",
-        "examples": [
-          "Corporate and brand websites",
-          "Applications and admin tools",
-          "Interactive prototypes and digital experiences"
-        ]
-      },
-      {
-        "id": "operations",
-        "title": "Maintenance & ongoing development",
-        "text": "We support the day-to-day running and continued development of products after launch. Within an agreed scope, we provide bug fixes, release updates, deployment support and new features, giving businesses continuity in their technical support.",
-        "examples": [
-          "Troubleshooting and bug fixes",
-          "Deployment support and release updates",
-          "Performance and feature improvements"
-        ]
-      },
-      {
-        "id": "blockchain",
-        "title": "Web3 & Web4 exploration",
-        "text": "We research, prototype and integrate systems that combine blockchain applications, on-chain data and collaboration between AI agents. Our exploration of emerging Web4 applications focuses on intelligent connectivity and the convergence of physical and digital experiences, starting with concrete use cases.",
-        "examples": [
-          "Blockchain application integration",
-          "Agent collaboration prototypes",
-          "Emerging technology feasibility studies"
-        ]
-      },
-      {
-        "id": "investment",
-        "title": "Startup incubation & investor connections",
-        "text": "We help startup teams and growing businesses shape their strategy, research industries, markets and investment opportunities, and validate business models and products. Our support includes founder guidance, business plans, fundraising materials and milestones. Through incubation and acceleration support, along with connections to industry partners and investors, we help teams progress from an initial idea to a growing business.",
-        "examples": [
-          "Founder guidance and business models",
-          "Incubation and product validation",
-          "Fundraising preparation and investor introductions"
-        ]
-      },
-      {
-        "id": "trade",
-        "title": "International business & digital presence",
-        "text": "We draw on international trade experience and cross-cultural insight to help businesses connect with markets and partners across their value chains. Multilingual websites, brand content and digital tools give cross-border businesses a clear, consistent presence.",
-        "examples": [
-          "International trade and market collaboration",
-          "Multilingual websites and localisation",
-          "Brand content and digital support"
-        ]
-      }
-    ],
+  {
+    "id": "technology",
+    "title": "AI agents & workflow automation",
+    "text": "We design agents that use tools, work with business data and support knowledge management, research, content operations and day-to-day collaboration. We bring AI into specific workflows, with appropriate access controls and human review.",
+    "examples": [
+      "Internal knowledge assistants",
+      "Business workflow automation",
+      "Multilingual content workflows"
+    ]
+  },
+  {
+    "id": "development",
+    "title": "Custom application & product development",
+    "text": "We build websites, applications and internal tools, from requirements and prototypes through design, development and launch. We validate the key use cases first, then refine the user experience and business functionality.",
+    "examples": [
+      "Corporate and brand websites",
+      "Applications and admin tools",
+      "Interactive prototypes and digital experiences"
+    ]
+  },
+  {
+    "id": "operations",
+    "title": "Maintenance & ongoing development",
+    "text": "We support the day-to-day running and continued development of products after launch. Within an agreed scope, we provide bug fixes, release updates, deployment support and new features, giving businesses continuity in their technical support.",
+    "examples": [
+      "Troubleshooting and bug fixes",
+      "Deployment support and release updates",
+      "Performance and feature improvements"
+    ]
+  },
+  {
+    "id": "blockchain",
+    "title": "Web3 & Web4 exploration",
+    "text": "We research, prototype and integrate systems that combine blockchain applications, on-chain data and collaboration between AI agents. Our exploration of emerging Web4 applications focuses on intelligent connectivity and the convergence of physical and digital experiences, starting with concrete use cases.",
+    "examples": [
+      "Blockchain application integration",
+      "Agent collaboration prototypes",
+      "Emerging technology feasibility studies"
+    ]
+  },
+  {
+    "id": "investment",
+    "title": "Startup incubation & investor connections",
+    "text": "We help startup teams and growing businesses shape their strategy, research industries, markets and investment opportunities, and validate business models and products. Our support includes founder guidance, business plans, fundraising materials and milestones. Through incubation and acceleration support, along with connections to industry partners and investors, we help teams progress from an initial idea to a growing business.",
+    "examples": [
+      "Founder guidance and business models",
+      "Incubation and product validation",
+      "Fundraising preparation and investor introductions"
+    ]
+  },
+  {
+    "id": "capital",
+    "title": "Capital strategy & corporate development",
+    "text": "We help businesses plan for their capital needs at each stage of growth: mapping financing options, reviewing ownership structures, preparing business plans and valuation analysis, and connecting with strategic investors and potential M&A partners. From initial research and preparation to discussions with prospective partners, we align capital planning with business goals. Individual transactions are pursued in collaboration with relevant professional firms, according to the project’s requirements.",
+    "examples": [
+      "Financing pathways and ownership structures",
+      "Business plans and valuation analysis",
+      "Strategic investor and M&A partner introductions"
+    ]
+  },
+  {
+    "id": "trade",
+    "title": "International business & digital presence",
+    "text": "We draw on international trade experience and cross-cultural insight to help businesses connect with markets and partners across their value chains. Multilingual websites, brand content and digital tools give cross-border businesses a clear, consistent presence.",
+    "examples": [
+      "International trade and market collaboration",
+      "Multilingual websites and localisation",
+      "Brand content and digital support"
+    ]
+  }
+],
     "aboutLabel": "About Eleven Capital",
     "aboutTitle": [
       "Technical insight.",
       "Commercial judgement."
     ],
     "about": [
-      "With roots in Hong Kong, Eleven Capital Limited builds on its work in blockchain technology, investment research and international trade to offer AI agents, digital product development and ongoing operations. We also guide founders and support startup incubation, bringing together industry expertise and capital resources.",
+      "With roots in Hong Kong, Eleven Capital Limited builds on its work in blockchain technology, investment research and international trade to offer AI agents, digital product development and ongoing operations. We also guide founders and support startup incubation, bringing together industry expertise and capital resources. We also support corporate development through capital strategy, financing preparation and introductions to strategic investors and potential M&A partners.",
       "Specialist expertise, a diversified range of services and innovation guide our work. We bring technical practice, commercial insight and complementary resources together under one brand, tailoring our services to each business’s goals and stage of development. We value tangible results and long-term partnerships."
     ],
     "visionTitle": "Value that endures.",
@@ -566,13 +587,14 @@ export const content = {
     ],
     "deliveryLabel": "What your project can include",
     "deliveries": [
-      "A mapped workflow, a working assistant or automated process, connections to relevant tools, and usage guidance.",
-      "A defined scope, interactive prototypes, an initial product with agreed features, and deployment and handover documentation.",
-      "A review of the existing system, fixes and updates, a record of changes and a plan for further development.",
-      "Feasibility research, application prototypes and a technical integration plan.",
-      "Business plans and fundraising materials, business model and product validation plans, growth milestones, and recommendations for connecting with industry partners and investors.",
-      "Multilingual websites and brand content, digital tools and a plan for collaborating on market expansion."
-    ],
+  "A mapped workflow, a working assistant or automated process, connections to relevant tools, and usage guidance.",
+  "A defined scope, interactive prototypes, an initial product with agreed features, and deployment and handover documentation.",
+  "A review of the existing system, fixes and updates, a record of changes and a plan for further development.",
+  "Feasibility research, application prototypes and a technical integration plan.",
+  "Business plans and fundraising materials, business model and product validation plans, growth milestones, and recommendations for connecting with industry partners and investors.",
+  "A capital strategy roadmap, an ownership structure review, business plans and valuation materials, and a plan for engaging investors or potential M&A partners.",
+  "Multilingual websites and brand content, digital tools and a plan for collaborating on market expansion."
+],
     "faqTitle": "Before we work together",
     "faq": [
       [

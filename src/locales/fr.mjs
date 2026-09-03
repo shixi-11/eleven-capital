@@ -7,15 +7,79 @@ export default {
   heroCta:'Découvrir nos services',location:'Hong Kong · Des liens avec le monde',photoAlt:'Évocation architecturale du port Victoria à Hong Kong et de la végétation des montagnes environnantes',
   focusLabel:'Services et savoir-faire',focusTitle:['De l’idée au produit.','De la livraison à la croissance.'],focusIntro:'Nous définissons les solutions techniques à partir des objectifs de votre entreprise, en reliant développement, exploitation et mobilisation des ressources dans un accompagnement cohérent.',
   services:[
-    {id:'technology',title:'Agents IA et automatisation des processus',text:'Nous concevons des agents capables de mobiliser des outils, de se connecter aux données et de faire avancer le travail : connaissances internes, recherche et analyse, gestion de contenu ou collaboration quotidienne. Nous intégrons l’IA dans des processus concrets, avec les contrôles d’accès et la validation humaine nécessaires.',examples:['Assistants de connaissances internes','Automatisation des processus métier','Flux de contenu multilingue']},
-    {id:'development',title:'Développement d’applications et de produits sur mesure',text:'De la définition des besoins au prototype, puis à la conception, au développement et à la mise en ligne, nous créons des sites, des applications et des outils internes pour les entreprises. Nous validons d’abord les usages essentiels, puis améliorons progressivement l’expérience utilisateur et les fonctions métier.',examples:['Sites institutionnels et de marque','Applications et interfaces d’administration','Prototypes interactifs et expériences numériques']},
-    {id:'operations',title:'Maintenance et amélioration continue',text:'Après le lancement, nous continuons à prendre soin du fonctionnement et de l’évolution du produit. Selon le périmètre convenu, nous assurons la correction des problèmes, les mises à jour, la maintenance des déploiements et l’évolution des fonctionnalités, pour une collaboration technique sur laquelle compter dans la durée.',examples:['Diagnostic et correction des incidents','Gestion des déploiements et des versions','Optimisation des performances et évolutions fonctionnelles']},
-    {id:'blockchain',title:'Exploration du Web3 et du Web4',text:'Nous associons applications blockchain, données inscrites sur la chaîne et collaboration entre agents pour mener des recherches techniques, valider des prototypes et intégrer des systèmes. À partir de cas d’usage concrets, nous explorons les applications de demain autour de l’interconnexion intelligente et de la convergence entre mondes physique et numérique envisagées pour le Web4.',examples:['Intégration d’applications blockchain','Prototypes de collaboration entre agents','Études de faisabilité de technologies émergentes']},
-    {id:'investment',title:"Incubation et mise en relation avec des investisseurs",text:"Nous accompagnons les équipes entrepreneuriales et les entreprises en croissance : conseil à la création d’entreprise, positionnement stratégique, études sectorielles, de marché et d’investissement, validation des modèles économiques et des produits. Nous aidons à structurer les plans d’affaires, les dossiers de levée de fonds et les objectifs par étape. L’accompagnement à l’incubation et à l’accélération, ainsi que la mise en relation avec des partenaires sectoriels et des investisseurs soutiennent le passage de l’idée à la croissance de l’entreprise.",examples:["Accompagnement entrepreneurial et modèles économiques","Incubation et validation des produits","Préparation des levées de fonds et contacts investisseurs"]},
-    {id:'trade',title:'Développement international et présence numérique des marques',text:'Notre expérience du commerce international et notre regard interculturel aident les entreprises à nouer des liens avec les marchés et les partenaires de leur chaîne de valeur. Sites multilingues, contenus de marque et outils numériques contribuent à une communication claire et cohérente pour leurs activités transfrontalières.',examples:['Commerce international et coopération commerciale','Sites multilingues et adaptation locale','Contenus de marque et accompagnement numérique']}
-  ],
+  {
+    "id": "technology",
+    "title": "Agents IA et automatisation des processus",
+    "text": "Nous concevons des agents capables de mobiliser des outils, de se connecter aux données et de faire avancer le travail : connaissances internes, recherche et analyse, gestion de contenu ou collaboration quotidienne. Nous intégrons l’IA dans des processus concrets, avec les contrôles d’accès et la validation humaine nécessaires.",
+    "examples": [
+      "Assistants de connaissances internes",
+      "Automatisation des processus métier",
+      "Flux de contenu multilingue"
+    ]
+  },
+  {
+    "id": "development",
+    "title": "Développement d’applications et de produits sur mesure",
+    "text": "De la définition des besoins au prototype, puis à la conception, au développement et à la mise en ligne, nous créons des sites, des applications et des outils internes pour les entreprises. Nous validons d’abord les usages essentiels, puis améliorons progressivement l’expérience utilisateur et les fonctions métier.",
+    "examples": [
+      "Sites institutionnels et de marque",
+      "Applications et interfaces d’administration",
+      "Prototypes interactifs et expériences numériques"
+    ]
+  },
+  {
+    "id": "operations",
+    "title": "Maintenance et amélioration continue",
+    "text": "Après le lancement, nous continuons à prendre soin du fonctionnement et de l’évolution du produit. Selon le périmètre convenu, nous assurons la correction des problèmes, les mises à jour, la maintenance des déploiements et l’évolution des fonctionnalités, pour une collaboration technique sur laquelle compter dans la durée.",
+    "examples": [
+      "Diagnostic et correction des incidents",
+      "Gestion des déploiements et des versions",
+      "Optimisation des performances et évolutions fonctionnelles"
+    ]
+  },
+  {
+    "id": "blockchain",
+    "title": "Exploration du Web3 et du Web4",
+    "text": "Nous associons applications blockchain, données inscrites sur la chaîne et collaboration entre agents pour mener des recherches techniques, valider des prototypes et intégrer des systèmes. À partir de cas d’usage concrets, nous explorons les applications de demain autour de l’interconnexion intelligente et de la convergence entre mondes physique et numérique envisagées pour le Web4.",
+    "examples": [
+      "Intégration d’applications blockchain",
+      "Prototypes de collaboration entre agents",
+      "Études de faisabilité de technologies émergentes"
+    ]
+  },
+  {
+    "id": "investment",
+    "title": "Incubation et mise en relation avec des investisseurs",
+    "text": "Nous accompagnons les équipes entrepreneuriales et les entreprises en croissance : conseil à la création d’entreprise, positionnement stratégique, études sectorielles, de marché et d’investissement, validation des modèles économiques et des produits. Nous aidons à structurer les plans d’affaires, les dossiers de levée de fonds et les objectifs par étape. L’accompagnement à l’incubation et à l’accélération, ainsi que la mise en relation avec des partenaires sectoriels et des investisseurs soutiennent le passage de l’idée à la croissance de l’entreprise.",
+    "examples": [
+      "Accompagnement entrepreneurial et modèles économiques",
+      "Incubation et validation des produits",
+      "Préparation des levées de fonds et contacts investisseurs"
+    ]
+  },
+  {
+    "id": "capital",
+    "title": "Stratégie de capital et développement d’entreprise",
+    "text": "Nous accompagnons les besoins en capital à chaque étape du développement : choix des pistes de financement, analyse de la structure de l’actionnariat, préparation de plans d’affaires et d’analyses de valorisation, et mise en relation avec des investisseurs stratégiques ou des partenaires potentiels pour des fusions-acquisitions. Des recherches préalables aux échanges avec les partenaires, nous veillons à la cohérence entre stratégie de capital et objectifs de l’entreprise. Les opérations sont menées avec les professionnels spécialisés concernés, selon les conditions propres à chaque projet.",
+    "examples": [
+      "Pistes de financement et structure de l’actionnariat",
+      "Plans d’affaires et analyses de valorisation",
+      "Contacts pour investissements stratégiques et fusions-acquisitions"
+    ]
+  },
+  {
+    "id": "trade",
+    "title": "Développement international et présence numérique des marques",
+    "text": "Notre expérience du commerce international et notre regard interculturel aident les entreprises à nouer des liens avec les marchés et les partenaires de leur chaîne de valeur. Sites multilingues, contenus de marque et outils numériques contribuent à une communication claire et cohérente pour leurs activités transfrontalières.",
+    "examples": [
+      "Commerce international et coopération commerciale",
+      "Sites multilingues et adaptation locale",
+      "Contenus de marque et accompagnement numérique"
+    ]
+  }
+],
   aboutLabel:'À propos d’Eleven Capital',aboutTitle:['Comprendre le potentiel technique.','Mesurer les enjeux commerciaux.'],
-  about:["Née à Hong Kong, Eleven Capital Limited s’appuie sur ses activités dans les technologies blockchain, la recherche en investissement et le commerce international pour étendre ses services aux agents IA, au développement de produits numériques et à leur exploitation continue. Nous accompagnons également les entrepreneurs et l’incubation de projets, en favorisant les liens entre compétences sectorielles et ressources en capital.",'Spécialisation, diversification des activités et innovation guident notre démarche. Nous associons pratique technique, compréhension des enjeux commerciaux et mobilisation des ressources. Sous une marque commune, nous adaptons nos services aux objectifs et au stade de développement de chaque entreprise, avec autant d’attention aux résultats livrables qu’à la coopération à long terme.'],
+  about:["Née à Hong Kong, Eleven Capital Limited s’appuie sur ses activités dans les technologies blockchain, la recherche en investissement et le commerce international pour étendre ses services aux agents IA, au développement de produits numériques et à leur exploitation continue. Nous accompagnons également les entrepreneurs et l’incubation de projets, en favorisant les liens entre compétences sectorielles et ressources en capital. Nous soutenons aussi le développement des entreprises par la stratégie de capital, la préparation des financements et la mise en relation avec des investisseurs stratégiques ou des partenaires potentiels de fusion-acquisition.",'Spécialisation, diversification des activités et innovation guident notre démarche. Nous associons pratique technique, compréhension des enjeux commerciaux et mobilisation des ressources. Sous une marque commune, nous adaptons nos services aux objectifs et au stade de développement de chaque entreprise, avec autant d’attention aux résultats livrables qu’à la coopération à long terme.'],
   visionTitle:'Une valeur à l’épreuve du temps.',vision:'Notre ambition est de devenir un groupe de services financiers intégrés de premier plan à l’international, et de bâtir une entreprise qui traverse un siècle. Nous visons une création de valeur durablement croissante pour nos clients, nos actionnaires, nos collaborateurs et la société.',
   mission:[['Pour nos actionnaires','Viser des rendements stables et la valorisation des actifs, en accordant toute leur importance aux intérêts des actionnaires.'],['Pour nos clients','Offrir un service d’excellence, agir avec intégrité et préserver la confiance dans la durée.'],['Pour nos collaborateurs','Soutenir les parcours professionnels et la qualité de vie, pour que collaborateurs et entreprise grandissent ensemble.'],['Pour la société','Contribuer activement à la société et au développement durable des communautés et des pays.']],
   valuesSummary:'Nos valeurs et notre philosophie de gestion',
@@ -31,7 +95,15 @@ export default {
   projectCta:'Parlons de votre projet',clientLabel:'Un point de départ pour collaborer',clientTitle:'Partir d’un besoin concret',clientIntro:'Développer un marché, tester une idée ou améliorer le quotidien : commençons par identifier la prochaine étape qui mérite d’être engagée.',
   clients:[['Entreprises et marques à l’international','Votre site doit évoluer, ou vous préparez votre entrée sur un nouveau marché.','Un site multilingue, des contenus de marque et un point de contact commercial clair aident vos clients étrangers à comprendre votre activité.','trade','Sites et développement international'],['Jeunes entreprises et équipes produit','Vous avez une direction produit et devez transformer l’idée en une version à tester.','Des besoins au prototype interactif puis à la première application, nous validons les parcours essentiels avant d’améliorer le produit selon les retours.','development','Applications et produits'],['PME en croissance','Les informations sont dispersées ; recherche, organisation et contenu prennent beaucoup de temps.','Nous intégrons assistants de connaissances, agents IA et outils internes à des processus précis, tout en maintenant les validations humaines nécessaires.','technology','IA et automatisation'],['Équipes en quête de soutien technique','Le produit est en ligne, mais il manque un accompagnement régulier pour les mises à jour et la maintenance.','Nous étudions le système et ses difficultés, puis convenons du périmètre des corrections, mises à jour et développements à venir.','operations','Maintenance et évolutions']],
   deliveryLabel:'Des livrables à définir ensemble',
-  deliveries:['Cartographie des processus, assistant ou flux automatisé à tester, connexions aux outils et guide d’utilisation.','Périmètre des besoins, prototype interactif, première version aux fonctionnalités convenues, documentation de déploiement et de transfert.','État des lieux du système, corrections et mises à jour, historique des changements et plan d’évolution.','Étude de faisabilité, prototype d’application et proposition d’intégration technique.',"Plans d’affaires et dossiers de levée de fonds, plans de validation du modèle économique et du produit, objectifs de croissance par étape et recommandations de mise en relation avec des partenaires sectoriels et des investisseurs.",'Site multilingue et contenus de marque, outils numériques et proposition de coopération pour le développement des marchés.'],
+  deliveries:[
+  "Cartographie des processus, assistant ou flux automatisé à tester, connexions aux outils et guide d’utilisation.",
+  "Périmètre des besoins, prototype interactif, première version aux fonctionnalités convenues, documentation de déploiement et de transfert.",
+  "État des lieux du système, corrections et mises à jour, historique des changements et plan d’évolution.",
+  "Étude de faisabilité, prototype d’application et proposition d’intégration technique.",
+  "Plans d’affaires et dossiers de levée de fonds, plans de validation du modèle économique et du produit, objectifs de croissance par étape et recommandations de mise en relation avec des partenaires sectoriels et des investisseurs.",
+  "Feuille de route du capital, analyse de l’actionnariat, plans d’affaires et dossiers de valorisation, et plan de prise de contact avec des investisseurs ou partenaires potentiels de fusion-acquisition.",
+  "Site multilingue et contenus de marque, outils numériques et proposition de coopération pour le développement des marchés."
+],
   faqTitle:'Avant de travailler ensemble',
   faq:[['Comment lancer un premier projet ?','Décrivez le problème à résoudre, l’avancement actuel et le calendrier souhaité. Après avoir hiérarchisé les priorités ensemble, nous précisons le périmètre, les livrables et les modalités de la première phase.'],['Comment fixer le coût et les délais ?','Nous évaluons les fonctionnalités, l’existant, les connexions à des systèmes externes et la préparation des contenus. Le devis précise les livrables par étape, le calendrier et les frais de maintenance ou de services tiers à convenir séparément.'],['Pouvez-vous reprendre un site ou une application existante ?','Nous pouvons d’abord examiner le code, l’environnement de déploiement, la documentation et les problèmes à résoudre, puis convenir du périmètre de reprise, des travaux de remise en ordre et de la maintenance ultérieure.'],['Comment se passent la transmission et la maintenance après le lancement ?','Nous fournissons le code et les instructions d’utilisation et de déploiement prévus, en clarifiant la gestion des comptes et des ressources. Le périmètre, le rythme des interventions et les frais de maintenance continue font l’objet d’un accord distinct.']],
   inquirySubject:'Demande de collaboration | Eleven Capital',inquiryBody:'Bonjour, je souhaite discuter d’un projet.\n\nProblème à résoudre :\nAvancement actuel / site existant :\nDate de réalisation souhaitée :\nMoyen de contact privilégié :',

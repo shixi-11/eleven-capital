@@ -81,13 +81,16 @@ for (const c of Object.values(content)) for (const section of sections) {
   }
   if (section === "services/") {
     assert(html.includes('class="project-faq"'));
-    assert.equal((html.match(/class="service-delivery"/g) || []).length, 6);
+    assert.equal((html.match(/class="service-delivery"/g) || []).length, 7);
   }
   if (section === "founder/") assert(html.includes('class="disclosure biography" open'), "Biography must open by default");
   if (section === "about/") assert(html.includes('class="disclosure values" open'), "Values must open by default");
   assert(!html.includes('class="hero-english"') && !html.includes('class="service-en"'), "Remove bilingual subtitles");
   assert(html.includes('class="language-icon"') && html.includes(c.languageLabel), "Language switch needs a visible label");
-  if (!section || section === "services/") assert.equal((html.match(/class="service"/g) || []).length, 6, "Keep all six services");
+  if (!section || section === "services/") {
+    assert.equal((html.match(/class="service"/g) || []).length, 7, "Keep all seven services");
+    assert(html.includes('id="investment"') && html.includes('id="capital"'), "Incubation and capital strategy need separate entries");
+  }
   assert(!html.includes('class="contact-label"') && !html.includes('class="partner-list-label"'));
   assert(html.includes(`rel="canonical" href="https://elevencapital.ltd${path}"`));
   assert.equal((html.match(/<h1\b/g) || []).length, (html.match(/<\/h1>/g) || []).length);

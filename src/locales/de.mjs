@@ -7,15 +7,79 @@ export default {
   heroCta:'Unsere Leistungen',location:'Hongkong · Weltweit verbunden',photoAlt:'Architektonische Darstellung des Victoria Harbour in Hongkong und der grünen Berghänge',
   focusLabel:'Leistungen und Kompetenzen',focusTitle:['Von der Idee zum Produkt.','Von der Übergabe zum Wachstum.'],focusIntro:'Wir richten technische Lösungen an Ihren Geschäftszielen aus und verbinden Entwicklung, Betrieb und die Zusammenarbeit mit passenden Ressourcen zu einem durchgängigen Leistungsangebot.',
   services:[
-    {id:'technology',title:'KI-Agenten und Prozessautomatisierung',text:'Wir konzipieren Agenten, die Werkzeuge nutzen, auf Daten zugreifen und Aufgaben voranbringen – für Unternehmenswissen, Recherche und Analyse, Content-Arbeit und die tägliche Zusammenarbeit. KI wird in konkrete Abläufe eingebunden; notwendige Zugriffskontrollen und menschliche Prüfungen bleiben erhalten.',examples:['Assistenten für Unternehmenswissen','Automatisierung von Geschäftsprozessen','Mehrsprachige Content-Workflows']},
-    {id:'development',title:'Individuelle Anwendungs- und Produktentwicklung',text:'Von der Anforderungsanalyse über Prototypen und Gestaltung bis zur Entwicklung und Bereitstellung erstellen wir Websites, Anwendungen und interne Werkzeuge. Zunächst prüfen wir die wichtigsten Nutzungsszenarien, anschließend verbessern wir Nutzererlebnis und Geschäftsfunktionen schrittweise.',examples:['Unternehmens- und Markenwebsites','Anwendungen und Verwaltungsoberflächen','Interaktive Prototypen und digitale Erlebnisse']},
-    {id:'operations',title:'Wartung und kontinuierliche Weiterentwicklung',text:'Auch nach dem Start unterstützen wir den täglichen Betrieb und die Weiterentwicklung eines Produkts. Im vereinbarten Umfang übernehmen wir Fehlerbehebung, Versionsupdates, Wartung der Bereitstellungsumgebung und funktionale Erweiterungen – als technischer Partner, auf den Unternehmen dauerhaft bauen können.',examples:['Fehleranalyse und Behebung','Bereitstellung und Versionspflege','Leistungsoptimierung und Funktionserweiterung']},
-    {id:'blockchain',title:'Web3 und Web4 erkunden',text:'Wir verbinden Blockchain-Anwendungen, On-Chain-Daten und die Zusammenarbeit von Agenten für technische Forschung, Prototypenvalidierung und Systemintegration. Anhand konkreter Einsatzszenarien erkunden wir Anwendungen der nächsten Generation, insbesondere intelligente Vernetzung und die Verbindung physischer und digitaler Welten im Umfeld von Web4.',examples:['Integration von Blockchain-Anwendungen','Prototypen für die Zusammenarbeit von Agenten','Machbarkeitsstudien zu neuen Technologien']},
-    {id:'investment',title:"Gründungsbegleitung und Investorenkontakte",text:"Wir unterstützen Gründungsteams und wachsende Unternehmen mit Gründungsberatung, strategischer Positionierung, Branchen-, Markt- und Investmentrecherche sowie der Validierung von Geschäftsmodellen und Produkten. Gemeinsam erarbeiten wir Businesspläne, Unterlagen für die Kapitalaufnahme und Etappenziele. Unterstützung bei Inkubation und Wachstum sowie Kontakte zu Branchenpartnern und Investoren begleiten den Weg von der ersten Idee zum wachsenden Unternehmen.",examples:["Gründungsberatung und Geschäftsmodelle","Inkubation und Produktvalidierung","Vorbereitung der Kapitalaufnahme und Investorenkontakte"]},
-    {id:'trade',title:'Internationales Geschäft und digitale Markenpräsenz',text:'Mit Erfahrung im internationalen Handel und interkulturellem Verständnis helfen wir Unternehmen, Märkte und Partner entlang ihrer Wertschöpfungskette zu erschließen. Mehrsprachige Websites, Markeninhalte und digitale Werkzeuge sorgen für einen klaren, konsistenten Außenauftritt im grenzüberschreitenden Geschäft.',examples:['Internationaler Handel und Markterschließung','Mehrsprachige Websites und Lokalisierung','Markeninhalte und digitale Unterstützung']}
-  ],
+  {
+    "id": "technology",
+    "title": "KI-Agenten und Prozessautomatisierung",
+    "text": "Wir konzipieren Agenten, die Werkzeuge nutzen, auf Daten zugreifen und Aufgaben voranbringen – für Unternehmenswissen, Recherche und Analyse, Content-Arbeit und die tägliche Zusammenarbeit. KI wird in konkrete Abläufe eingebunden; notwendige Zugriffskontrollen und menschliche Prüfungen bleiben erhalten.",
+    "examples": [
+      "Assistenten für Unternehmenswissen",
+      "Automatisierung von Geschäftsprozessen",
+      "Mehrsprachige Content-Workflows"
+    ]
+  },
+  {
+    "id": "development",
+    "title": "Individuelle Anwendungs- und Produktentwicklung",
+    "text": "Von der Anforderungsanalyse über Prototypen und Gestaltung bis zur Entwicklung und Bereitstellung erstellen wir Websites, Anwendungen und interne Werkzeuge. Zunächst prüfen wir die wichtigsten Nutzungsszenarien, anschließend verbessern wir Nutzererlebnis und Geschäftsfunktionen schrittweise.",
+    "examples": [
+      "Unternehmens- und Markenwebsites",
+      "Anwendungen und Verwaltungsoberflächen",
+      "Interaktive Prototypen und digitale Erlebnisse"
+    ]
+  },
+  {
+    "id": "operations",
+    "title": "Wartung und kontinuierliche Weiterentwicklung",
+    "text": "Auch nach dem Start unterstützen wir den täglichen Betrieb und die Weiterentwicklung eines Produkts. Im vereinbarten Umfang übernehmen wir Fehlerbehebung, Versionsupdates, Wartung der Bereitstellungsumgebung und funktionale Erweiterungen – als technischer Partner, auf den Unternehmen dauerhaft bauen können.",
+    "examples": [
+      "Fehleranalyse und Behebung",
+      "Bereitstellung und Versionspflege",
+      "Leistungsoptimierung und Funktionserweiterung"
+    ]
+  },
+  {
+    "id": "blockchain",
+    "title": "Web3 und Web4 erkunden",
+    "text": "Wir verbinden Blockchain-Anwendungen, On-Chain-Daten und die Zusammenarbeit von Agenten für technische Forschung, Prototypenvalidierung und Systemintegration. Anhand konkreter Einsatzszenarien erkunden wir Anwendungen der nächsten Generation, insbesondere intelligente Vernetzung und die Verbindung physischer und digitaler Welten im Umfeld von Web4.",
+    "examples": [
+      "Integration von Blockchain-Anwendungen",
+      "Prototypen für die Zusammenarbeit von Agenten",
+      "Machbarkeitsstudien zu neuen Technologien"
+    ]
+  },
+  {
+    "id": "investment",
+    "title": "Gründungsbegleitung und Investorenkontakte",
+    "text": "Wir unterstützen Gründungsteams und wachsende Unternehmen mit Gründungsberatung, strategischer Positionierung, Branchen-, Markt- und Investmentrecherche sowie der Validierung von Geschäftsmodellen und Produkten. Gemeinsam erarbeiten wir Businesspläne, Unterlagen für die Kapitalaufnahme und Etappenziele. Unterstützung bei Inkubation und Wachstum sowie Kontakte zu Branchenpartnern und Investoren begleiten den Weg von der ersten Idee zum wachsenden Unternehmen.",
+    "examples": [
+      "Gründungsberatung und Geschäftsmodelle",
+      "Inkubation und Produktvalidierung",
+      "Vorbereitung der Kapitalaufnahme und Investorenkontakte"
+    ]
+  },
+  {
+    "id": "capital",
+    "title": "Kapitalstrategie und Unternehmensentwicklung",
+    "text": "Wir unterstützen Unternehmen bei ihrem Kapitalbedarf in jeder Wachstumsphase: mit der Planung von Finanzierungswegen, der Analyse von Beteiligungsstrukturen, Businessplänen und Unternehmensbewertungen sowie Kontakten zu strategischen Investoren und potenziellen Partnern für Fusionen und Übernahmen. Von der Recherche und Vorbereitung bis zum Austausch mit möglichen Partnern richten wir die Kapitalplanung an den Geschäftszielen aus. Einzelne Transaktionen werden entsprechend den Projektanforderungen gemeinsam mit den jeweiligen Fachpartnern umgesetzt.",
+    "examples": [
+      "Finanzierungswege und Beteiligungsstrukturen",
+      "Businesspläne und Unternehmensbewertungen",
+      "Kontakte für strategische Beteiligungen, Fusionen und Übernahmen"
+    ]
+  },
+  {
+    "id": "trade",
+    "title": "Internationales Geschäft und digitale Markenpräsenz",
+    "text": "Mit Erfahrung im internationalen Handel und interkulturellem Verständnis helfen wir Unternehmen, Märkte und Partner entlang ihrer Wertschöpfungskette zu erschließen. Mehrsprachige Websites, Markeninhalte und digitale Werkzeuge sorgen für einen klaren, konsistenten Außenauftritt im grenzüberschreitenden Geschäft.",
+    "examples": [
+      "Internationaler Handel und Markterschließung",
+      "Mehrsprachige Websites und Lokalisierung",
+      "Markeninhalte und digitale Unterstützung"
+    ]
+  }
+],
   aboutLabel:'Über Eleven Capital',aboutTitle:['Technische Möglichkeiten verstehen.','Unternehmerische Ziele im Blick.'],
-  about:["Eleven Capital Limited hat seine Wurzeln in Hongkong. Auf der Grundlage von Blockchain-Technologie, Investmentresearch und internationalem Handel erweitern wir unser Angebot um KI-Agenten, die Entwicklung digitaler Produkte und deren laufenden Betrieb. Darüber hinaus beraten wir Gründer und begleiten die Inkubation von Projekten, indem wir Branchenkompetenz und Kapitalressourcen zusammenbringen.",'Spezialisierung, ein vielfältiges Leistungsangebot und Innovation bestimmen unsere Ausrichtung. Wir verbinden technische Praxis, unternehmerische Einsichten und die Bündelung von Ressourcen. Unter einer gemeinsamen Marke bieten wir Unternehmen in unterschiedlichen Entwicklungsphasen Leistungen, die zu ihren Zielen passen. Konkrete Ergebnisse und langfristige Zusammenarbeit sind uns gleichermaßen wichtig.'],
+  about:["Eleven Capital Limited hat seine Wurzeln in Hongkong. Auf der Grundlage von Blockchain-Technologie, Investmentresearch und internationalem Handel erweitern wir unser Angebot um KI-Agenten, die Entwicklung digitaler Produkte und deren laufenden Betrieb. Darüber hinaus beraten wir Gründer und begleiten die Inkubation von Projekten, indem wir Branchenkompetenz und Kapitalressourcen zusammenbringen. Darüber hinaus unterstützen wir die Unternehmensentwicklung mit Kapitalstrategien, Finanzierungsvorbereitung und Kontakten zu strategischen Investoren sowie potenziellen Partnern für Fusionen und Übernahmen.",'Spezialisierung, ein vielfältiges Leistungsangebot und Innovation bestimmen unsere Ausrichtung. Wir verbinden technische Praxis, unternehmerische Einsichten und die Bündelung von Ressourcen. Unter einer gemeinsamen Marke bieten wir Unternehmen in unterschiedlichen Entwicklungsphasen Leistungen, die zu ihren Zielen passen. Konkrete Ergebnisse und langfristige Zusammenarbeit sind uns gleichermaßen wichtig.'],
   visionTitle:'Wert, der über die Zeit besteht.',vision:'Unsere Vision ist es, eine international führende Gruppe für umfassende Finanzdienstleistungen aufzubauen und zu einem Unternehmen zu werden, das ein Jahrhundert überdauert. Dabei wollen wir für Kunden, Anteilseigner, Mitarbeitende und die Gesellschaft einen stetig wachsenden Wert schaffen.',
   mission:[['Für unsere Anteilseigner','Wir streben stabile Renditen und einen Wertzuwachs der Vermögenswerte an und achten die Interessen unserer Anteilseigner.'],['Für unsere Kunden','Wir bieten hervorragenden Service, handeln integer und schätzen langfristiges Vertrauen.'],['Für unsere Mitarbeitenden','Wir fördern die berufliche Entwicklung und Lebensqualität, damit Mitarbeitende und Unternehmen gemeinsam wachsen.'],['Für die Gesellschaft','Wir leisten einen aktiven Beitrag zur Gesellschaft und zur dauerhaften Entwicklung von Gemeinschaften und Ländern.']],
   valuesSummary:'Unsere Werte und Führungsgrundsätze',
@@ -31,7 +95,15 @@ export default {
   projectCta:'Projekt besprechen',clientLabel:'Ein passender Einstieg',clientTitle:'Mit einem konkreten Bedarf beginnen',clientIntro:'Einen Markt erschließen, eine Idee erproben oder den Alltag verbessern: Zunächst finden wir den nächsten Schritt, der sich lohnt.',
   clients:[['Unternehmen und Marken mit Auslandsplänen','Ihre Website soll erneuert werden, oder Sie bereiten den Eintritt in einen neuen Markt vor.','Eine mehrsprachige Website, Markeninhalte und ein klarer geschäftlicher Kontaktweg machen Ihr Angebot für Kunden im Ausland verständlich.','trade','Websites und internationales Geschäft'],['Start-ups und Produktteams','Die Produktrichtung steht, doch aus der Idee muss eine testbare Version werden.','Von der Anforderungsanalyse über interaktive Prototypen bis zur ersten Anwendung prüfen wir zunächst die zentralen Abläufe und entwickeln anhand von Rückmeldungen weiter.','development','Anwendungs- und Produktentwicklung'],['Wachsende kleine und mittlere Unternehmen','Informationen sind verstreut; Recherche, Aufbereitung und Content-Arbeit kosten viel Zeit.','Wir integrieren Wissensassistenten, KI-Agenten und interne Werkzeuge in konkrete Abläufe. Notwendige menschliche Freigaben bleiben bestehen.','technology','KI und Prozessautomatisierung'],['Teams mit technischem Unterstützungsbedarf','Das Produkt ist bereits veröffentlicht, doch verlässliche Unterstützung bei Updates und Wartung fehlt.','Zunächst verstehen wir das bestehende System und seine Probleme. Danach vereinbaren wir den Umfang von Korrekturen, Versionsupdates und zusätzlichen Funktionen.','operations','Wartung und Weiterentwicklung']],
   deliveryLabel:'Gemeinsam vereinbarte Ergebnisse',
-  deliveries:['Darstellung der Abläufe, ein testbarer Assistent oder automatisierter Prozess, Werkzeuganbindungen und Nutzungsanleitung.','Anforderungsumfang, interaktiver Prototyp, erste Produktversion mit den vereinbarten Funktionen sowie Dokumentation für Bereitstellung und Übergabe.','Bestandsaufnahme des Systems, Korrekturen und Versionsupdates, Änderungsprotokoll und Planung der nächsten Entwicklungsschritte.','Machbarkeitsstudie, Anwendungsprototyp und technisches Integrationskonzept.',"Businesspläne und Unterlagen für die Kapitalaufnahme, Pläne zur Validierung von Geschäftsmodell und Produkt, Wachstumsziele für einzelne Phasen sowie Empfehlungen für Kontakte zu Branchenpartnern und Investoren.",'Mehrsprachige Website und Markeninhalte, digitale Werkzeuge und ein Kooperationskonzept für die Markterschließung.'],
+  deliveries:[
+  "Darstellung der Abläufe, ein testbarer Assistent oder automatisierter Prozess, Werkzeuganbindungen und Nutzungsanleitung.",
+  "Anforderungsumfang, interaktiver Prototyp, erste Produktversion mit den vereinbarten Funktionen sowie Dokumentation für Bereitstellung und Übergabe.",
+  "Bestandsaufnahme des Systems, Korrekturen und Versionsupdates, Änderungsprotokoll und Planung der nächsten Entwicklungsschritte.",
+  "Machbarkeitsstudie, Anwendungsprototyp und technisches Integrationskonzept.",
+  "Businesspläne und Unterlagen für die Kapitalaufnahme, Pläne zur Validierung von Geschäftsmodell und Produkt, Wachstumsziele für einzelne Phasen sowie Empfehlungen für Kontakte zu Branchenpartnern und Investoren.",
+  "Ein Fahrplan für die Kapitalstrategie, eine Analyse der Beteiligungsstruktur, Businesspläne und Bewertungsunterlagen sowie ein Plan zur Ansprache von Investoren oder potenziellen Partnern für Fusionen und Übernahmen.",
+  "Mehrsprachige Website und Markeninhalte, digitale Werkzeuge und ein Kooperationskonzept für die Markterschließung."
+],
   faqTitle:'Fragen vor dem Projektstart',
   faq:[['Wie beginnen wir das erste Projekt?','Beschreiben Sie das Problem, den aktuellen Stand und Ihren gewünschten Zeitrahmen. Nach einer gemeinsamen Priorisierung legen wir Umfang, Ergebnisse und Zusammenarbeit für die erste Phase fest.'],['Wie werden Kosten und Dauer bestimmt?','Wir bewerten Funktionsumfang, bestehende Grundlagen, externe Systemanbindungen und den Stand der Inhalte. Das Angebot benennt Etappenergebnisse, Zeitplan sowie gesondert zu vereinbarende Wartungs- oder Drittanbieterkosten.'],['Können Sie eine bestehende Website oder Anwendung übernehmen?','Wir prüfen zunächst Code, Bereitstellungsumgebung, Dokumentation und offene Probleme. Danach können wir Übernahmeumfang, notwendige Aufräumarbeiten und die spätere Wartung vereinbaren.'],['Wie laufen Übergabe und Wartung nach dem Start ab?','Wir übergeben Code sowie Nutzungs- und Bereitstellungsanleitungen gemäß Vereinbarung und klären die Verwaltung von Konten und Ressourcen. Umfang, Bearbeitungsrhythmus und Kosten der laufenden Wartung werden gesondert vereinbart.']],
   inquirySubject:'Projektanfrage | Eleven Capital',inquiryBody:'Guten Tag, ich möchte ein Projekt besprechen.\n\nZu lösendes Problem:\nAktueller Stand / bestehende Website:\nGewünschter Fertigstellungstermin:\nBevorzugter Kontaktweg:',
