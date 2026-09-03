@@ -128,12 +128,12 @@ export const content = {
       },
       {
         "id": "investment",
-        "title": "投資研究與孵化加速",
-        "text": "以產業研究與市場洞察為基礎，結合產品驗證、戰略定位及資源對接，陪伴成長型企業建立更清晰的發展路徑，連接技術創新與商業機會。",
+        "title": "創業孵化與資本對接",
+        "text": "面向創業團隊與成長型企業，提供創業指導、戰略定位、產業、市場與投資研究、商業模式及產品驗證。協助梳理商業計劃、融資材料與階段目標，並結合孵化與加速支持、產業資源與資本對接，推進從創業構想到業務成長的每一步。",
         "examples": [
-          "產業與市場研究",
-          "商業模式與產品驗證",
-          "孵化支持與資源對接"
+          "創業指導與商業模式",
+          "項目孵化與產品驗證",
+          "融資準備與資本對接"
         ]
       },
       {
@@ -153,7 +153,7 @@ export const content = {
       "也懂商業的分量"
     ],
     "about": [
-      "十一資本有限公司起源於香港，以區塊鏈技術、投資研究與國際貿易為業務基礎，將服務延伸至AI智能體、數字產品開發及持續運營。",
+      "十一資本有限公司起源於香港，以區塊鏈技術、投資研究與國際貿易為業務基礎，將服務延伸至AI智能體、數字產品開發及持續運營。同時，為創業團隊提供創業指導與孵化支持，協同產業與資本資源。",
       "我們以專業化、多元化與創新化為方向，將技術實踐、商業洞察與資源整合相結合。在統一品牌下，為不同發展階段的企業提供與其目標相適應的服務，重視可交付的成果，也重視長期合作。"
     ],
     "visionTitle": "讓價值，經得起時間。",
@@ -235,7 +235,7 @@ export const content = {
       ],
       [
         "investment",
-        "投研與全球協同"
+        "創業孵化與資本對接"
       ]
     ],
     "engagementLabel": "合作方式",
@@ -299,7 +299,7 @@ export const content = {
       "需求範圍、交互原型、約定功能的首版產品、部署與交接文檔。",
       "系統現況梳理、修復與版本更新、變更記錄及後續迭代安排。",
       "可行性研究、應用原型與技術集成方案。",
-      "行業與市場研究、產品驗證思路、階段目標與協作建議。",
+      "商業計劃與融資材料、商業模式及產品驗證方案、階段發展規劃，以及產業與資本對接建議。",
       "多語言網站與品牌內容、數字化工具及市場拓展的協作方案。"
     ],
     "faqTitle": "合作前，您可能關心",
@@ -399,12 +399,12 @@ export const content = {
       },
       {
         "id": "investment",
-        "title": "Investment research, incubation & acceleration",
-        "text": "Drawing on industry research and market insight, we support product validation and strategic positioning, and bring together relevant expertise and resources. We help growing businesses clarify their direction and connect technological innovation with commercial opportunities.",
+        "title": "Startup incubation & investor connections",
+        "text": "We help startup teams and growing businesses shape their strategy, research industries, markets and investment opportunities, and validate business models and products. Our support includes founder guidance, business plans, fundraising materials and milestones. Through incubation and acceleration support, along with connections to industry partners and investors, we help teams progress from an initial idea to a growing business.",
         "examples": [
-          "Industry and market research",
-          "Business model and product validation",
-          "Incubation support and access to resources"
+          "Founder guidance and business models",
+          "Incubation and product validation",
+          "Fundraising preparation and investor introductions"
         ]
       },
       {
@@ -424,7 +424,7 @@ export const content = {
       "Commercial judgement."
     ],
     "about": [
-      "With roots in Hong Kong, Eleven Capital Limited builds on its work in blockchain technology, investment research and international trade to offer AI agents, digital product development and ongoing operations.",
+      "With roots in Hong Kong, Eleven Capital Limited builds on its work in blockchain technology, investment research and international trade to offer AI agents, digital product development and ongoing operations. We also guide founders and support startup incubation, bringing together industry expertise and capital resources.",
       "Specialist expertise, a diversified range of services and innovation guide our work. We bring technical practice, commercial insight and complementary resources together under one brand, tailoring our services to each business’s goals and stage of development. We value tangible results and long-term partnerships."
     ],
     "visionTitle": "Value that endures.",
@@ -506,7 +506,7 @@ export const content = {
       ],
       [
         "investment",
-        "Investment research & global collaboration"
+        "Startup incubation & investor connections"
       ]
     ],
     "engagementLabel": "Working together",
@@ -570,7 +570,7 @@ export const content = {
       "A defined scope, interactive prototypes, an initial product with agreed features, and deployment and handover documentation.",
       "A review of the existing system, fixes and updates, a record of changes and a plan for further development.",
       "Feasibility research, application prototypes and a technical integration plan.",
-      "Industry and market research, approaches to product validation, milestones and recommendations for collaboration.",
+      "Business plans and fundraising materials, business model and product validation plans, growth milestones, and recommendations for connecting with industry partners and investors.",
       "Multilingual websites and brand content, digital tools and a plan for collaborating on market expansion."
     ],
     "faqTitle": "Before we work together",

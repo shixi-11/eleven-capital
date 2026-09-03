@@ -20,8 +20,9 @@ This is the open-source repository for our **official company website**. Visit t
 | Turn a product idea into something people can use | Requirements definition, interactive prototypes, custom application development, launch and handover. |
 | Reduce repetitive work and make information easier to use | Knowledge assistants, AI agents and workflow automation, with human review where needed. |
 | Keep an existing website or application running and improving | System assessment, bug fixes, updates, ongoing maintenance and further development. |
+| Build a clearer path from a startup idea to growth and fundraising | Founder guidance, business model validation, incubation support, business plans, fundraising materials and introductions to industry partners and investors. |
 
-Our broader work includes Web3 application research, product validation and incubation, and international business collaboration. Emerging areas such as Web4 are explored through research and prototypes, with the scope shaped by a concrete business need.
+Our work also covers industry and investment research, startup incubation, Web3 application research and international business collaboration. We help founders clarify their strategy and milestones, prepare for fundraising and connect with relevant industry partners and investors. Emerging areas such as Web4 are explored through research and prototypes, with the scope shaped by a concrete business need.
 
 ### Start a conversation
 
@@ -57,8 +58,9 @@ For setup, development and deployment, see the [developer guide](DEVELOPMENT.md#
 | 把产品想法变成可以使用的应用 | 需求梳理、交互原型、应用定制开发、部署上线与交接。 |
 | 减少重复工作，让资料更容易使用 | 知识助手、AI智能体与工作流程自动化，保留必要的人工确认。 |
 | 让现有网站或应用持续运行、不断改进 | 系统评估、问题修复、版本更新、代维护与后续功能开发。 |
+| 明确从创业构想到业务成长、融资准备的发展路径 | 创业指导、商业模式验证、孵化支持、商业计划与融资材料，以及产业和资本对接。 |
 
-我们的业务也涵盖Web3应用研究、产品验证与孵化，以及国际业务协作。对于Web4等前沿方向，我们从研究和原型验证入手，围绕具体业务需求确定探索范围。
+我们的业务也涵盖产业与投资研究、创业孵化、Web3应用研究及国际业务协作，帮助创业者梳理战略方向与阶段目标、做好融资准备，并对接相关产业与资本资源。对于Web4等前沿方向，我们从研究和原型验证入手，围绕具体业务需求确定探索范围。
 
 ### 怎样开始合作
 
