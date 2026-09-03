@@ -70,10 +70,7 @@ export const content = {
       "合作夥伴"
     ],
     "contact": "聯繫我們",
-    "heroLines": [
-      "AI與數字產品",
-      "從開發到長期維護"
-    ],
+    "heroLines": ["連接資本與產業","支持企業長期成長"],
     "heroEnglish": "",
     "heroIntro": "為創業團隊與成長型企業提供數字產品與AI智能體開發，從構想落地到持續運營，提供長期技術支持。",
     "heroCta": "探索我們的服務",
@@ -352,10 +349,7 @@ export const content = {
       "Partners"
     ],
     "contact": "Get in touch",
-    "heroLines": [
-      "AI & digital products.",
-      "Built for the long term."
-    ],
+    "heroLines": ["Connecting capital and industry.","Supporting long-term growth."],
     "heroEnglish": "",
     "heroIntro": "We build digital products and AI agents for startup teams and growing businesses, with long-term technical support from initial concept through launch and ongoing operations.",
     "heroCta": "Explore our services",

@@ -52,17 +52,3 @@ checked-in font assets and does not need Python or a font service.
 Partner artwork remains unmodified. All six original files are PNGs with real
 alpha transparency and are displayed in a transparent container. White details
 inside the ALUX and Xiaomi marks are part of their artwork and are preserved.
-
-## Project examples
-
-`public/assets/work/eleven-capital-*.png` are unedited browser screenshots of
-this website, captured in each displayed language. They illustrate the company's
-own site, not a third-party client result.
-
-`public/assets/work/mohe.png` is the original character image from
-[Shixi Lin's public Mohe project](https://github.com/shixi-11/mohe-pet), retrieved
-from `desktop-app/public/assets/mohe-idle-v2-cutout.png`. It is presented as
-independent work by the founder, with attribution and a link to the project.
-The character artwork remains the creator's work; this repository's code license
-does not grant separate rights to the character or brand. No sales, user counts,
-client engagement or commercial performance is claimed.

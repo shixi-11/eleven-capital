@@ -2,7 +2,7 @@ export default {
   lang:'es',path:'/es/',otherPath:'/',otherLabel:'EN',otherLang:'en',
   description:'Eleven Capital conecta tecnología y negocio: agentes de IA, desarrollo y mantenimiento de productos digitales, exploración de Web3 y Web4, investigación de inversiones, incubación, aceleración y colaboración internacional.',
   skip:'Ir al contenido',menu:'Menú',languageLabel:'Idioma',nav:['Nosotros','Servicios','Fundadora','Colaboradores'],contact:'Contacto',
-  heroLines:['IA y productos digitales.','Del desarrollo al mantenimiento a largo plazo.'],heroEnglish:'',
+  "heroLines": ["Conectamos capital e industria.","Impulsamos el crecimiento a largo plazo."],heroEnglish:'',
   heroIntro:'Desarrollamos productos digitales y agentes de IA para equipos emprendedores y empresas en crecimiento. Ofrecemos apoyo técnico a largo plazo, desde la puesta en marcha de una idea hasta su operación continua.',
   heroCta:'Conozca nuestros servicios',location:'Hong Kong · Conectados con el mundo',photoAlt:'Ilustración arquitectónica del puerto de Victoria en Hong Kong, con la vegetación de las montañas circundantes',
   focusLabel:'Servicios y capacidades',focusTitle:['De la idea al producto.','De la entrega al crecimiento.'],focusIntro:'Definimos soluciones técnicas a partir de los objetivos del negocio e integramos desarrollo, operación y coordinación de recursos en un servicio continuo.',

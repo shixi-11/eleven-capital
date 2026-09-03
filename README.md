@@ -4,9 +4,9 @@
 
 ## English
 
-**From an idea to a working product, with support beyond launch.**
+**Connecting capital and industry. Supporting long-term business growth.**
 
-Eleven Capital Limited helps founders and growing businesses build websites, custom applications and AI tools, then maintain and improve them over time. With roots in Hong Kong and an international outlook, we combine technical development, research and business collaboration to help products reach the market and businesses grow.
+Eleven Capital Limited is a Hong Kong company that connects capital, industry and technology to support business growth. Our work spans venture incubation, funding preparation, industry research and business collaboration, with product development and AI capabilities supporting implementation.
 
 This is the open-source repository for our **official company website**. Visit the website to explore our services, meet our founder, learn about our partners and discuss a project.
 
@@ -33,7 +33,7 @@ Our work also covers industry and investment research, startup incubation, Web3 
 
 Fees depend on scope, existing systems, available materials and timing. Funding and transaction outcomes are not guaranteed.
 
-[Explore our own website and the founder's independent work](https://elevencapital.ltd/#work). The enquiry tool prepares a summary that visitors can copy or send using their own email account. Preparing a summary does not send it.
+The enquiry tool prepares a summary that visitors can copy or send using their own email account. Preparing a summary does not send it.
 
 ### Start a conversation
 
@@ -53,9 +53,9 @@ For setup, development and deployment, see the [developer guide](DEVELOPMENT.md#
 
 ## 简体中文
 
-**把构想做成可用的产品，让上线后的每一步有人支持。**
+**连接资本与产业，支持企业长期成长。**
 
-十一资本有限公司为创业者与成长型企业提供网站建设、应用产品定制开发、AI工具开发及长期维护服务。公司起源于香港，将技术开发、研究与商业协作相结合，以国际视野支持产品落地与业务发展。
+十一资本有限公司立足香港，围绕企业成长连接资本、产业与技术资源。我们提供创业孵化、融资准备、产业研究与商业协作支持，并结合产品开发与AI应用能力，推进具体项目落地。
 
 这里是**十一资本官方网站的开源代码仓库**。您可以通过官网了解我们的服务、创始人与合作伙伴，也可以从这里开始洽谈项目合作。
 
@@ -82,7 +82,7 @@ For setup, development and deployment, see the [developer guide](DEVELOPMENT.md#
 
 费用根据范围、现有基础、资料和时间安排评估。融资与交易结果不作为服务承诺。
 
-[查看自有项目与创始人作品](https://elevencapital.ltd/zh-hans/#work)。网站也提供需求摘要工具；客户可复制摘要，或使用自己的邮箱发送至公司邮箱。生成摘要不代表已经发送。
+网站也提供需求摘要工具；客户可复制摘要，或使用自己的邮箱发送至公司邮箱。生成摘要不代表已经发送。
 
 ### 怎样开始合作
 

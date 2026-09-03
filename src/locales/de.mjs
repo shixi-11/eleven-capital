@@ -2,7 +2,7 @@ export default {
   lang:'de',path:'/de/',otherPath:'/',otherLabel:'EN',otherLang:'en',
   description:'Eleven Capital verbindet Technologie und Wirtschaft: KI-Agenten, Entwicklung und Wartung digitaler Produkte, Erkundung von Web3 und Web4 sowie Investmentresearch, Unternehmensförderung und internationale Zusammenarbeit.',
   skip:'Zum Inhalt',menu:'Menü',languageLabel:'Sprache',nav:['Über uns','Leistungen','Gründerin','Partner'],contact:'Kontakt',
-  heroLines:['KI und digitale Produkte.','Entwicklung und langfristige Wartung.'],heroEnglish:'',
+  "heroLines": ["Kapital und Wirtschaft verbinden.","Langfristiges Wachstum begleiten."],heroEnglish:'',
   heroIntro:'Wir entwickeln digitale Produkte und KI-Agenten für Start-ups und wachsende Unternehmen. Von der Umsetzung einer Idee bis zum laufenden Betrieb begleiten wir sie mit langfristiger technischer Unterstützung.',
   heroCta:'Unsere Leistungen',location:'Hongkong · Weltweit verbunden',photoAlt:'Architektonische Darstellung des Victoria Harbour in Hongkong und der grünen Berghänge',
   focusLabel:'Leistungen und Kompetenzen',focusTitle:['Von der Idee zum Produkt.','Von der Übergabe zum Wachstum.'],focusIntro:'Wir richten technische Lösungen an Ihren Geschäftszielen aus und verbinden Entwicklung, Betrieb und die Zusammenarbeit mit passenden Ressourcen zu einem durchgängigen Leistungsangebot.',

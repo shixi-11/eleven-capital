@@ -2,7 +2,7 @@ import { mkdir, cp, writeFile, readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { content, partners, languages, siteTitle } from "../src/content.mjs";
 import { serviceProcess, processSteps } from "../src/processes.mjs";
-import { growthFor, audienceSection, offersSection, workSection, inquiryForm } from '../src/growth.mjs';
+import { growthFor, audienceSection, offersSection, inquiryForm } from '../src/growth.mjs';
 
 const esc = (s) =>
   String(s)
@@ -28,10 +28,10 @@ function ui(c) {
 }
 const more = (c, section, label = ui(c)[section]) => '<a class="text-link" href="' + route(c, section) + '">' + label + arrow + '</a>';
 function heroSection(c) { return `<section class="hero" aria-labelledby="hero-title"><div class="hero-copy"><p class="hero-eyebrow">${c.heroEyebrow}</p><h1 id="hero-title">${lines(c.heroLines)}</h1>${c.heroEnglish ? `<p class="hero-english" lang="en">${c.heroEnglish}</p>` : ""}<p class="hero-intro">${
-    esc(growthFor(c).heroIntro).replace(/\b(?:startup teams|AI agents)\b/g, (phrase) => phrase.replaceAll(" ", "&nbsp;")).replace(/[創创][業业][團团][隊队]|成[長长]型企[業业]|[數数]字[產产]品|[構构]想落地|持[續续][運运][營营]|[長长]期技[術术]支持|多[語语]言官[網网]|AI智能[体體][開开][發发]|AI[應应]用|[應应]用|持[續续][維维][護护]|[維维][護护][與与]迭代|AI智能[体體]|AIエージェント|スタートアップ|デジタル製品|成長企業|継続的な運用まで|長期的な技術支援|構想の実現|開発|Web3|Web4/g, (term) => `<span class="phrase">${term}</span>`)
+    esc(growthFor(c).heroIntro).replace(/\b(?:startup teams|AI agents)\b/g, (phrase) => phrase.replaceAll(" ", "&nbsp;")).replace(/[創创][業业]孵化|融[資资][準准][備备]|[數数]字化[發发]展|[資资]源|[創创][業业][團团][隊队]|成[長长]型企[業业]|[數数]字[產产]品|[構构]想落地|持[續续][運运][營营]|[長长]期技[術术]支持|多[語语]言官[網网]|AI智能[体體][開开][發发]|AI[應应]用|[應应]用|持[續续][維维][護护]|[維维][護护][與与]迭代|AI智能[体體]|AIエージェント|スタートアップ|デジタル製品|成長企業|継続的な運用まで|長期的な技術支援|構想の実現|開発|Web3|Web4/g, (term) => `<span class="phrase">${term}</span>`)
   }</p><div class="hero-actions"><a class="button-outline" href="#contact">${c.projectCta}<span aria-hidden="true">→</span></a><a class="hero-secondary" href="${route(c, "services")}">${c.heroCta}</a></div><p class="hero-location"><span class="location-line" aria-hidden="true"></span>${c.location}</p></div><figure class="hero-image"><img src="/assets/hong-kong.png" alt="${c.photoAlt}" width="1086" height="1448" fetchpriority="high"></figure></section>
 `; }
-function pillarsSection(c) { return `<nav class="focus-strip" aria-label="${c.focusLabel}">${c.pillars.map(([id, title]) => `<a href="${route(c, "services")}#${id}">${title}<span aria-hidden="true">↘</span></a>`).join("")}</nav>
+function pillarsSection(c) { return `<nav class="focus-strip" aria-label="${c.focusLabel}">${[...c.pillars].sort((a,b)=>(a[0]==='investment'?-1:b[0]==='investment'?1:0)).map(([id, title]) => `<a href="${route(c, "services")}#${id}">${title}<span aria-hidden="true">↘</span></a>`).join("")}</nav>
 `; }
 
 const serviceArt = {development:'product-building',capital:'enterprise-growth'};
@@ -56,7 +56,7 @@ function homeSections(c) {
   const about = '<section class="section about home-about" id="about" aria-labelledby="about-title"><div class="section-heading"><p class="section-label">' + c.aboutLabel + '</p><h2 id="about-title">' + lines(c.aboutTitle) + '</h2><div class="prose">' + paragraphs([c.homeAbout]) + '</div>' + more(c, 'about') + '</div></section>';
   const founder = founderSection(c).replace(/<details class="disclosure biography"[\s\S]*?<\/details>/, '').replace(/<div class="social-links">[\s\S]*?<\/div>/, more(c, 'founder'));
   const partners = partnersSection(c, true);
-  return heroSection(c) + pillarsSection(c) + audienceSection(c) + workSection(c) + offersSection(c, true) + about + founder + partners;
+  return heroSection(c) + pillarsSection(c) + audienceSection(c) + offersSection(c, true) + about + founder + partners;
 }
 function mainSections(c, section) {
   if (section === 'home') return homeSections(c);

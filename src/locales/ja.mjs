@@ -3,7 +3,7 @@ export default {
   description: 'Eleven Capitalは技術とビジネスをつなぎ、AIエージェント、デジタル製品の受託開発・保守、Web3・Web4の技術探究を、投資調査、事業育成、国際事業の連携とともに支援します。',
   skip: '本文へ移動', menu: 'メニュー', languageLabel: '言語',
   nav: ['私たちについて', 'サービス', '創業者', 'パートナー'], contact: 'お問い合わせ',
-  heroLines: ['AIとデジタル製品', '開発から長期保守まで'], heroEnglish: '',
+  "heroLines": ["資本と産業をつなぎ","企業の長期的な成長を支える"], heroEnglish: '',
   heroIntro: 'スタートアップや成長企業に向けて、デジタル製品とAIエージェントを開発。構想の実現から継続的な運用まで、長期的な技術支援を提供します。',
   heroCta: 'サービスを見る', location: '香港から、世界へ', photoAlt: '香港のビクトリア・ハーバーと山の緑を描いた都市のイメージ',
   focusLabel: 'サービスと専門領域', focusTitle: ['構想を製品へ', '納品の先の成長へ'],

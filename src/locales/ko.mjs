@@ -2,7 +2,7 @@ export default {
   lang:'ko',path:'/ko/',otherPath:'/',otherLabel:'EN',otherLang:'en',
   description:'Eleven Capital은 기술과 비즈니스를 연결합니다. AI 에이전트, 디지털 제품 위탁 개발·유지보수, Web3·Web4 기술 탐구와 함께 투자 리서치, 기업 육성, 글로벌 사업 협력을 지원합니다.',
   skip:'본문으로 이동',menu:'메뉴',languageLabel:'언어',nav:['회사 소개','서비스','창업자','파트너'],contact:'문의하기',
-  heroLines:['AI와 디지털 제품','개발부터 장기 유지보수까지'],heroEnglish:'',
+  "heroLines": ["자본과 산업을 연결하고","기업의 장기 성장을 지원합니다"],heroEnglish:'',
   heroIntro:'스타트업과 성장 기업을 위한 디지털 제품과 AI 에이전트를 개발합니다. 구상 단계부터 구현과 지속적인 운영까지, 장기적인 기술 지원을 제공합니다.',
   heroCta:'서비스 살펴보기',location:'홍콩에서 세계로',photoAlt:'홍콩 빅토리아 항구와 산의 녹음을 담은 도시 이미지',
   focusLabel:'서비스와 역량',focusTitle:['아이디어를 제품으로','납품을 넘어 성장으로'],focusIntro:'사업 목표에 맞춰 기술적 접근을 설계하고, 개발과 운영, 필요한 자원의 연계까지 하나의 과정으로 지원합니다.',

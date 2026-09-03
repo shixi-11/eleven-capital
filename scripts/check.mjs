@@ -95,8 +95,7 @@ for (const c of Object.values(content)) for (const section of sections) {
   if (!section) {
     assert(html.includes('class="client-grid"') && html.includes(c.projectCta));
     for (const [title] of growthContent[c.lang].audiences) assert(html.includes(title.replaceAll('&','&amp;')));
-    assert(html.includes('id="work"') && html.includes('https://github.com/shixi-11/mohe-pet'));
-    for (const image of ['eleven-capital-'+c.lang,'mohe']) assert(html.includes(`/assets/work/${image}.png`));
+    assert(!html.includes('id="work"') && !html.includes('/assets/work/') && !html.includes('https://github.com/shixi-11/mohe-pet'));
   }
   if (section === 'services/') {
     for (const image of ['product-building.png','enterprise-growth.png']) assert(html.includes(`/assets/${image}`), `Missing service illustration: ${path}`);
