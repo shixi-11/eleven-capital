@@ -19,6 +19,10 @@ does not grant permission to impersonate the company or reuse its identity.
 - `public/assets/hong-kong.png`: AI-generated architectural illustration for
   geographic atmosphere, created for this site. It is not documentary evidence
   of a specific property, office, or location operated by Eleven Capital.
+- `public/assets/product-building.png` and `enterprise-growth.png`: original
+  AI-generated conceptual illustrations made for this website. They illustrate
+  digital product development and business collaboration; they are not real
+  product screenshots, client projects, premises, or evidence of financial results.
 - `public/assets/partners/`: six owner-supplied, unmodified partner logo files
   for ALUX, ConcurSys, Mineski, HOFAN, Xiaomi and Solaire. Logos link to the
   official URLs listed on the original website. Third-party names and trademarks

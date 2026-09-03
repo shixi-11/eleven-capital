@@ -65,7 +65,7 @@ export const content = {
     "languageLabel": "語言",
     "nav": [
       "關於我們",
-      "服務與能力",
+      "服務能力",
       "創始人",
       "合作夥伴"
     ],
@@ -79,7 +79,7 @@ export const content = {
     "heroCta": "探索我們的服務",
     "location": "香港 · 連接全球",
     "photoAlt": "香港維多利亞港與山間綠意的建築意象",
-    "focusLabel": "服務與能力",
+    "focusLabel": "服務能力",
     "focusTitle": [
       "從構想到產品",
       "從交付到成長"
@@ -271,34 +271,34 @@ export const content = {
     ],
     "projectCta": "洽談您的項目",
     "clientLabel": "適合您的合作起點",
-    "clientTitle": "從具體需求開始",
-    "clientIntro": "無論是開拓市場、驗證構想，還是改善日常運營，先找到值得推進的下一步。",
+    "clientTitle": "支持您下一階段的發展",
+    "clientIntro": "從產品落地、效率提升到市場拓展，讓技術與商業支持契合您的發展目標。", "homeAbout": "立足香港，十一資本連接技術、產業與資本，提供產品開發、創業孵化、資本戰略及國際業務協作，支持企業從構想落地到持續成長。",
     "clients": [
       [
         "出海企業與品牌",
         "官網需要升級，或正準備面向新的市場。",
-        "多語言網站、品牌內容與清楚的業務聯繫入口，讓海外客戶更容易了解您。",
+        "以多語言網站與品牌內容清晰呈現業務，幫助海外客戶了解您、建立聯繫。",
         "trade",
         "官網與國際業務"
       ],
       [
         "創業與產品團隊",
         "有產品方向，需要把想法變成可以試用的版本。",
-        "從需求梳理、交互原型到首版應用，先驗證核心流程，再按反饋持續迭代。",
+        "從需求、原型到首版產品，驗證核心功能，依據用戶反饋持續改進。",
         "development",
         "應用與產品開發"
       ],
       [
         "成長型中小企業",
         "資料分散，研究、整理與內容工作耗費大量時間。",
-        "圍繞具體流程引入知識助手、AI智能體與內部工具，保留必要的人工確認。",
+        "把知識助手與AI智能體融入日常流程，減少重複工作，保留關鍵環節的人工確認。",
         "technology",
         "AI與流程自動化"
       ],
       [
         "需要技術支持的團隊",
         "產品已經上線，卻缺少穩定的更新和維護支持。",
-        "先了解現有系統與問題，再約定修復、版本更新和後續功能開發的範圍。",
+        "評估現有系統，提供問題修復、版本更新與功能迭代，支持產品長期運行。",
         "operations",
         "代維護與持續迭代"
       ]
@@ -553,34 +553,34 @@ export const content = {
     ],
     "projectCta": "Discuss your project",
     "clientLabel": "A starting point for your business",
-    "clientTitle": "Start with a real need.",
-    "clientIntro": "Reach a new market, test a product idea or improve everyday operations. Choose the next step that matters to your business.",
+    "clientTitle": "Support for your next stage",
+    "clientIntro": "From launching products and improving operations to entering new markets, we align technical and commercial support with your goals.", "homeAbout": "Based in Hong Kong, Eleven Capital connects technology, industry and capital through product development, startup incubation, capital strategy and international business collaboration, supporting businesses from an initial idea to sustained growth.",
     "clients": [
       [
         "Businesses entering new markets",
         "Your website needs an update, or your brand is preparing to reach a new audience.",
-        "Multilingual websites, brand content and clear ways to get in touch help overseas customers understand your business.",
+        "Present your business clearly through a multilingual website and brand content that help overseas customers understand your offer and get in touch.",
         "trade",
         "Websites & international business"
       ],
       [
         "Startups & product teams",
         "You have a product concept and need a version people can try.",
-        "We help you define requirements, develop interactive prototypes and build the first version of your application. We validate the core workflows first, then refine the product based on feedback.",
+        "Take your product from requirements and prototypes to a first release, validate its core features and improve it through user feedback.",
         "development",
         "Application & product development"
       ],
       [
         "Growing small and medium-sized businesses",
         "Information is scattered, and research, organisation and content work take up too much time.",
-        "We build knowledge assistants, AI agents and internal tools around specific workflows, with human review where needed.",
+        "Bring knowledge assistants and AI agents into everyday workflows to reduce repetitive work, with human review at key decision points.",
         "technology",
         "AI & workflow automation"
       ],
       [
         "Teams needing ongoing support",
         "Your product is live, but you need reliable support for updates and maintenance.",
-        "We first assess the existing system and its issues, then agree on a scope for fixes, updates and further development.",
+        "Assess existing systems and provide fixes, updates and further development to keep your product running over the long term.",
         "operations",
         "Maintenance & ongoing development"
       ]

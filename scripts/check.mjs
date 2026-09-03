@@ -79,6 +79,11 @@ for (const c of Object.values(content)) for (const section of sections) {
     assert(html.includes('class="client-grid"') && html.includes(c.projectCta));
     for (const [title] of c.clients) assert(html.includes(title));
   }
+  if (!section || section === 'services/') {
+    for (const image of ['product-building.png','enterprise-growth.png']) assert(html.includes(`/assets/${image}`), `Missing service illustration: ${path}`);
+  }
+  if (section === 'about/') assert(html.includes('/assets/hong-kong.png'));
+  if (section === 'partners/') assert(html.includes('/assets/enterprise-growth.png'));
   if (section === "services/") {
     assert(html.includes('class="project-faq"'));
     assert.equal((html.match(/class="service-delivery"/g) || []).length, 7);
