@@ -25,6 +25,16 @@ This is the open-source repository for our **official company website**. Visit t
 
 Our work also covers industry and investment research, startup incubation, Web3 application research and international business collaboration. We help founders clarify their strategy and milestones, prepare for fundraising and connect with relevant industry partners and investors. Emerging areas such as Web4 are explored through research and prototypes, with the scope shaped by a concrete business need.
 
+### Three ways to start
+
+- **AI workflow assessment and pilot**: review one recurring workflow and deliver a working prototype, sample test records and implementation recommendations.
+- **Product validation and first release**: scope the core user journey and deliver agreed features, test records and deployment documentation.
+- **Venture and funding preparation**: clarify business direction, a staged roadmap and gaps in pitch materials. Introductions are agreed separately.
+
+Fees depend on scope, existing systems, available materials and timing. Funding and transaction outcomes are not guaranteed.
+
+[Explore our own website and the founder's independent work](https://elevencapital.ltd/#work). The enquiry tool prepares a summary that visitors can copy or send using their own email account. Preparing a summary does not send it.
+
 ### Start a conversation
 
 You may be preparing a website, testing a product idea, introducing AI into a workflow or looking for someone to maintain an existing system. Tell us your goals, where the project stands and your preferred timeframe. We can then define a first phase, its deliverables, timing and cost, with ongoing support agreed separately.
@@ -63,6 +73,16 @@ For setup, development and deployment, see the [developer guide](DEVELOPMENT.md#
 | 让融资与股权安排配合企业下一阶段的发展 | 资本战略、融资路径、股权结构梳理、估值分析，以及战略投资者和并购合作对接；具体交易按项目条件与相关专业机构协作推进。 |
 
 我们的业务也涵盖产业与投资研究、创业孵化、Web3应用研究及国际业务协作，帮助创业者梳理战略方向与阶段目标、做好融资准备，并对接相关产业与资本资源。对于Web4等前沿方向，我们从研究和原型验证入手，围绕具体业务需求确定探索范围。
+
+### 三个合作起点
+
+- **AI流程诊断与验证**：从一项重复工作入手，交付流程梳理、可演示原型、测试记录和实施建议。
+- **产品验证与首版开发**：围绕核心用户流程，交付约定功能、测试记录和部署交接文档。
+- **创业与融资准备**：梳理商业方向、阶段路线和材料缺口，资源介绍按项目另行确认。
+
+费用根据范围、现有基础、资料和时间安排评估。融资与交易结果不作为服务承诺。
+
+[查看自有项目与创始人作品](https://elevencapital.ltd/zh-hans/#work)。网站也提供需求摘要工具；客户可复制摘要，或使用自己的邮箱发送至公司邮箱。生成摘要不代表已经发送。
 
 ### 怎样开始合作
 

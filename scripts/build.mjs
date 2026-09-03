@@ -2,6 +2,7 @@ import { mkdir, cp, writeFile, readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { content, partners, languages, siteTitle } from "../src/content.mjs";
 import { serviceProcess, processSteps } from "../src/processes.mjs";
+import { growthFor, audienceSection, offersSection, workSection, inquiryForm } from '../src/growth.mjs';
 
 const esc = (s) =>
   String(s)
@@ -27,7 +28,7 @@ function ui(c) {
 }
 const more = (c, section, label = ui(c)[section]) => '<a class="text-link" href="' + route(c, section) + '">' + label + arrow + '</a>';
 function heroSection(c) { return `<section class="hero" aria-labelledby="hero-title"><div class="hero-copy"><p class="hero-eyebrow">${c.heroEyebrow}</p><h1 id="hero-title">${lines(c.heroLines)}</h1>${c.heroEnglish ? `<p class="hero-english" lang="en">${c.heroEnglish}</p>` : ""}<p class="hero-intro">${
-    esc(c.heroIntro).replace(/\b(?:startup teams|AI agents)\b/g, (phrase) => phrase.replaceAll(" ", "&nbsp;")).replace(/[創创][業业][團团][隊队]|成[長长]型企[業业]|[數数]字[產产]品|[構构]想落地|持[續续][運运][營营]|[長长]期技[術术]支持|多[語语]言官[網网]|AI智能[体體][開开][發发]|[應应]用|持[續续][維维][護护]|[維维][護护][與与]迭代|AI智能[体體]|AIエージェント|スタートアップ|デジタル製品|成長企業|継続的な運用まで|長期的な技術支援|構想の実現|開発|Web3|Web4/g, (term) => `<span class="phrase">${term}</span>`)
+    esc(growthFor(c).heroIntro).replace(/\b(?:startup teams|AI agents)\b/g, (phrase) => phrase.replaceAll(" ", "&nbsp;")).replace(/[創创][業业][團团][隊队]|成[長长]型企[業业]|[數数]字[產产]品|[構构]想落地|持[續续][運运][營营]|[長长]期技[術术]支持|多[語语]言官[網网]|AI智能[体體][開开][發发]|AI[應应]用|[應应]用|持[續续][維维][護护]|[維维][護护][與与]迭代|AI智能[体體]|AIエージェント|スタートアップ|デジタル製品|成長企業|継続的な運用まで|長期的な技術支援|構想の実現|開発|Web3|Web4/g, (term) => `<span class="phrase">${term}</span>`)
   }</p><div class="hero-actions"><a class="button-outline" href="#contact">${c.projectCta}<span aria-hidden="true">→</span></a><a class="hero-secondary" href="${route(c, "services")}">${c.heroCta}</a></div><p class="hero-location"><span class="location-line" aria-hidden="true"></span>${c.location}</p></div><figure class="hero-image"><img src="/assets/hong-kong.png" alt="${c.photoAlt}" width="1086" height="1448" fetchpriority="high"></figure></section>
 `; }
 function pillarsSection(c) { return `<nav class="focus-strip" aria-label="${c.focusLabel}">${c.pillars.map(([id, title]) => `<a href="${route(c, "services")}#${id}">${title}<span aria-hidden="true">↘</span></a>`).join("")}</nav>
@@ -36,12 +37,8 @@ function pillarsSection(c) { return `<nav class="focus-strip" aria-label="${c.fo
 const serviceArt = {development:'product-building',capital:'enterprise-growth'};
 function servicePicture(id) { return '<img src="/assets/' + serviceArt[id] + '.png" width="1536" height="1024" alt="" loading="lazy" decoding="async">'; }
 function serviceGallery(c) { return '<div class="service-gallery">' + ['development','capital'].map(id => { const service=c.services.find(s=>s.id===id); return '<a href="#'+id+'"><figure>'+servicePicture(id)+'<figcaption>'+esc(service.title)+arrow+'</figcaption></figure></a>'; }).join('')+'</div>'; }
-function homeServices(c) {
- const item=(s,featured=false)=>'<article class="service" id="'+s.id+'">'+(featured?'<a class="service-picture" href="'+route(c,'services')+'#'+s.id+'" aria-label="'+esc(s.title)+'">'+servicePicture(s.id)+'</a>':'')+'<h3>'+esc(s.title)+'</h3><p>'+s.examples.slice(0,2).map(esc).join(' · ')+'</p><a class="text-link" href="'+route(c,'services')+'#'+s.id+'">'+ui(c).more+arrow+'</a></article>';
- return '<section class="section focus home-services" id="focus" aria-labelledby="focus-title"><div class="section-heading"><p class="section-label">'+c.focusLabel+'</p><h2 id="focus-title">'+lines(c.focusTitle)+'</h2></div><div class="service-features">'+['development','capital'].map(id=>item(c.services.find(s=>s.id===id),true)).join('')+'</div><div class="service-list service-index">'+c.services.filter(s=>!serviceArt[s.id]).map(s=>item(s)).join('')+'</div><div class="home-process"><a class="text-link" href="'+route(c,'services')+'#engagement">'+c.engagementLabel+arrow+'</a>'+processSteps(c.engagementSteps,['validate','plan','output','sustain'],true)+'</div></section>';
-}
 
-function servicesSection(c) { return `<section class="section focus" id="focus" aria-labelledby="focus-title"><div class="section-heading"><p class="section-label">${c.focusLabel}</p><div><h2 id="focus-title">${lines(c.focusTitle)}</h2><p class="section-intro">${c.focusIntro}</p></div></div>${serviceGallery(c)}<div class="service-list">${c.services.map((s, i) => `<article class="service" id="${s.id}"><span class="service-number" aria-hidden="true">0${i + 1}</span><div><h3>${s.title}</h3>${s.en ? `<p class="service-en" lang="en">${s.en}</p>` : ""}<p>${s.text}</p><div class="service-delivery"><h4>${c.deliveryLabel}</h4><p>${c.deliveries[i]}</p></div>${serviceProcess(c,s.id) || `<ul class="service-examples">${s.examples.map(example => `<li>${esc(example)}</li>`).join("")}</ul>`}</div></article>`).join("")}</div><section class="engagement" id="engagement" aria-labelledby="engagement-title"><p class="section-label">${c.engagementLabel}</p><h3 id="engagement-title">${c.engagementTitle}</h3><p class="engagement-intro">${c.engagementIntro}</p>${processSteps(c.engagementSteps,["validate","plan","output","sustain"])}</section>${faqSection(c)}</section>
+function servicesSection(c) { return `<section class="section focus" id="focus" aria-labelledby="focus-title"><div class="section-heading"><p class="section-label">${c.focusLabel}</p><div><h2 id="focus-title">${lines(c.focusTitle)}</h2><p class="section-intro">${c.focusIntro}</p></div></div>${offersSection(c)}${serviceGallery(c)}<div class="service-list">${c.services.map((s, i) => `<article class="service" id="${s.id}"><span class="service-number" aria-hidden="true">0${i + 1}</span><div><h3>${s.title}</h3>${s.en ? `<p class="service-en" lang="en">${s.en}</p>` : ""}<p>${s.text}</p><div class="service-delivery"><h4>${c.deliveryLabel}</h4><p>${c.deliveries[i]}</p></div>${serviceProcess(c,s.id) || `<ul class="service-examples">${s.examples.map(example => `<li>${esc(example)}</li>`).join("")}</ul>`}</div></article>`).join("")}</div><section class="engagement" id="engagement" aria-labelledby="engagement-title"><p class="section-label">${c.engagementLabel}</p><h3 id="engagement-title">${c.engagementTitle}</h3><p class="engagement-intro">${c.engagementIntro}</p>${processSteps(c.engagementSteps,["validate","plan","output","sustain"])}</section>${faqSection(c)}</section>
 `; }
 function aboutSection(c) { return `<section class="section about" id="about" aria-labelledby="about-title"><div class="about-overview"><figure class="about-visual"><img src="/assets/hong-kong.png" width="1086" height="1448" alt="${c.photoAlt}" loading="lazy" decoding="async"></figure><div class="section-heading"><p class="section-label">${c.aboutLabel}</p><div><h2 id="about-title">${lines(c.aboutTitle)}</h2><div class="prose">${paragraphs(c.about)}</div></div></div></div><div class="philosophy"><h3>${c.visionTitle}</h3><p>${c.vision}</p></div><div class="mission">${c.mission.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join("")}</div><details class="disclosure values" open><summary>${c.valuesSummary}<span aria-hidden="true">＋</span></summary><div class="values-grid">${c.values.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join("")}</div></details></section>
 `; }
@@ -49,21 +46,17 @@ function founderSection(c) { return `<section class="section founder" id="founde
 `; }
 function partnersSection(c, preview = false) { return `<section class="section partners${preview ? ' home-partners' : ''}" id="partners" aria-labelledby="partners-title"><div class="partner-heading"><div class="partner-copy"><h2 id="partners-title">${c.partnerLabel}</h2><div class="partner-prose"><p class="partner-statement">${closingCopy(c.partnerIntro)}</p>${preview ? '' : `<p>${esc(c.partnerText)}</p>`}</div>${preview ? more(c, 'partners') : ''}</div></div>${preview ? "" : `<figure class="partner-visual"><img src="/assets/enterprise-growth.png" width="1536" height="1024" alt="" loading="lazy" decoding="async"></figure>`}<div class="partner-grid">${partners.map(([name, url, logo, width, height]) => `<a href="${url}" target="_blank" rel="noopener noreferrer" title="${name}" aria-label="${name} — ${c.partnerLink}"><div class="partner-logo-frame"><img class="partner-logo partner-logo--${logo}" src="/assets/partners/${logo}.png" width="${width}" height="${height}" alt="${name}" loading="lazy" decoding="async"></div></a>`).join("")}</div></section>
 `; }
-function contactSection(c) { const title = c.lang.startsWith('zh') ? c.contactTitle.map((s,i) => `<span>${esc(s)}${i === 0 ? '，' : ''}</span>`).join('') : lines(c.contactTitle); return `<section class="contact" id="contact" aria-labelledby="contact-title"><div class="contact-inner"><div class="contact-copy"><h2 id="contact-title">${title}</h2><p>${closingCopy(c.contactText)}</p></div><div class="contact-address"><a class="email-link" href="${esc(inquiryHref(c))}"><bdi dir="ltr">info@elevencapital.ltd</bdi><span aria-hidden="true">↗</span></a></div></div></section>`; }
+function contactSection(c) { const title = c.lang.startsWith('zh') ? c.contactTitle.map((s,i) => `<span>${esc(s)}${i === 0 ? '，' : ''}</span>`).join('') : lines(c.contactTitle); return `<section class="contact" id="contact" aria-labelledby="contact-title"><div class="contact-inner"><div class="contact-copy"><h2 id="contact-title">${title}</h2><p>${closingCopy(c.contactText)}</p></div><div class="contact-address"><a class="email-link" href="${esc(inquiryHref(c))}"><bdi dir="ltr">info@elevencapital.ltd</bdi><span aria-hidden="true">↗</span></a></div></div>${inquiryForm(c)}</section>`; }
 
-function clientSection(c, compact = false) {
-  return '<section class="section client-fit" aria-labelledby="client-title"><div class="section-heading"><p class="section-label">' + c.clientLabel + '</p><h2 id="client-title">' + c.clientTitle + '</h2><p class="section-intro">' + c.clientIntro + '</p></div><div class="client-grid">' + c.clients.map(([title, situation, outcome, id, link]) => '<article><h3>' + title + '</h3>' + (compact ? '' : '<p class="client-situation">' + situation + '</p>') + '<p>' + outcome + '</p><a class="text-link" href="' + route(c, 'services') + '#' + id + '">' + link + arrow + '</a></article>').join('') + '</div></section>';
-}
 function faqSection(c) {
   return '<section class="project-faq" aria-labelledby="faq-title"><h2 id="faq-title">' + c.faqTitle + '</h2><div>' + c.faq.map(([question, answer]) => '<article><h3>' + question + '</h3><p>' + answer + '</p></article>').join('') + '</div></section>';
 }
 
 function homeSections(c) {
-  const services = homeServices(c);
   const about = '<section class="section about home-about" id="about" aria-labelledby="about-title"><div class="section-heading"><p class="section-label">' + c.aboutLabel + '</p><h2 id="about-title">' + lines(c.aboutTitle) + '</h2><div class="prose">' + paragraphs([c.homeAbout]) + '</div>' + more(c, 'about') + '</div></section>';
   const founder = founderSection(c).replace(/<details class="disclosure biography"[\s\S]*?<\/details>/, '').replace(/<div class="social-links">[\s\S]*?<\/div>/, more(c, 'founder'));
   const partners = partnersSection(c, true);
-  return heroSection(c) + pillarsSection(c) + services + clientSection(c, true) + about + founder + partners;
+  return heroSection(c) + pillarsSection(c) + audienceSection(c) + workSection(c) + offersSection(c, true) + about + founder + partners;
 }
 function mainSections(c, section) {
   if (section === 'home') return homeSections(c);
@@ -102,7 +95,7 @@ function page(c, section = "home") {
   const canonical = `https://elevencapital.ltd${route(c, section)}`;
   const brandTitle = siteTitle(c.lang);
   const title = section === "home" ? brandTitle : c.nav[navSections.indexOf(section)] + " | " + brandTitle;
-  const description = ({ about: c.about[0], services: c.focusIntro, founder: c.founderLead, partners: c.partnerIntro })[section] || c.description;
+  const description = ({ about: c.about[0], services: c.focusIntro, founder: c.founderLead, partners: c.partnerIntro })[section] || growthFor(c).heroIntro;
   const schema = {
     "@context": "https://schema.org",
     "@type": "Organization",

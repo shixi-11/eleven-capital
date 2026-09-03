@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 import { content, partners, languages } from "../src/content.mjs";
 import { processCopy } from '../src/processes.mjs';
+import { growthContent } from '../src/growth-content.mjs';
 assert.equal(content.zh.founderRole, '創始人兼董事長');
 assert.equal(content.en.founderRole, 'Founder & Chair');
 assert.deepEqual(Object.keys(processCopy).sort(),languages.map(l=>l.lang).sort());
@@ -34,6 +35,11 @@ for (const lang of ['ja','ko','ar','fr','de','es']) {
   assert.deepEqual(c.services.map(s => s.id), content.zh.services.map(s => s.id));
   assert.deepEqual(c.pillars.map(p => p[0]), content.zh.pillars.map(p => p[0]));
   assert.deepEqual(c.clients.map(p => p[3]), content.zh.clients.map(p => p[3]));
+}
+for (const c of Object.values(content)) {
+  checkShape(growthContent['zh-Hans'], growthContent[c.lang], `growth.${c.lang}`);
+  assert.equal(growthContent[c.lang].audiences.length, 2);
+  assert.equal(growthContent[c.lang].offers.length, 3);
 }
 const pages = new Map();
 for (const c of Object.values(content)) for (const section of sections) {
@@ -88,10 +94,11 @@ for (const c of Object.values(content)) for (const section of sections) {
   assert.equal(inquiryUrl.searchParams.get("body"), c.inquiryBody);
   if (!section) {
     assert(html.includes('class="client-grid"') && html.includes(c.projectCta));
-    for (const [title] of c.clients) assert(html.includes(title));
-    assert(html.includes('class="home-process"') && html.includes(`${c.path}services/#engagement`));
+    for (const [title] of growthContent[c.lang].audiences) assert(html.includes(title.replaceAll('&','&amp;')));
+    assert(html.includes('id="work"') && html.includes('https://github.com/shixi-11/mohe-pet'));
+    for (const image of ['eleven-capital-'+c.lang,'mohe']) assert(html.includes(`/assets/work/${image}.png`));
   }
-  if (!section || section === 'services/') {
+  if (section === 'services/') {
     for (const image of ['product-building.png','enterprise-growth.png']) assert(html.includes(`/assets/${image}`), `Missing service illustration: ${path}`);
   }
   if (section === 'about/') assert(html.includes('/assets/hong-kong.png'));
@@ -106,9 +113,15 @@ for (const c of Object.values(content)) for (const section of sections) {
   if (section === "about/") assert(html.includes('class="disclosure values" open'), "Values must open by default");
   assert(!html.includes('class="hero-english"') && !html.includes('class="service-en"'), "Remove bilingual subtitles");
   assert(html.includes('class="language-icon"') && html.includes(c.languageLabel), "Language switch needs a visible label");
-  if (!section || section === "services/") {
+  if (section === "services/") {
     assert.equal((html.match(/class="service"/g) || []).length, 7, "Keep all seven services");
     assert(html.includes('id="investment"') && html.includes('id="capital"'), "Incubation and capital strategy need separate entries");
+  }
+  assert(html.includes('data-inquiry') && html.includes('id="inquiry-goal"'));
+  assert(html.includes('<fieldset data-inquiry-controls disabled>'), 'Disable native submission until the local draft handler is ready');
+  assert(!html.includes('action="/api/'), 'Enquiries must be sent by the visitor through email');
+  if (!section || section === 'services/') {
+    for (const [title] of growthContent[c.lang].offers) assert(html.includes(title.replaceAll('&','&amp;')));
   }
   assert(!html.includes('class="contact-label"') && !html.includes('class="partner-list-label"'));
   assert(html.includes(`rel="canonical" href="https://elevencapital.ltd${path}"`));

@@ -29,7 +29,8 @@ for page in pages:
     markup = page.read_text('utf-8')
     language = re.search(r'<html\s+lang="([^"]+)"', markup).group(1)
     markup = re.sub(r'<script\b[^>]*>[\s\S]*?</script>', '', markup)
-    text = html.unescape(re.sub('<[^>]+>', '', markup))
+    feedback = ' '.join(re.findall(r'data-(?:ready|copied|copy-failed)="([^"]*)"', markup))
+    text = html.unescape(re.sub('<[^>]+>', '', markup) + feedback)
     for region, languages in region_languages.items():
         if language in languages:
             region_text[region] += text
