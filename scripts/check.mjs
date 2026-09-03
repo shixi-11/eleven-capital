@@ -4,7 +4,7 @@ import { content, partners, languages } from "../src/content.mjs";
 assert.equal(content.en.path, "/", "English must be the default homepage");
 assert.equal(content.zh.path, "/zh-hant/", "Traditional Chinese needs its own route");
 const sections = ["", "about/", "services/", "founder/", "partners/"];
-assert.deepEqual(languages.map(l => l.lang), ['en','zh-Hant','zh-Hans','ja','ko','fr','de','ar']);
+assert.deepEqual(languages.map(l => l.lang), ['zh-Hans','zh-Hant','en','ja','ko','es','fr','de','ar']);
 assert.equal(Object.keys(content).length, languages.length);
 function checkShape(source, target, path) {
   assert.equal(Array.isArray(target), Array.isArray(source), path);
@@ -19,7 +19,7 @@ function checkShape(source, target, path) {
     if (typeof source === 'string' && source.trim()) assert(target.trim(), `Empty translation: ${path}`);
   }
 }
-for (const lang of ['ja','ko','ar','fr','de']) {
+for (const lang of ['ja','ko','ar','fr','de','es']) {
   const c = content[lang];
   checkShape(content.zh, c, lang);
   assert.deepEqual(c.services.map(s => s.id), content.zh.services.map(s => s.id));
@@ -116,7 +116,7 @@ for (const font of manifest.fonts) {
   assert((await stat("dist/assets/fonts/" + font.file)).size > 10000);
 }
 for (const c of Object.values(content)) {
-  const suffix = ({en:'latin',fr:'latin',de:'latin','zh-Hant':'tc','zh-Hans':'sc',ja:'jp',ko:'kr',ar:'arabic'})[c.lang];
+  const suffix = ({en:'latin',es:'latin',fr:'latin',de:'latin','zh-Hant':'tc','zh-Hans':'sc',ja:'jp',ko:'kr',ar:'arabic'})[c.lang];
   const visibleText = sections.map(section => pages.get(c.path + section).replace(/<head\b[^>]*>[\s\S]*?<\/head>/g, "").replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "").replace(/<div class="language-options">[\s\S]*?<\/div>/g, "").replace(/<[^>]+>/g, "")).join("");
   const required = [...new Set(visibleText.match(/[\p{L}\p{M}\p{N}]/gu) || [])];
   for (const kind of ["sans", "serif"]) {

@@ -24,7 +24,7 @@
   --ease: cubic-bezier(.2,.7,.3,1);
 }
 html[lang="zh-Hant"] { --serif: "Eleven Serif TC", "Noto Serif TC", Georgia, serif; --sans: "Eleven Sans TC", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif; }
-html:is([lang="en"],[lang="fr"],[lang="de"]) { --serif: "Eleven Serif Latin", Georgia, serif; --sans: "Eleven Sans Latin", Arial, sans-serif; }
+html:is([lang="en"],[lang="es"],[lang="fr"],[lang="de"]) { --serif: "Eleven Serif Latin", Georgia, serif; --sans: "Eleven Sans Latin", Arial, sans-serif; }
 html[lang="ja"] { --serif: "Eleven Serif JP", serif; --sans: "Eleven Sans JP", sans-serif; line-break: strict; }
 html[lang="ko"] { --serif: "Eleven Serif KR", serif; --sans: "Eleven Sans KR", sans-serif; word-break: keep-all; overflow-wrap: anywhere; }
 html[lang="ar"] { --serif: "Eleven Serif Arabic", serif; --sans: "Eleven Sans Arabic", sans-serif; }
@@ -61,7 +61,7 @@ section[id],article[id] { scroll-margin-top: 24px; }
 .language-options a { display: block; min-height: 44px; padding: 9px 13px; font-size: 14px; white-space: nowrap; }
 .language-options a[lang="en"] { font-family: "Eleven Sans Latin", Arial, sans-serif; }
 .language-options a[lang="zh-Hans"] { font-family: "Eleven Sans SC", "Microsoft YaHei", sans-serif; }
- .language-options a:is([lang="fr"],[lang="de"]) { font-family: "Eleven Sans Latin", sans-serif; }
+ .language-options a:is([lang="es"],[lang="fr"],[lang="de"]) { font-family: "Eleven Sans Latin", sans-serif; }
  .language-options a[lang="ja"] { font-family: "Eleven Sans JP", sans-serif; }
  .language-options a[lang="ko"] { font-family: "Eleven Sans KR", sans-serif; }
  .language-options a[lang="ar"] { font-family: "Eleven Sans Arabic", sans-serif; }
@@ -144,7 +144,7 @@ html[lang^="zh"] h2 { font-size: 38px; line-height: 1.5; }
 .disclosure { margin-top: 30px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .disclosure summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 58px; padding: 14px 0; color: var(--bronze); font-size: 14px; cursor: pointer; list-style: none; }
 .disclosure summary::-webkit-details-marker { display: none; }
-.disclosure summary>span { font-size: 21px; }
+.disclosure summary>span { display: grid; place-items: center; flex: 0 0 24px; width: 24px; height: 24px; margin-inline: 6px; font-size: 21px; line-height: 1; }
 .disclosure[open] summary>span { transform: rotate(45deg); }
 .values-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 30px; padding: 10px 0 25px; }
 .values-grid h3 { font-size: 14px; }
@@ -396,8 +396,9 @@ html:is([lang="ja"],[lang="ko"]) .hero h1 { font-size: clamp(29px, 3.4vw, 43px);
 html[lang="ja"] .hero h1>span { text-wrap: balance; }
 .hero h1 .phrase { display: inline-block; }
 html:is([lang="ja"],[lang^="zh"]) .phrase { display: inline; white-space: nowrap; }
-html:is([lang="fr"],[lang="de"]) .hero h1 { font-size: clamp(30px, 3.8vw, 48px); line-height: 1.2; }
-html:is([lang="fr"],[lang="de"]) .hero h1>span { text-wrap: balance; }
+html:is([lang="es"],[lang="fr"],[lang="de"]) .hero h1 { font-size: clamp(30px, 3.8vw, 48px); line-height: 1.2; }
+html:is([lang="es"],[lang="fr"],[lang="de"]) .hero h1>span { text-wrap: balance; }
+html[lang="es"] .hero h1 { font-size: clamp(30px, 3.3vw, 42px); }
 html:is([lang="ja"],[lang="ko"]) .page-heading { line-height: 1.5; }
 html[lang="ar"] .hero h1 { font-size: clamp(33px, 4vw, 48px); line-height: 1.6; }
 html[lang="ar"] .hero h1>span { text-wrap: balance; }
@@ -407,19 +408,19 @@ html[lang="ar"] :is(.text-link,.button-outline,.hero-secondary,.header-contact,.
 html[lang="ar"] :is(.copyright-owner,.social-links a) { font-family: "Eleven Sans Latin", sans-serif; }
 .section-heading>*,.partner-heading>*,.contact-inner>*,.hero-actions>* { min-width: 0; }
 @media (max-width:1100px) {
-  html:is([lang="ja"],[lang="ko"],[lang="fr"],[lang="de"]) .hero { grid-template-columns: minmax(0,1fr) minmax(0,290px); gap: 30px; }
+  html:is([lang="ja"],[lang="ko"],[lang="es"],[lang="fr"],[lang="de"]) .hero { grid-template-columns: minmax(0,1fr) minmax(0,290px); gap: 30px; }
 }
 @media (min-width:851px) and (max-width:1000px) {
-  html:is([lang="ja"],[lang="fr"],[lang="de"]) .desktop-nav { gap: 14px; }
-  html:is([lang="ja"],[lang="fr"],[lang="de"]) .desktop-nav a { font-size: 13px; }
+  html:is([lang="ja"],[lang="es"],[lang="fr"],[lang="de"]) .desktop-nav { gap: 14px; }
+  html:is([lang="ja"],[lang="es"],[lang="fr"],[lang="de"]) .desktop-nav a { font-size: 13px; }
 }
 @media (max-width:850px) {
-  html:is([lang="ja"],[lang="ko"],[lang="fr"],[lang="de"],[lang="ar"]) .hero { grid-template-columns: minmax(0,1fr) minmax(0,230px); gap: 28px; }
+  html:is([lang="ja"],[lang="ko"],[lang="es"],[lang="fr"],[lang="de"],[lang="ar"]) .hero { grid-template-columns: minmax(0,1fr) minmax(0,230px); gap: 28px; }
 }
 @media (max-width:650px) {
-  html:is([lang="ja"],[lang="ko"],[lang="fr"],[lang="de"]) .page-heading { font-size: 30px; }
+  html:is([lang="ja"],[lang="ko"],[lang="es"],[lang="fr"],[lang="de"]) .page-heading { font-size: 30px; }
   html[lang="ar"] .page-heading { font-size: 34px; }
-  html:is([lang="ja"],[lang="ko"],[lang="fr"],[lang="de"],[lang="ar"]) .contact h2 { font-size: 31px; }
+  html:is([lang="ja"],[lang="ko"],[lang="es"],[lang="fr"],[lang="de"],[lang="ar"]) .contact h2 { font-size: 31px; }
   .copyright { max-width: 100%; }
   .copyright span { white-space: normal; }
   .hero-actions a { max-width: 100%; }

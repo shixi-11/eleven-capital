@@ -30,7 +30,7 @@ website archives are included in the public repository.
 ## Web fonts
 
 `public/assets/fonts/` contains self-hosted subsets derived from Noto Sans and
-Noto Serif SC/TC/JP/KR, Inter and Source Serif 4 for English/French/German,
+Noto Serif SC/TC/JP/KR, Inter and Source Serif 4 for English/Spanish/French/German,
 and Noto Sans Arabic and Noto Naskh Arabic for Arabic. They are renamed
 Eleven Sans/Serif SC/TC/JP/KR/Latin/Arabic and remain under
 the SIL Open Font License 1.1. Each source license is included beside the files.

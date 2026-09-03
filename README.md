@@ -33,7 +33,7 @@ You may be preparing a website, testing a product idea, introducing AI into a wo
 
 ### About this repository
 
-The website is available in English, Traditional Chinese, Simplified Chinese, Japanese, Korean, French, German and Arabic. Its source is shared for developers to explore, learn from and adapt under the [MIT licence](LICENSE).
+The website is available in Simplified Chinese, Traditional Chinese, English, Japanese, Korean, Spanish, French, German and Arabic. Its source is shared for developers to explore, learn from and adapt under the [MIT licence](LICENSE).
 
 For setup, development and deployment, see the [developer guide](DEVELOPMENT.md#english). Company branding, portraits, partner logos and company-specific copy are subject to separate usage terms; see [asset credits and usage](ASSETS.md).
 
@@ -70,6 +70,6 @@ For setup, development and deployment, see the [developer guide](DEVELOPMENT.md#
 
 ### 关于这个开源项目
 
-官网提供英文、繁体中文、简体中文、日文、韩文、法文、德文和阿拉伯文八个版本。网站源代码采用[MIT许可证](LICENSE)，欢迎开发者阅读、学习和改造。
+官网提供简体中文、繁体中文、英文、日文、韩文、西班牙文、法文、德文和阿拉伯文九个版本。网站源代码采用[MIT许可证](LICENSE)，欢迎开发者阅读、学习和改造。
 
 本地运行、开发与部署方法见[开发指南](DEVELOPMENT.md#简体中文)。公司品牌、人物照片、合作伙伴标志与公司专属文案另有使用范围，详见[素材来源与使用说明](ASSETS.md)。

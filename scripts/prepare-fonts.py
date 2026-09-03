@@ -22,7 +22,7 @@ args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 target = root / 'public/assets/fonts'
 pages = list((root / 'dist').rglob('*.html'))
-region_languages = {'SC': ['zh-Hans'], 'TC': ['zh-Hant'], 'Latin': ['en', 'fr', 'de'],
+region_languages = {'SC': ['zh-Hans'], 'TC': ['zh-Hant'], 'Latin': ['en', 'es', 'fr', 'de'],
                     'JP': ['ja'], 'KR': ['ko'], 'Arabic': ['ar']}
 region_text = {region: '' for region in region_languages}
 for page in pages:
