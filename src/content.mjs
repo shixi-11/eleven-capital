@@ -69,7 +69,7 @@ export const content = {
       "從開發到長期維護"
     ],
     "heroEnglish": "",
-    "heroIntro": "為創業團隊與成長型企業提供多語言官網、應用與AI智能體開發，並持續維護與迭代。",
+    "heroIntro": "為創業團隊與成長型企業提供數字產品與AI智能體開發，從構想落地到持續運營，提供長期技術支持。",
     "heroCta": "探索我們的服務",
     "location": "香港 · 連接全球",
     "photoAlt": "香港維多利亞港與山間綠意的建築意象",
@@ -340,7 +340,7 @@ export const content = {
       "Built for the long term."
     ],
     "heroEnglish": "",
-    "heroIntro": "We build multilingual websites, applications and AI agents for startup teams and growing businesses, with ongoing maintenance and development.",
+    "heroIntro": "We build digital products and AI agents for startup teams and growing businesses, with long-term technical support from initial concept through launch and ongoing operations.",
     "heroCta": "Explore our services",
     "location": "Hong Kong · Global connections",
     "photoAlt": "An architectural illustration of Hong Kong’s Victoria Harbour and surrounding green hills",

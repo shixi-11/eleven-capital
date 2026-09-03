@@ -24,7 +24,7 @@ function ui(c) {
 }
 const more = (c, section, label = ui(c)[section]) => '<a class="text-link" href="' + route(c, section) + '">' + label + arrow + '</a>';
 function heroSection(c) { return `<section class="hero" aria-labelledby="hero-title"><div class="hero-copy"><p class="hero-eyebrow">${c.heroEyebrow}</p><h1 id="hero-title">${lines(c.heroLines)}</h1>${c.heroEnglish ? `<p class="hero-english" lang="en">${c.heroEnglish}</p>` : ""}<p class="hero-intro">${
-    esc(c.heroIntro).replace(/\b(?:startup teams|AI agents)\b/g, (phrase) => phrase.replaceAll(" ", "&nbsp;")).replace(/[創创][業业][團团][隊队]|成[長长]型企[業业]|多[語语]言官[網网]|AI智能[体體][開开][發发]|[應应]用|持[續续][維维][護护]|[維维][護护][與与]迭代|AI智能[体體]|Web3|Web4/g, (term) => `<span class="phrase">${term}</span>`)
+    esc(c.heroIntro).replace(/\b(?:startup teams|AI agents)\b/g, (phrase) => phrase.replaceAll(" ", "&nbsp;")).replace(/[創创][業业][團团][隊队]|成[長长]型企[業业]|[數数]字[產产]品|[構构]想落地|持[續续][運运][營营]|[長长]期技[術术]支持|多[語语]言官[網网]|AI智能[体體][開开][發发]|[應应]用|持[續续][維维][護护]|[維维][護护][與与]迭代|AI智能[体體]|Web3|Web4/g, (term) => `<span class="phrase">${term}</span>`)
   }</p><div class="hero-actions"><a class="button-outline" href="#contact">${c.projectCta}<span aria-hidden="true">→</span></a><a class="hero-secondary" href="${route(c, "services")}">${c.heroCta}</a></div><p class="hero-location"><span class="location-line" aria-hidden="true"></span>${c.location}</p></div><figure class="hero-image"><img src="/assets/hong-kong.png" alt="${c.photoAlt}" width="1086" height="1448" fetchpriority="high"></figure></section>
 `; }
 function pillarsSection(c) { return `<nav class="focus-strip" aria-label="${c.focusLabel}">${c.pillars.map(([id, title]) => `<a href="${route(c, "services")}#${id}">${title}<span aria-hidden="true">↘</span></a>`).join("")}</nav>
