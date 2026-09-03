@@ -16,7 +16,7 @@ const jsPath = `/main.${await version("src/main.js")}.js`;
 const lines = (a) => a.map((s) => `<span>${esc(s).replace(/\b(?:long term|digital products)\b/g, (phrase) => phrase.replaceAll(" ", "&nbsp;")).replace(/デジタル製品|開発から|長期保守まで/g, (phrase) => `<span class="phrase">${phrase}</span>`)}</span>`).join(" ");
 const inquiryHref = (c) => "mailto:info@elevencapital.ltd?subject=" + encodeURIComponent(c.inquirySubject) + "&body=" + encodeURIComponent(c.inquiryBody);
 const paragraphs = (a) => a.map((s) => `<p>${esc(s)}</p>`).join("");
-const closingCopy = (s) => esc(s).replace(/目前[進进]展|期望[時时][間间]|一起梳理下一步。|互[補补]的[專专][業业]能力|建立合作。|現在の進捗|ご希望の時期|お聞かせください。|次に取り組むこと|一緒に整理しましょう。|互いの専門性|協力関係/g, phrase => `<span class="phrase">${phrase}</span>`);
+const closingCopy = (s) => esc(s).replace(/目前[進进]展|期望[時时][間间]|一起梳理下一步。|互[補补]的[專专][業业]能力|之[間间]建立合作。|建立合作。|現在の進捗|ご希望の時期|お聞かせください。|次に取り組むこと|一緒に整理しましょう。|互いの専門性|協力関係/g, phrase => `<span class="phrase">${phrase}</span>`);
 
 const sections = ["home", "about", "services", "founder", "partners"];
 const navSections = sections.slice(1);
@@ -47,7 +47,7 @@ function aboutSection(c) { return `<section class="section about" id="about" ari
 `; }
 function founderSection(c) { return `<section class="section founder" id="founder" aria-labelledby="founder-title"><figure class="portrait"><img src="/assets/shixi-lin.jpg" width="3500" height="5251" alt="${c.founderAlt}" loading="lazy" decoding="async"><figcaption><bdi>${c.founderTitle}</bdi><span>${c.founderRole}</span></figcaption></figure><div class="founder-copy"><p class="section-label">${c.founderLabel}</p><h2 id="founder-title"><bdi>${c.founderTitle}</bdi></h2><p class="founder-role">${c.founderRole}</p><p class="founder-lead">${c.founderLead}</p><div class="prose">${paragraphs(c.bio)}</div><details class="disclosure biography" open><summary>${c.bioSummary}<span aria-hidden="true">＋</span></summary><div class="prose">${paragraphs(c.bioMore)}</div></details><div class="social-links"><a href="https://www.linkedin.com/in/shixilin/" target="_blank" rel="noopener noreferrer" aria-label="Shixi Lin — LinkedIn">LinkedIn ${arrow}</a><a href="https://x.com/11Shixi" target="_blank" rel="noopener noreferrer" aria-label="Shixi Lin — X">X ${arrow}</a></div></div></section>
 `; }
-function partnersSection(c, preview = false) { return `<section class="section partners${preview ? ' home-partners' : ''}" id="partners" aria-labelledby="partners-title"><div class="partner-heading"><div class="partner-copy"><h2 id="partners-title">${c.partnerLabel}</h2><div class="partner-prose"><p class="partner-statement">${closingCopy(c.partnerIntro)}</p>${preview ? '' : `<p>${esc(c.partnerText)}</p>`}</div></div>${preview ? more(c, 'partners') : ''}</div>${preview ? "" : `<figure class="partner-visual"><img src="/assets/enterprise-growth.png" width="1536" height="1024" alt="" loading="lazy" decoding="async"></figure>`}<div class="partner-grid">${partners.map(([name, url, logo, width, height]) => `<a href="${url}" target="_blank" rel="noopener noreferrer" title="${name}" aria-label="${name} — ${c.partnerLink}"><div class="partner-logo-frame"><img class="partner-logo partner-logo--${logo}" src="/assets/partners/${logo}.png" width="${width}" height="${height}" alt="${name}" loading="lazy" decoding="async"></div></a>`).join("")}</div></section>
+function partnersSection(c, preview = false) { return `<section class="section partners${preview ? ' home-partners' : ''}" id="partners" aria-labelledby="partners-title"><div class="partner-heading"><div class="partner-copy"><h2 id="partners-title">${c.partnerLabel}</h2><div class="partner-prose"><p class="partner-statement">${closingCopy(c.partnerIntro)}</p>${preview ? '' : `<p>${esc(c.partnerText)}</p>`}</div>${preview ? more(c, 'partners') : ''}</div></div>${preview ? "" : `<figure class="partner-visual"><img src="/assets/enterprise-growth.png" width="1536" height="1024" alt="" loading="lazy" decoding="async"></figure>`}<div class="partner-grid">${partners.map(([name, url, logo, width, height]) => `<a href="${url}" target="_blank" rel="noopener noreferrer" title="${name}" aria-label="${name} — ${c.partnerLink}"><div class="partner-logo-frame"><img class="partner-logo partner-logo--${logo}" src="/assets/partners/${logo}.png" width="${width}" height="${height}" alt="${name}" loading="lazy" decoding="async"></div></a>`).join("")}</div></section>
 `; }
 function contactSection(c) { const title = c.lang.startsWith('zh') ? c.contactTitle.map((s,i) => `<span>${esc(s)}${i === 0 ? '，' : ''}</span>`).join('') : lines(c.contactTitle); return `<section class="contact" id="contact" aria-labelledby="contact-title"><div class="contact-inner"><div class="contact-copy"><h2 id="contact-title">${title}</h2><p>${closingCopy(c.contactText)}</p></div><div class="contact-address"><a class="email-link" href="${esc(inquiryHref(c))}"><bdi dir="ltr">info@elevencapital.ltd</bdi><span aria-hidden="true">↗</span></a></div></div></section>`; }
 
@@ -114,7 +114,7 @@ function page(c, section = "home") {
     founder: {
       "@type": "Person",
       name: "Shixi Lin",
-      jobTitle: "Founder & President",
+      jobTitle: content.en.founderRole,
       sameAs: [
         "https://www.linkedin.com/in/shixilin/",
         "https://x.com/11Shixi",
@@ -126,7 +126,7 @@ function page(c, section = "home") {
 <body id="top"><a class="skip" href="#main">${c.skip}</a>
 <header class="site-header"><a class="brand" href="${c.path}" aria-label="Eleven Capital"><img src="/assets/logo.png" width="2167" height="735" alt="${c.legalName}"></a><nav class="desktop-nav" aria-label="${c.menu}">${nav}</nav><div class="header-actions">${languageMenu}<a class="header-contact" href="#contact">${c.contact}${arrow}</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="${c.menu}"><span class="menu-label">${c.menu}</span><span class="menu-symbol" aria-hidden="true">＋</span></button></div><nav class="mobile-nav" id="mobile-menu" aria-label="${c.menu}" hidden>${nav}<a href="#contact">${c.contact}</a></nav></header>
 <main id="main" class="${section === "home" ? "home-page" : "detail-page"}">${mainSections(c, section)}${contactSection(c)}</main>
-<footer><p class="copyright"><span class="copyright-owner" dir="auto">© ${new Date().getFullYear()} ${c.legalName}${c.lang.startsWith("zh") ? "。" : "."}</span><span>${c.copyright}</span></p><a href="#top">${c.backTop}<span aria-hidden="true">↑</span></a></footer></body></html>`;
+<footer><p class="copyright"><span class="copyright-owner" dir="auto">© ${new Date().getFullYear()} ${esc(c.legalName)}${c.lang.startsWith("zh") ? "" : "."}</span> ${esc(c.lang.startsWith("zh") ? c.copyright.replace(/。$/, "") : c.copyright)}</p><a href="#top">${c.backTop}<span aria-hidden="true">↑</span></a></footer></body></html>`;
 }
 
 await mkdir("dist/zh-hant", { recursive: true });

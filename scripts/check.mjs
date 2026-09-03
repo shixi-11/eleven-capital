@@ -43,6 +43,8 @@ for (const c of Object.values(content)) for (const section of sections) {
 for (const c of Object.values(content)) for (const section of sections) {
   const path = c.path + section;
   const html = pages.get(path);
+  const schema = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+  assert.equal(schema.founder.jobTitle, content.en.founderRole, `Founder role metadata drift: ${path}`);
   assert(
     !/Dar Andrew|Cayabyab|Chief Advisor|首席顧問|info@concursys|British Virgin|risk-adjusted|Economics/i.test(
       html,
