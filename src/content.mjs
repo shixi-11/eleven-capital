@@ -5,9 +5,7 @@ import ar from './locales/ar.mjs';
 import fr from './locales/fr.mjs';
 import de from './locales/de.mjs';
 import es from './locales/es.mjs';
-export const siteTitle = (lang) => lang.startsWith('zh')
-  ? "十一資本 | Eleven Capital"
-  : "Eleven Capital | 十一資本";
+export const siteTitle = () => "十一資本 | Eleven Capital";
 export const partners = [
   [
     "ALUX",

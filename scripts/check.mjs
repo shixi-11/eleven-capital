@@ -79,10 +79,12 @@ for (const c of Object.values(content)) for (const section of sections) {
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
   assert(html.includes("mailto:info@elevencapital.ltd"));
   assert(html.includes('class="contact-inner"') && html.includes('class="copyright-owner"'));
-  const brandTitle = c.lang.startsWith('zh') ? "十一資本 | Eleven Capital" : "Eleven Capital | 十一資本";
-  const pageTitle = section ? c.nav[sections.indexOf(section) - 1] + " | " + brandTitle : brandTitle;
+  const brandTitle = "十一資本 | Eleven Capital";
+  const pageTitle = section ? brandTitle + " | " + c.nav[sections.indexOf(section) - 1] : brandTitle;
   assert(html.includes(`<title>${pageTitle}</title>`), `Wrong title order: ${path}`);
   assert(html.includes(`property="og:title" content="${pageTitle}"`), `Wrong share title: ${path}`);
+  assert(html.includes('property="og:image" content="https://elevencapital.ltd/assets/social-preview.jpg"'), `Missing social preview: ${path}`);
+  assert(html.includes('property="og:image:width" content="1200"') && html.includes('property="og:image:height" content="630"'), `Wrong social preview dimensions: ${path}`);
   assert(html.includes(`lang="${c.lang}" dir="${c.lang === 'ar' ? 'rtl' : 'ltr'}"`), `Wrong reading direction: ${path}`);
   assert.deepEqual([...html.matchAll(/<a data-language href="[^"]+" hreflang="([^"]+)"/g)].map(m=>m[1]), languages.map(l=>l.lang), `Language order: ${path}`);
   if (c.lang === 'ar') assert(html.includes('<bdi dir="ltr">info@elevencapital.ltd</bdi>'));

@@ -52,3 +52,11 @@ checked-in font assets and does not need Python or a font service.
 Partner artwork remains unmodified. All six original files are PNGs with real
 alpha transparency and are displayed in a transparent container. White details
 inside the ALUX and Xiaomi marks are part of their artwork and are preserved.
+
+## Social preview
+
+`public/assets/social-preview.jpg` is the 1200 × 630 Open Graph image used when
+the website is shared on Telegram and other compatible platforms. It combines
+the site's approved Hong Kong image with the Eleven Capital brand palette and
+typography. The image identifies Eleven Capital and its positioning; it does
+not state investment performance, client results or transaction outcomes.

@@ -1,4 +1,4 @@
-# Eleven Capital | 十一資本
+# 十一資本 | Eleven Capital
 
 [English](#english) · [简体中文](#简体中文)
 
