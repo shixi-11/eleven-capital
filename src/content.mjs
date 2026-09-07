@@ -623,6 +623,8 @@ Object.assign(content, {ja, ko, es, fr, de, ar});
 content.en.ui = {home:'Home',more:'Explore',services:'Explore our services',about:'About Eleven Capital',founder:'Meet our founder',partners:'Meet our partners'};
 content.zh.ui = {home:'首頁',more:'了解服務',services:'了解全部服務',about:'了解十一資本',founder:'了解創始人',partners:'了解合作夥伴'};
 content.zhHans.ui = {home:'首页',more:'了解服务',services:'了解全部服务',about:'了解十一资本',founder:'了解创始人',partners:'了解合作伙伴'};
+const personalWebsiteLabels = {zh:'個人網站',zhHans:'个人网站',en:'Personal website',ja:'個人サイト',ko:'개인 웹사이트',es:'Sitio personal',fr:'Site personnel',de:'Persönliche Website',ar:'الموقع الشخصي'};
+for (const [locale, label] of Object.entries(personalWebsiteLabels)) content[locale].ui.personalWebsite = label;
 export const languages = [
   {
     "lang": "zh-Hans",
