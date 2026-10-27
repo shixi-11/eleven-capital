@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
-import { content, partners, languages } from "../src/content.mjs";
+import { content, partners, partnerNames, languages } from "../src/content.mjs";
 import { processCopy } from '../src/processes.mjs';
 import { growthContent } from '../src/growth-content.mjs';
 assert.equal(content.zh.founderRole, '創始人兼董事長');
@@ -65,11 +65,11 @@ for (const c of Object.values(content)) for (const section of sections) {
     /(?:src|href)="(\/[^"#]*\.(?:png|jpg|css|js))"/g,
   ))
     assert((await stat("dist" + src)).isFile(), `Missing ${src}`);
-  for (const [name, url] of (!section || section === "partners/" ? partners : []))
-    assert(
-      html.includes(url) && html.includes(name),
-      `Missing partner ${name}`,
-    );
+  for (const [name, url, logo] of (!section || section === "partners/" ? partners : [])) {
+    const displayName = partnerNames[logo]?.[c.lang] || partnerNames[logo]?.default || name;
+    assert(html.includes(displayName), `Missing partner ${displayName}`);
+    if (url) assert(html.includes(url), `Missing partner URL ${url}`);
+  }
   assert(
     html.includes(`lang="${c.lang}"`) &&
       html.includes('hreflang="en"') &&

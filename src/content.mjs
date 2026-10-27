@@ -22,6 +22,13 @@ export const partners = [
     1382
   ],
   [
+    "YUNS GROUP LIMITED",
+    "",
+    "yuns-group",
+    2500,
+    1949
+  ],
+  [
     "Mineski",
     "https://www.mineskiglobal.com/",
     "mineski",
@@ -43,6 +50,13 @@ export const partners = [
     620
   ]
 ];
+export const partnerNames = {
+  "yuns-group": {
+    "zh-Hans": "芸生集团",
+    "zh-Hant": "芸生集團",
+    default: "YUNS GROUP LIMITED"
+  }
+};
 export const content = {
   "zh": {
     "lang": "zh-Hant",
