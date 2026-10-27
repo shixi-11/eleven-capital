@@ -45,9 +45,9 @@ export const partners = [
   [
     "Xiaomi",
     "https://www.mi.com/",
-    "xiaomi",
-    900,
-    600
+    "xiaomi-mark",
+    757,
+    208
   ]
 ];
 export const partnerNames = {
