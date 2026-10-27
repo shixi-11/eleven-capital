@@ -210,7 +210,6 @@ html[lang] .social-links a.personal-website { font-family: var(--sans); }
 .partner-logo--alux { width: 132px; }
 .partner-logo--mineski { width: 68px; }
 /* Original PNGs retain their transparent margins; scale by the visible mark. */
-.partner-logo--hofan { width: 178px; max-width: none; }
 .partner-logo--xiaomi { width: 156px; max-width: none; }
 .partner-logo--solaire { width: 104px; }
 .contact { padding: 48px var(--gutter) 32px; background: var(--closing-paper); color: var(--green); }
@@ -418,7 +417,6 @@ html[lang^="zh"] .page-heading { font-size: 42px; line-height: 1.5; }
 .home-partners .partner-logo { width: 120px; }
 .home-partners .partner-logo--alux { width: 120px; }
 .home-partners .partner-logo--mineski { width: 58px; }
-.home-partners .partner-logo--hofan { width: 152px; }
 .home-partners .partner-logo--xiaomi { width: 144px; }
 .home-partners .partner-logo--solaire { width: 90px; }
 .partner-statement span { display: inline; }

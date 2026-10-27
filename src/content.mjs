@@ -29,13 +29,6 @@ export const partners = [
     2160
   ],
   [
-    "HOFAN",
-    "https://www.hofan.cn/",
-    "hofan",
-    3509,
-    2481
-  ],
-  [
     "Xiaomi",
     "https://www.mi.com/",
     "xiaomi",
