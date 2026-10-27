@@ -24,9 +24,9 @@ export const partners = [
   [
     "YUNS GROUP LIMITED",
     "",
-    "yuns-group",
-    2500,
-    1949
+    "yuns-group-mark",
+    1665,
+    445
   ],
   [
     "Mineski",

@@ -213,7 +213,7 @@ html[lang] .social-links a.personal-website { font-family: var(--sans); }
 /* Original PNGs retain their transparent margins; scale by the visible mark. */
 .partner-logo--xiaomi { width: 156px; max-width: none; }
 .partner-logo--solaire { width: 104px; }
-.partner-logo--yuns-group { width: 176px; max-width: 100%; max-height: 100%; object-fit: contain; }
+.partner-logo--yuns-group-mark { width: 138px; max-width: 100%; max-height: 100%; object-fit: contain; }
 .contact { padding: 48px var(--gutter) 32px; background: var(--closing-paper); color: var(--green); }
 .contact h2 { color: var(--green); font: 500 28px/1.4 var(--serif); text-align: start; }
 html[lang^="zh"] .contact h2 { font-size: 28px; line-height: 1.5; }
@@ -421,7 +421,7 @@ html[lang^="zh"] .page-heading { font-size: 42px; line-height: 1.5; }
 .home-partners .partner-logo--mineski { width: 58px; }
 .home-partners .partner-logo--xiaomi { width: 144px; }
 .home-partners .partner-logo--solaire { width: 90px; }
-.home-partners .partner-logo--yuns-group { width: 126px; max-width: 100%; max-height: 100%; object-fit: contain; }
+.home-partners .partner-logo--yuns-group-mark { width: 120px; max-width: 100%; max-height: 100%; object-fit: contain; }
 .partner-statement span { display: inline; }
 .partner-statement span+span::before { content: ' '; }
 .detail-page .partners { padding-bottom: 60px; }
