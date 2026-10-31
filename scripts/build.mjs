@@ -1,3 +1,4 @@
+import { buildYawmana, yawmanaRoutes } from './yawmana.mjs';
 import { mkdir, cp, writeFile, readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { content, partners, partnerNames, languages, siteTitle } from "../src/content.mjs";
@@ -138,13 +139,14 @@ for (const c of Object.values(content)) {
     await writeFile(`${path}index.html`, page(c, section));
   }
 }
+await buildYawmana(cssPath);
 await writeFile(
   "dist/robots.txt",
   "User-agent: *\nAllow: /\nSitemap: https://elevencapital.ltd/sitemap.xml\n",
 );
 await writeFile(
   "dist/sitemap.xml",
-  '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + Object.values(content).flatMap(c => sections.map(section => `<url><loc>https://elevencapital.ltd${route(c, section)}</loc></url>`)).join("") + "</urlset>",
+  '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + Object.values(content).flatMap(c => sections.map(section => `<url><loc>https://elevencapital.ltd${route(c, section)}</loc></url>`)).join("") + yawmanaRoutes.map(({path}) => `<url><loc>https://elevencapital.ltd${path}</loc></url>`).join("") + "</urlset>",
 );
 await writeFile(
   "dist/404.html",

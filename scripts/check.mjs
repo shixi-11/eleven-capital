@@ -1,3 +1,4 @@
+import { yawmanaRoutes, productPath, productSections, policySections, policies } from './yawmana.mjs';
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 import { content, partners, partnerNames, languages } from "../src/content.mjs";
@@ -46,6 +47,7 @@ for (const c of Object.values(content)) for (const section of sections) {
   const path = c.path + section;
   pages.set(path, await readFile(`dist${path}index.html`, "utf8"));
 }
+for (const {path} of yawmanaRoutes) pages.set(path, await readFile(`dist${path}index.html`, 'utf8'));
 for (const c of Object.values(content)) for (const section of sections) {
   const path = c.path + section;
   const html = pages.get(path);
@@ -145,6 +147,55 @@ for (const c of Object.values(content)) for (const section of sections) {
     }
   }
 }
+
+// Product-only routes have their own two-language contract; company assertions above remain intact.
+const unescape = text => text.replaceAll('&quot;','"').replaceAll('&lt;','<').replaceAll('&gt;','>').replaceAll('&amp;','&');
+const visible = html => unescape(html.replace(/<head\b[^>]*>[\s\S]*?<\/head>/g,'').replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,'').replace(/<[^>]+>/g,''));
+for (const {lang,section,path} of yawmanaRoutes) {
+  const html=pages.get(path), p=policies[lang];
+  const expectedPolicyKeys=['privacy_policy_title','privacy_policy_updated','privacy_policy_intro',...policySections.flatMap(key=>[`privacy_policy_${key}_title`,`privacy_policy_${key}_body`])];
+  assert.deepEqual(Object.keys(p).sort(),expectedPolicyKeys.sort(),'Complete policy snapshot required');
+  assert(html.includes(`<html lang="${lang}" dir="${lang==='ar'?'rtl':'ltr'}">`),`Product reading direction: ${path}`);
+  assert.equal((html.match(/<h1\b/g)||[]).length,1,`Product heading: ${path}`);
+  assert(html.includes(`rel="canonical" href="https://elevencapital.ltd${path}"`));
+  assert.deepEqual([...html.matchAll(/rel="alternate" hreflang="([^"]+)"/g)].map(m=>m[1]),['en','ar','x-default']);
+  for (const other of ['en','ar']) {
+    assert(html.includes(`data-yawmana-language href="${productPath(other,section)}"`),`Product language continuity: ${path}`);
+    assert(html.includes(`hreflang="${other}" href="https://elevencapital.ltd${productPath(other,section)}"`));
+  }
+  for (const destination of productSections) assert(html.includes(`href="${productPath(lang,destination)}"`));
+  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+  assert.equal(ids.length,new Set(ids).size,`Duplicate product IDs: ${path}`);
+  for (const [,href] of html.matchAll(/href="([^" ]+)"/g)) {
+    if(!href.startsWith('/')&&!href.startsWith('#'))continue;
+    const target=new URL(unescape(href),'https://elevencapital.ltd'+path);
+    if(target.pathname.endsWith('/')) {
+      const destination=pages.get(target.pathname);assert(destination,`Missing product route ${href}`);
+      if(target.hash)assert(destination.includes(`id="${target.hash.slice(1)}"`));
+    }
+  }
+  for (const [,asset] of html.matchAll(/(?:src|href)="(\/[^"#]*\.(?:png|css|js))"/g)) assert((await stat('dist'+asset)).isFile(),`Missing product asset ${asset}`);
+  assert(!html.includes('<form')&&!html.includes('/api/'),'No automatic deletion/enquiry submission');
+  assert(html.includes('<bdi dir="ltr">info@elevencapital.ltd</bdi>'),'Readable request address');
+  assert(html.includes('data-copy-email')&&html.includes('role="status"'),'Copy address feedback');
+  if(section==='privacy') {
+    const date=p.privacy_policy_updated.match(/\d{4}-\d{2}-\d{2}/)[0];
+    assert(html.includes(`<bdi dir="ltr">${date}</bdi>`),'Policy date direction');
+    for(const value of Object.values(p))assert(visible(html).includes(value),`Policy text drift: ${lang}: ${value.slice(0,45)}`);
+    assert.equal((html.match(/class="product-policy-copy"/g)||[]).length,1);
+    for(const key of policySections)assert(html.includes(`id="${key}"`));
+  }
+  if(section==='account-deletion') {
+    const request=[...html.matchAll(/href="(mailto:[^"]+)"/g)].map(m=>new URL(unescape(m[1]))).find(url=>url.searchParams.get('body'));
+    assert(request,'Deletion email draft missing');assert.equal(request.pathname,'info@elevencapital.ltd');
+    assert(request.searchParams.get('subject').includes(lang==='ar'?'يومنا':'Yawmana'));
+    assert(request.searchParams.get('body').includes(lang==='ar'?'البريد الإلكتروني المسجل':'Registered email address'));
+    for(const key of ['inApp','email','verify','effect','retain','timing','device'])assert(html.includes(`id="${key}-title"`),`Deletion explanation missing ${key}`);
+  }
+}
+const productScript=await readFile('src/yawmana.js','utf8');
+assert(!/\bfetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket/.test(productScript),'Product pages must not submit data');
+
 const css = await readFile("dist/styles.css", "utf8");
 const manifest = JSON.parse(await readFile("public/assets/fonts/manifest.json", "utf8"));
 for (const font of manifest.fonts) {
@@ -161,6 +212,18 @@ for (const c of Object.values(content)) {
     const missing = required.filter(character => !font.characters.includes(character));
     assert.equal(missing.length, 0, `Refresh ${font.file}: missing glyphs ${missing.join("")}`);
   }
+}
+for(const {lang,path} of yawmanaRoutes) {
+  const required=[...new Set(visible(pages.get(path).replace(/<div class="product-languages"[^>]*>[\s\S]*?<\/div>/g,'')).match(/[\p{L}\p{M}\p{N}]/gu)||[])];
+  for(const kind of ['sans','serif']) {
+    const font=manifest.fonts.find(f=>f.file===`${kind}-${lang==='ar'?'arabic':'latin'}.woff2`);
+    const missing=required.filter(character=>!font.characters.includes(character));
+    assert.equal(missing.length,0,`Product font ${font.file}: missing ${missing.join('')}`);
+  }
+}
+for(const [label,suffix] of [['English','latin'],['العربية','arabic']]) {
+  const font=manifest.fonts.find(f=>f.file===`sans-${suffix}.woff2`);
+  assert([...label].every(character=>font.characters.includes(character)),'Language label font coverage');
 }
 const sitemap = await readFile("dist/sitemap.xml", "utf8");
 for (const path of pages.keys()) assert(sitemap.includes(`<loc>https://elevencapital.ltd${path}</loc>`));
