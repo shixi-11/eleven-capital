@@ -1,4 +1,5 @@
-import { yawmanaRoutes, productPath, productSections, policySections, policies } from './yawmana.mjs';
+import { yawmanaRoutes, yawmanaInviteRoutes, productPath, productSections, policySections, policies } from './yawmana.mjs';
+import { initInvitePage, parseInviteFragment, inviteLink } from '../src/yawmana-invite.js';
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 import { content, partners, partnerNames, languages } from "../src/content.mjs";
@@ -221,6 +222,53 @@ for(const {lang,path} of yawmanaRoutes) {
     assert.equal(missing.length,0,`Product font ${font.file}: missing ${missing.join('')}`);
   }
 }
+const testToken = 'A'.repeat(43);
+const validFragment = `#family=home_7&token=${testToken}`;
+assert.deepEqual(parseInviteFragment(validFragment), { family: 'home_7', token: testToken });
+assert.equal(parseInviteFragment(validFragment + '\n'), null, 'Trailing newlines must be rejected');
+assert.equal(parseInviteFragment(`#family=bad%2Fid&token=${testToken}`), null, 'Encoded family IDs must be rejected');
+assert.equal(parseInviteFragment(`#family=x&token=${testToken}&extra=1`), null, 'Extra fragment fields must be rejected');
+assert.equal(inviteLink({ family: 'home_7', token: testToken }), `yawmana://family/home_7?token=${testToken}`);
+
+class FakeElement {
+  constructor(attributes = {}) { this.attributes = attributes; this.dataset = attributes.dataset || {}; this.disabled = Boolean(attributes.disabled); this.href = attributes.href || ''; this.textContent = ''; this.listeners = new Map(); }
+  addEventListener(type, listener) { this.listeners.set(type, listener); }
+  getAttribute(name) { return this.attributes[name] ?? null; }
+  click() { const listener = this.listeners.get('click'); if (listener) return listener({ preventDefault: () => { this.prevented = true; } }); }
+}
+const openButton = new FakeElement({ disabled: true });
+const copyButton = new FakeElement({ disabled: true, dataset: { copied: 'copied', copyFailed: 'copy failed' } });
+const status = new FakeElement({ dataset: { invalid: 'invalid' } });
+const url = new FakeElement();
+const language = new FakeElement({ href: '/ar/yawmana/invite/' });
+const fakeDocument = { querySelector: selector => ({ '[data-invite-open]': openButton, '[data-invite-copy]': copyButton, '[data-invite-status]': status, '[data-invite-url]': url }[selector] || null), querySelectorAll: selector => selector === '[data-invite-language]' ? [language] : [], createRange: () => ({ selectNodeContents: () => {} }) };
+const hashListeners = new Map();
+const clipboardWrites = [];
+const fakeWindow = { location: { origin: 'https://elevencapital.ltd', pathname: '/yawmana/invite/', hash: '', href: 'https://elevencapital.ltd/yawmana/invite/' }, navigator: { clipboard: { writeText: async value => clipboardWrites.push(value) } }, getSelection: () => ({ removeAllRanges: () => {}, addRange: () => {} }), addEventListener: (type, listener) => hashListeners.set(type, listener), fetch: () => { throw new Error('network must not be used'); } };
+initInvitePage(fakeDocument, fakeWindow);
+assert(openButton.disabled && copyButton.disabled && status.textContent === 'invalid', 'Invalid invite must disable actions');
+fakeWindow.location.hash = validFragment;
+hashListeners.get('hashchange')();
+assert(!openButton.disabled && !copyButton.disabled && url.textContent.endsWith(validFragment), 'Valid invite must enable actions and display the full link');
+const beforeClick = fakeWindow.location.href;
+await openButton.click();
+assert.equal(fakeWindow.location.href, `yawmana://family/home_7?token=${testToken}`, 'Deep link only navigates after an explicit click');
+fakeWindow.location.href = beforeClick;
+await copyButton.click();
+assert.deepEqual(clipboardWrites, [`https://elevencapital.ltd/yawmana/invite/${validFragment}`], 'Copy must preserve the complete invitation URL');
+await language.click();
+assert.equal(language.href, `/ar/yawmana/invite/${validFragment}`, 'Language switch must preserve the fragment');
+for (const {lang, path} of yawmanaInviteRoutes) {
+  const html = await readFile(`dist${path}index.html`, 'utf8');
+  assert(html.includes('<meta name="robots" content="noindex, nofollow">') && html.includes('<meta name="referrer" content="no-referrer">'));
+  assert(html.includes('data-invite-open') && html.includes('data-invite-copy') && html.includes('disabled'));
+  assert(html.includes('https://play.google.com/store/apps/details?id=ltd.elevencapital.yawmana'));
+  assert(html.includes(`data-invite-language href="${lang === 'en' ? '/ar' : ''}/yawmana/invite/"`));
+  assert(!/<form|fetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket/.test(html));
+  for (const [, asset] of html.matchAll(/(?:src|href)="(\/[^"#]*\.(?:css|js))"/g)) assert((await stat('dist' + asset)).isFile(), `Missing invite asset ${asset}`);
+}
+const inviteScript = await readFile('src/yawmana-invite.js', 'utf8');
+assert(!/fetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket/.test(inviteScript), 'Invite page must not send invitation data');
 for(const [label,suffix] of [['English','latin'],['العربية','arabic']]) {
   const font=manifest.fonts.find(f=>f.file===`sans-${suffix}.woff2`);
   assert([...label].every(character=>font.characters.includes(character)),'Language label font coverage');

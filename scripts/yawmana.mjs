@@ -5,6 +5,8 @@ export const policySections = ['local','account','shared','backup','purchases','
 export const productSections = ['support','privacy','account-deletion'];
 export const productPath = (lang, section='support') => `${lang==='ar'?'/ar':''}/yawmana/${section==='support'?'':section+'/'}`;
 export const yawmanaRoutes = ['en','ar'].flatMap(lang => productSections.map(section => ({lang,section,path:productPath(lang,section)})));
+export const invitePath = lang => `${lang==='ar'?'/ar':''}/yawmana/invite/`;
+export const yawmanaInviteRoutes = ['en','ar'].map(lang => ({lang, path:invitePath(lang)}));
 const esc = text => String(text).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const email = 'info@elevencapital.ltd';
 const copy = {
@@ -51,6 +53,24 @@ const copy = {
     requestSubject:'طلب حذف حساب يومنا', requestBody:'مرحبًا،\nأطلب حذف حسابي في يومنا والبيانات الشخصية المرتبطة به.\n\nالبريد الإلكتروني المسجل:\nتفاصيل إضافية (اختيارية):',
   },
 };
+const inviteCopy = {
+  en: {
+    brand: 'Yawmana', language: 'Language', title: 'You have a family invitation', eyebrow: 'Family invitation',
+    lead: 'Install Yawmana, then return to this page and choose “Open Yawmana” to accept the invitation.',
+    note: 'If Yawmana is already installed, you can open it now.',
+    open: 'Open Yawmana', play: 'Get on Google Play', copy: 'Copy invitation link', copied: 'Invitation link copied.',
+    copyFailed: 'Copying is unavailable. Select and copy the invitation link below.', invalid: 'Open this page from a valid invitation link to continue.',
+    urlLabel: 'Invitation link', footer: 'Yawmana is operated by Eleven Capital Limited, Hong Kong.',
+  },
+  ar: {
+    brand: 'يومنا', language: 'اللغة', title: 'لديك دعوة إلى أسرة', eyebrow: 'دعوة إلى أسرة',
+    lead: 'ثبّت تطبيق يومنا، ثم عُد إلى هذه الصفحة واختر «فتح يومنا» لقبول الدعوة.',
+    note: 'إذا كان تطبيق يومنا مثبتًا بالفعل، يمكنك فتحه الآن.',
+    open: 'فتح يومنا', play: 'الحصول عليه من Google Play', copy: 'نسخ رابط الدعوة', copied: 'تم نسخ رابط الدعوة.',
+    copyFailed: 'النسخ غير متاح. يمكنك تحديد رابط الدعوة أدناه ونسخه.', invalid: 'افتح هذه الصفحة من رابط دعوة صالح للمتابعة.',
+    urlLabel: 'رابط الدعوة', footer: 'تتولى تشغيل يومنا شركة Eleven Capital Limited في هونغ كونغ.',
+  },
+};
 const inline = text => esc(text).replaceAll(email, `<bdi dir="ltr">${email}</bdi>`).replace(/\b\d{4}-\d{2}-\d{2}\b/g, date => `<bdi dir="ltr">${date}</bdi>`);
 const paragraph = text => `<p>${inline(text)}</p>`;
 function contact(c, deletion=false) {
@@ -70,10 +90,17 @@ function page(lang, section, assets) {
   const c=copy[lang], path=productPath(lang,section), title=`${c.brand} | ${c[section]}`;
   return `<!doctype html><html lang="${lang}" dir="${lang==='ar'?'rtl':'ltr'}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(c.description)}"><link rel="canonical" href="https://elevencapital.ltd${path}">${['en','ar'].map(other=>`<link rel="alternate" hreflang="${other}" href="https://elevencapital.ltd${productPath(other,section)}">`).join('')}<link rel="alternate" hreflang="x-default" href="https://elevencapital.ltd${productPath('en',section)}"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(c.description)}"><meta property="og:url" content="https://elevencapital.ltd${path}"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(c.description)}"><link rel="icon" href="/assets/favicon-christmas-tree.png" type="image/png"><link rel="stylesheet" href="${assets.siteCss}"><link rel="stylesheet" href="${assets.css}"><script defer src="${assets.js}"></script></head><body class="yawmana-site" id="top"><a class="skip" href="#main">${esc(c.skip)}</a><header class="product-header"><a class="product-brand" href="${productPath(lang)}">${esc(c.brand)}</a><nav aria-label="${esc(c.nav)}">${productSections.map(key=>`<a href="${productPath(lang,key)}"${key===section?' aria-current="page"':''}>${esc(c[key])}</a>`).join('')}</nav><div class="product-languages" aria-label="${esc(c.language)}">${['en','ar'].map(other=>`<a data-yawmana-language href="${productPath(other,section)}" hreflang="${other}" lang="${other}" dir="${other==='ar'?'rtl':'ltr'}"${other===lang?' aria-current="page"':''}>${other==='en'?'English':'العربية'}</a>`).join('')}</div></header><main id="main" class="product-main">${bodyFor(lang,section)}</main><footer class="product-footer"><div>${paragraph(c.operator)}<a href="${lang==='ar'?'/ar/':'/'}">${esc(c.company)} ↗</a></div><a href="#top">${lang==='ar'?'العودة إلى الأعلى':'Back to top'} ↑</a></footer></body></html>`;
 }
+function invitePage(lang, assets) {
+  const c = inviteCopy[lang], path = invitePath(lang), other = lang === 'en' ? 'ar' : 'en';
+  const url = 'https://play.google.com/store/apps/details?id=ltd.elevencapital.yawmana';
+  return `<!doctype html><html lang="${lang}" dir="${lang==='ar'?'rtl':'ltr'}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(c.brand)} | ${esc(c.title)}</title><meta name="description" content="${esc(c.lead)}"><meta name="robots" content="noindex, nofollow"><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://elevencapital.ltd${path}"><link rel="alternate" hreflang="en" href="https://elevencapital.ltd${invitePath('en')}"><link rel="alternate" hreflang="ar" href="https://elevencapital.ltd${invitePath('ar')}"><link rel="alternate" hreflang="x-default" href="https://elevencapital.ltd${invitePath('en')}"><link rel="icon" href="/assets/yawmana-logo.png" type="image/png"><link rel="stylesheet" href="${assets.siteCss}"><link rel="stylesheet" href="${assets.css}"><link rel="stylesheet" href="${assets.inviteCss}"><script type="module" src="${assets.inviteJs}"></script></head><body class="yawmana-site yawmana-invite"><main class="invite-main"><header class="invite-header"><div class="invite-brand" aria-label="${esc(c.brand)}"><img class="invite-mark" src="/assets/yawmana-logo.png" width="48" height="48" alt=""><span>${esc(c.brand)}</span></div><nav class="invite-languages" aria-label="${esc(c.language)}"><a data-invite-language href="${invitePath(lang)}" lang="${lang}" dir="${lang==='ar'?'rtl':'ltr'}" aria-current="page">${lang==='en'?'English':'العربية'}</a><a data-invite-language href="${invitePath(other)}" lang="${other}" dir="${other==='ar'?'rtl':'ltr'}">${other==='en'?'English':'العربية'}</a></nav></header><section class="invite-copy" aria-labelledby="invite-title"><p class="invite-eyebrow">${esc(c.eyebrow)}</p><h1 id="invite-title">${esc(c.title)}</h1><p class="invite-lead">${esc(c.lead)}</p><p class="invite-note">${esc(c.note)}</p><div class="invite-actions"><button class="invite-open" data-invite-open type="button" disabled>${esc(c.open)} <span aria-hidden="true">↗</span></button><a class="invite-play" href="${url}" target="_blank" rel="noopener noreferrer">${esc(c.play)} <span aria-hidden="true">↗</span></a><button class="invite-copy-button" data-invite-copy type="button" data-copied="${esc(c.copied)}" data-copy-failed="${esc(c.copyFailed)}" disabled>${esc(c.copy)}</button></div><p class="invite-status" data-invite-status data-invalid="${esc(c.invalid)}" role="status" aria-live="polite"></p><code class="invite-url" data-invite-url aria-label="${esc(c.urlLabel)}"></code></section></main><footer class="invite-footer"><p>${esc(c.footer)}</p></footer></body></html>`;
+}
 export async function buildYawmana(siteCss) {
   const hash=async file=>createHash('sha256').update(await readFile(file)).digest('hex').slice(0,12);
-  const assets={siteCss,css:`/yawmana.${await hash('src/yawmana.css')}.css`,js:`/yawmana.${await hash('src/yawmana.js')}.js`};
+  const assets={siteCss,css:`/yawmana.${await hash('src/yawmana.css')}.css`,js:`/yawmana.${await hash('src/yawmana.js')}.js`,inviteCss:`/yawmana-invite.${await hash('src/yawmana-invite.css')}.css`,inviteJs:`/yawmana-invite.${await hash('src/yawmana-invite.js')}.js`};
   await cp('src/yawmana.css','dist'+assets.css);await cp('src/yawmana.js','dist'+assets.js);
+  await cp('src/yawmana-invite.css','dist'+assets.inviteCss);await cp('src/yawmana-invite.js','dist'+assets.inviteJs);
   for(const {lang,section,path} of yawmanaRoutes){await mkdir('dist'+path,{recursive:true});await writeFile('dist'+path+'index.html',page(lang,section,assets));}
-  console.log('Built 6 Yawmana support, privacy and deletion-request pages.');
+  for(const {lang,path} of yawmanaInviteRoutes){await mkdir('dist'+path,{recursive:true});await writeFile('dist'+path+'index.html',invitePage(lang,assets));}
+  console.log('Built 6 Yawmana support, privacy and deletion-request pages and 2 invitation pages.');
 }
