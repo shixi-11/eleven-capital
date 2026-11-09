@@ -8,7 +8,7 @@ export const yawmanaRoutes = ['en','ar'].flatMap(lang => productSections.map(sec
 export const invitePath = lang => `${lang==='ar'?'/ar':''}/yawmana/invite/`;
 export const yawmanaInviteRoutes = ['en','ar'].map(lang => ({lang, path:invitePath(lang)}));
 const esc = text => String(text).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-const email = 'info@elevencapital.ltd';
+const email = 'yawmana@elevencapital.ltd';
 const copy = {
   en: {
     brand:'Yawmana', support:'Help and support', privacy:'Privacy policy', 'account-deletion':'Request account deletion',

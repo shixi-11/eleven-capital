@@ -7,7 +7,7 @@
     "en": {
       "privacy_policy_title": "Privacy policy",
       "privacy_policy_updated": "Updated: 2026-10-31",
-      "privacy_policy_intro": "Yawmana is operated by Eleven Capital Limited, Hong Kong. This policy explains how we handle information when you manage your household, create an account or choose online features. You can contact us at info@elevencapital.ltd.",
+      "privacy_policy_intro": "Yawmana is operated by Eleven Capital Limited, Hong Kong. This policy explains how we handle information when you manage your household, create an account or choose online features. You can contact us at yawmana@elevencapital.ltd.",
       "privacy_policy_local_title": "On your device",
       "privacy_policy_local_body": "Your homes, rooms, tasks, completion history, plans, personal member notes and preferences are stored on your device by default, with separate local spaces for signed-out use and each account. Local reminders are handled on your device. Signing in alone does not publish this content to your family or enable private cloud backup.",
       "privacy_policy_account_title": "Your account and profile",
@@ -31,12 +31,12 @@
       "privacy_policy_choices_title": "Your choices",
       "privacy_policy_choices_body": "Yawmana is designed for adults managing a household, and you can use local features without choosing family sharing or private backup. You can update account details, control optional features and request account deletion through account settings, or contact us to request access, correction or deletion of your information. We may ask for information needed to verify that a request concerns your account. Removing local app data does not itself delete cloud records or cancel a Google Play subscription.",
       "privacy_policy_contact_title": "Contact us",
-      "privacy_policy_contact_body": "For privacy questions or requests about your information, contact Eleven Capital Limited, Hong Kong, at info@elevencapital.ltd. Please describe your request and provide the account email address if it is relevant, but do not send your password, payment card details or sign-in codes. We will use the information you provide to handle your request and protect your account."
+      "privacy_policy_contact_body": "For privacy questions or requests about your information, contact Eleven Capital Limited, Hong Kong, at yawmana@elevencapital.ltd. Please describe your request and provide the account email address if it is relevant, but do not send your password, payment card details or sign-in codes. We will use the information you provide to handle your request and protect your account."
     },
     "ar": {
       "privacy_policy_title": "سياسة الخصوصية",
       "privacy_policy_updated": "آخر تحديث: 2026-10-31",
-      "privacy_policy_intro": "تتولى شركة Eleven Capital Limited في هونغ كونغ تشغيل يومنا. توضح هذه السياسة كيفية تعاملنا مع معلوماتك عند إدارة شؤون منزلك أو إنشاء حساب أو اختيار استخدام الميزات المتصلة بالإنترنت. يمكنك التواصل معنا عبر info@elevencapital.ltd.",
+      "privacy_policy_intro": "تتولى شركة Eleven Capital Limited في هونغ كونغ تشغيل يومنا. توضح هذه السياسة كيفية تعاملنا مع معلوماتك عند إدارة شؤون منزلك أو إنشاء حساب أو اختيار استخدام الميزات المتصلة بالإنترنت. يمكنك التواصل معنا عبر yawmana@elevencapital.ltd.",
       "privacy_policy_local_title": "على جهازك",
       "privacy_policy_local_body": "تُحفظ منازلك وغرفك ومهامك وسجل إنجازك وخططك وملاحظاتك الشخصية عن الأعضاء وتفضيلاتك على جهازك افتراضيًا، في مساحات محلية منفصلة لكل حساب وللاستخدام دون تسجيل الدخول. تُدار التذكيرات المحلية على جهازك. ولا يؤدي تسجيل الدخول وحده إلى نشر هذا المحتوى لأفراد أسرتك أو تفعيل النسخ الاحتياطي السحابي الخاص.",
       "privacy_policy_account_title": "حسابك وملفك الشخصي",
@@ -60,7 +60,7 @@
       "privacy_policy_choices_title": "خياراتك",
       "privacy_policy_choices_body": "صُمّم يومنا للبالغين الذين يديرون شؤون المنزل، ويمكنك استخدام الميزات المحلية دون اختيار المشاركة الأسرية أو النسخ الاحتياطي الخاص. يمكنك تحديث بيانات حسابك والتحكم في الميزات الاختيارية وطلب حذف الحساب من إعداداته، أو التواصل معنا لطلب الاطلاع على معلوماتك أو تصحيحها أو حذفها. قد نطلب المعلومات اللازمة للتحقق من أن الطلب يتعلق بحسابك. ولا يؤدي حذف بيانات التطبيق المحلية وحده إلى حذف السجلات السحابية أو إلغاء اشتراك Google Play.",
       "privacy_policy_contact_title": "تواصل معنا",
-      "privacy_policy_contact_body": "للأسئلة المتعلقة بالخصوصية أو الطلبات الخاصة بمعلوماتك، تواصل مع شركة Eleven Capital Limited في هونغ كونغ عبر info@elevencapital.ltd. يرجى توضيح طلبك وذكر بريد الحساب الإلكتروني عند الحاجة، دون إرسال كلمة المرور أو بيانات البطاقة المصرفية أو رموز تسجيل الدخول. سنستخدم المعلومات التي تقدمها لمعالجة طلبك وحماية حسابك."
+      "privacy_policy_contact_body": "للأسئلة المتعلقة بالخصوصية أو الطلبات الخاصة بمعلوماتك، تواصل مع شركة Eleven Capital Limited في هونغ كونغ عبر yawmana@elevencapital.ltd. يرجى توضيح طلبك وذكر بريد الحساب الإلكتروني عند الحاجة، دون إرسال كلمة المرور أو بيانات البطاقة المصرفية أو رموز تسجيل الدخول. سنستخدم المعلومات التي تقدمها لمعالجة طلبك وحماية حسابك."
     }
   }
 }

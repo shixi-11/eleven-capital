@@ -177,7 +177,7 @@ for (const {lang,section,path} of yawmanaRoutes) {
   }
   for (const [,asset] of html.matchAll(/(?:src|href)="(\/[^"#]*\.(?:png|css|js))"/g)) assert((await stat('dist'+asset)).isFile(),`Missing product asset ${asset}`);
   assert(!html.includes('<form')&&!html.includes('/api/'),'No automatic deletion/enquiry submission');
-  assert(html.includes('<bdi dir="ltr">info@elevencapital.ltd</bdi>'),'Readable request address');
+  assert(html.includes('<bdi dir="ltr">yawmana@elevencapital.ltd</bdi>'),'Readable request address');
   assert(html.includes('data-copy-email')&&html.includes('role="status"'),'Copy address feedback');
   if(section==='privacy') {
     const date=p.privacy_policy_updated.match(/\d{4}-\d{2}-\d{2}/)[0];
@@ -188,7 +188,7 @@ for (const {lang,section,path} of yawmanaRoutes) {
   }
   if(section==='account-deletion') {
     const request=[...html.matchAll(/href="(mailto:[^"]+)"/g)].map(m=>new URL(unescape(m[1]))).find(url=>url.searchParams.get('body'));
-    assert(request,'Deletion email draft missing');assert.equal(request.pathname,'info@elevencapital.ltd');
+    assert(request,'Deletion email draft missing');assert.equal(request.pathname,'yawmana@elevencapital.ltd');
     assert(request.searchParams.get('subject').includes(lang==='ar'?'يومنا':'Yawmana'));
     assert(request.searchParams.get('body').includes(lang==='ar'?'البريد الإلكتروني المسجل':'Registered email address'));
     for(const key of ['inApp','email','verify','effect','retain','timing','device'])assert(html.includes(`id="${key}-title"`),`Deletion explanation missing ${key}`);
