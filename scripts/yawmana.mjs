@@ -1,7 +1,7 @@
 import { readFile, writeFile, mkdir, cp } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 export const { policies, policySources } = JSON.parse(await readFile(new URL('../src/yawmana-content.json', import.meta.url), 'utf8'));
-export const policySections = ['local','account','shared','backup','purchases','birthday','notifications','sharing','security','retention','choices','contact'];
+export const policySections = ['local','account','shared','backup','purchases','birthday','notifications','sharing','security','legal','transfers','retention','rights','children','choices','contact'];
 export const productSections = ['support','privacy','account-deletion'];
 export const productPath = (lang, section='support') => `${lang==='ar'?'/ar':''}/yawmana/${section==='support'?'':section+'/'}`;
 export const yawmanaRoutes = ['en','ar'].flatMap(lang => productSections.map(section => ({lang,section,path:productPath(lang,section)})));
