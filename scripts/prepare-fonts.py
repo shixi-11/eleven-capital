@@ -27,7 +27,10 @@ region_languages = {'SC': ['zh-Hans'], 'TC': ['zh-Hant'], 'Latin': ['en', 'es', 
 region_text = {region: '' for region in region_languages}
 for page in pages:
     markup = page.read_text('utf-8')
-    language = re.search(r'<html\s+lang="([^"]+)"', markup).group(1)
+    found = re.search(r'<html\s+lang="([^"]+)"', markup)
+    if not found:  # 站点验证文件之类没有正文语言的页面
+        continue
+    language = found.group(1)
     markup = re.sub(r'<script\b[^>]*>[\s\S]*?</script>', '', markup)
     feedback = ' '.join(re.findall(r'data-(?:ready|copied|copy-failed)="([^"]*)"', markup))
     text = html.unescape(re.sub('<[^>]+>', '', markup) + feedback)

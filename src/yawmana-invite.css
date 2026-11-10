@@ -21,8 +21,7 @@
 .yawmana-invite .invite-footer { padding: 26px 36px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; text-align: center; }
 @media (max-width: 760px) {
   .yawmana-invite .invite-main { padding: 38px 22px 58px; }
-  .yawmana-invite .invite-header { align-items: flex-start; flex-direction: column; gap: 14px; }
-  .yawmana-invite .invite-languages { align-self: flex-end; }
+  .yawmana-invite .invite-header { gap: 14px; }
   .yawmana-invite .invite-copy { padding-top: 48px; }
   .yawmana-invite h1 { font-size: 37px; }
   .yawmana-invite .invite-lead { font-size: 16px; }

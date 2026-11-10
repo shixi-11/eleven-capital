@@ -1,4 +1,7 @@
-import { yawmanaRoutes, yawmanaInviteRoutes, productPath, productSections, policySections, policies } from './yawmana.mjs';
+import { yawmanaRoutes, yawmanaInviteRoutes, yawmanaLanguages, yawmanaCopy, directionOf, productPath, invitePath, productSections, policySections, policies } from './yawmana.mjs';
+// 产品页各语言用的字体子集；希伯来语没有自带子集，用系统字体。
+const productFont = {en:'latin', de:'latin', fr:'latin', ar:'arabic', 'zh-Hant':'tc', 'zh-Hans':'sc', he:null};
+const productLanguages = yawmanaLanguages.map(l => l.lang);
 import { initInvitePage, parseInviteFragment, inviteLink } from '../src/yawmana-invite.js';
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
@@ -149,18 +152,18 @@ for (const c of Object.values(content)) for (const section of sections) {
   }
 }
 
-// Product-only routes have their own two-language contract; company assertions above remain intact.
+// Product-only routes have their own language contract; company assertions above remain intact.
 const unescape = text => text.replaceAll('&quot;','"').replaceAll('&lt;','<').replaceAll('&gt;','>').replaceAll('&amp;','&');
 const visible = html => unescape(html.replace(/<head\b[^>]*>[\s\S]*?<\/head>/g,'').replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,'').replace(/<[^>]+>/g,''));
 for (const {lang,section,path} of yawmanaRoutes) {
   const html=pages.get(path), p=policies[lang];
   const expectedPolicyKeys=['privacy_policy_title','privacy_policy_updated','privacy_policy_intro',...policySections.flatMap(key=>[`privacy_policy_${key}_title`,`privacy_policy_${key}_body`])];
   assert.deepEqual(Object.keys(p).sort(),expectedPolicyKeys.sort(),'Complete policy snapshot required');
-  assert(html.includes(`<html lang="${lang}" dir="${lang==='ar'?'rtl':'ltr'}">`),`Product reading direction: ${path}`);
+  assert(html.includes(`<html lang="${lang}" dir="${directionOf(lang)}">`),`Product reading direction: ${path}`);
   assert.equal((html.match(/<h1\b/g)||[]).length,1,`Product heading: ${path}`);
   assert(html.includes(`rel="canonical" href="https://elevencapital.ltd${path}"`));
-  assert.deepEqual([...html.matchAll(/rel="alternate" hreflang="([^"]+)"/g)].map(m=>m[1]),['en','ar','x-default']);
-  for (const other of ['en','ar']) {
+  assert.deepEqual([...html.matchAll(/rel="alternate" hreflang="([^"]+)"/g)].map(m=>m[1]),[...productLanguages,'x-default']);
+  for (const other of productLanguages) {
     assert(html.includes(`data-yawmana-language href="${productPath(other,section)}"`),`Product language continuity: ${path}`);
     assert(html.includes(`hreflang="${other}" href="https://elevencapital.ltd${productPath(other,section)}"`));
   }
@@ -190,7 +193,7 @@ for (const {lang,section,path} of yawmanaRoutes) {
     const request=[...html.matchAll(/href="(mailto:[^"]+)"/g)].map(m=>new URL(unescape(m[1]))).find(url=>url.searchParams.get('body'));
     assert(request,'Deletion email draft missing');assert.equal(request.pathname,'yawmana@elevencapital.ltd');
     assert(request.searchParams.get('subject').includes(lang==='ar'?'يومنا':'Yawmana'));
-    assert(request.searchParams.get('body').includes(lang==='ar'?'البريد الإلكتروني المسجل':'Registered email address'));
+    assert.equal(request.searchParams.get('body'),yawmanaCopy[lang].requestBody,'Deletion email draft must use the page language');
     for(const key of ['inApp','email','verify','effect','retain','timing','device'])assert(html.includes(`id="${key}-title"`),`Deletion explanation missing ${key}`);
   }
 }
@@ -215,9 +218,10 @@ for (const c of Object.values(content)) {
   }
 }
 for(const {lang,path} of yawmanaRoutes) {
-  const required=[...new Set(visible(pages.get(path).replace(/<div class="product-languages"[^>]*>[\s\S]*?<\/div>/g,'')).match(/[\p{L}\p{M}\p{N}]/gu)||[])];
+  const required=[...new Set(visible(pages.get(path).replace(/<details class="language-picker product-languages">[\s\S]*?<\/details>/g,'')).match(/[\p{L}\p{M}\p{N}]/gu)||[])];
   for(const kind of ['sans','serif']) {
-    const font=manifest.fonts.find(f=>f.file===`${kind}-${lang==='ar'?'arabic':'latin'}.woff2`);
+    if(!productFont[lang])continue;
+    const font=manifest.fonts.find(f=>f.file===`${kind}-${productFont[lang]}.woff2`);
     const missing=required.filter(character=>!font.characters.includes(character));
     assert.equal(missing.length,0,`Product font ${font.file}: missing ${missing.join('')}`);
   }
@@ -263,13 +267,14 @@ for (const {lang, path} of yawmanaInviteRoutes) {
   assert(html.includes('<meta name="robots" content="noindex, nofollow">') && html.includes('<meta name="referrer" content="no-referrer">'));
   assert(html.includes('data-invite-open') && html.includes('data-invite-copy') && html.includes('disabled'));
   assert(html.includes('https://play.google.com/store/apps/details?id=ltd.elevencapital.yawmana'));
-  assert(html.includes(`data-invite-language href="${lang === 'en' ? '/ar' : ''}/yawmana/invite/"`));
+  for (const other of productLanguages) assert(html.includes(`data-invite-language href="${invitePath(other)}"`), `Invite language continuity: ${path}`);
+  assert(html.includes(`<html lang="${lang}" dir="${directionOf(lang)}">`), `Invite reading direction: ${path}`);
   assert(!/<form|fetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket/.test(html));
   for (const [, asset] of html.matchAll(/(?:src|href)="(\/[^"#]*\.(?:css|js))"/g)) assert((await stat('dist' + asset)).isFile(), `Missing invite asset ${asset}`);
 }
 const inviteScript = await readFile('src/yawmana-invite.js', 'utf8');
 assert(!/fetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket/.test(inviteScript), 'Invite page must not send invitation data');
-for(const [label,suffix] of [['English','latin'],['العربية','arabic']]) {
+for(const [label,suffix] of yawmanaLanguages.filter(l=>productFont[l.lang]).map(l=>[l.label,productFont[l.lang]])) {
   const font=manifest.fonts.find(f=>f.file===`sans-${suffix}.woff2`);
   assert([...label].every(character=>font.characters.includes(character)),'Language label font coverage');
 }
