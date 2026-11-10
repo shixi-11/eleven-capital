@@ -1,6 +1,6 @@
 import { yawmanaRoutes, yawmanaInviteRoutes, yawmanaLanguages, yawmanaCopy, directionOf, productPath, invitePath, productSections, policySections, policies } from './yawmana.mjs';
 // 产品页各语言用的字体子集；希伯来语没有自带子集，用系统字体。
-const productFont = {en:'latin', de:'latin', fr:'latin', ar:'arabic', 'zh-Hant':'tc', 'zh-Hans':'sc', he:null};
+const productFont = {en:'latin', de:'latin', fr:'latin', ar:'arabic', 'zh-Hant':'tc', 'zh-Hans':'sc', he:null, nl:'latin', sv:'latin', da:'latin', nb:'latin', fi:'latin'};
 const productLanguages = yawmanaLanguages.map(l => l.lang);
 import { initInvitePage, parseInviteFragment, inviteLink } from '../src/yawmana-invite.js';
 import assert from "node:assert/strict";

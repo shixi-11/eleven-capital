@@ -13,6 +13,11 @@ export const yawmanaLanguages = [
   {lang:'he', prefix:'/he', label:'עברית', short:'HE', dir:'rtl', home:'/'},
   {lang:'zh-Hant', prefix:'/zh-hant', label:'繁體中文', short:'繁', home:'/zh-hant/'},
   {lang:'zh-Hans', prefix:'/zh-hans', label:'简体中文', short:'简', home:'/zh-hans/'},
+  {lang:'nl', prefix:'/nl', label:'Nederlands', short:'NL', home:'/'},
+  {lang:'sv', prefix:'/sv', label:'Svenska', short:'SV', home:'/'},
+  {lang:'da', prefix:'/da', label:'Dansk', short:'DA', home:'/'},
+  {lang:'nb', prefix:'/nb', label:'Norsk', short:'NO', home:'/'},
+  {lang:'fi', prefix:'/fi', label:'Suomi', short:'FI', home:'/'},
 ];
 const language = lang => yawmanaLanguages.find(l => l.lang === lang);
 export const directionOf = lang => language(lang).dir || 'ltr';

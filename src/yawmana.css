@@ -68,10 +68,12 @@
 
 .yawmana-site .product-languages a[lang="ar"] { font-family: "Eleven Sans Arabic", sans-serif; }
 .yawmana-site .product-languages a[lang="en"] { font-family: "Eleven Sans Latin", sans-serif; }
-.yawmana-site .language-options a:is([lang="de"],[lang="fr"]) { font-family: "Eleven Sans Latin", sans-serif; }
+.yawmana-site .language-options a:is([lang="de"],[lang="fr"],[lang="nl"],[lang="sv"],[lang="da"],[lang="nb"],[lang="fi"]) { font-family: "Eleven Sans Latin", sans-serif; }
 .yawmana-site .language-options a[lang="zh-Hant"] { font-family: "Eleven Sans TC", "Microsoft JhengHei", sans-serif; }
 .yawmana-site .language-options a[lang="zh-Hans"] { font-family: "Eleven Sans SC", "Microsoft YaHei", sans-serif; }
 .yawmana-site .language-options a[lang="he"] { font-family: "Noto Sans Hebrew", "Segoe UI", "Arial Hebrew", Arial, sans-serif; }
 /* 希伯来语没有网站自带的字体子集，用各系统自带的希伯来文字体。 */
 html[lang="he"] { --serif: "Noto Serif Hebrew", "David", "Times New Roman", serif; --sans: "Noto Sans Hebrew", "Segoe UI", "Arial Hebrew", Arial, sans-serif; }
 html[lang="zh-Hans"] .yawmana-site, html[lang="zh-Hant"] .yawmana-site { line-break: strict; }
+html:is([lang="nl"],[lang="sv"],[lang="da"],[lang="nb"],[lang="fi"]) { --serif: "Eleven Serif Latin", Georgia, serif; --sans: "Eleven Sans Latin", Arial, sans-serif; }
+html[lang="fi"] .yawmana-site { hyphens: auto; }
