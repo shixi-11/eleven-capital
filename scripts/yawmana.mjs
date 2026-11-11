@@ -2,7 +2,7 @@ import { readFile, writeFile, mkdir, cp } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { extraCopy, extraInviteCopy } from '../src/yawmana-copy.mjs';
 export const { policies, policySources } = JSON.parse(await readFile(new URL('../src/yawmana-content.json', import.meta.url), 'utf8'));
-export const policySections = ['local','account','shared','backup','purchases','birthday','notifications','sharing','security','legal','transfers','retention','rights','children','choices','contact'];
+export const policySections = ['local','account','shared','backup','purchases','birthday','notifications','sharing','security','diagnostics','legal','transfers','retention','rights','children','choices','contact'];
 export const productSections = ['support','privacy','account-deletion'];
 // 语言顺序即语言菜单顺序；prefix 与官网各语言首页一致，home 是页脚公司链接的去处。
 export const yawmanaLanguages = [
