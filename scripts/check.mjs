@@ -278,6 +278,16 @@ for(const [label,suffix] of yawmanaLanguages.filter(l=>productFont[l.lang]).map(
   const font=manifest.fonts.find(f=>f.file===`sans-${suffix}.woff2`);
   assert([...label].every(character=>font.characters.includes(character)),'Language label font coverage');
 }
+// Android App Links: the invitation pages open Yawmana only for the Play app-signing and upload certificates.
+const assetLinks = JSON.parse(await readFile('dist/.well-known/assetlinks.json', 'utf8'));
+assert.equal(assetLinks.length, 1, 'One Android statement');
+assert.deepEqual(assetLinks[0].relation, ['delegate_permission/common.handle_all_urls']);
+assert.equal(assetLinks[0].target.namespace, 'android_app');
+assert.equal(assetLinks[0].target.package_name, 'ltd.elevencapital.yawmana');
+const fingerprints = assetLinks[0].target.sha256_cert_fingerprints;
+assert(fingerprints.length >= 2 && fingerprints.every(f => /^([0-9A-F]{2}:){31}[0-9A-F]{2}$/.test(f)), 'Upper-case colon SHA-256 fingerprints');
+assert(fingerprints.includes('9E:9C:2A:B4:A0:2D:2C:B0:CF:63:E7:63:11:E6:5C:51:51:2B:69:30:72:2D:9B:FE:FC:80:17:4A:EC:1B:BB:3F'), 'Play app signing certificate');
+assert(fingerprints.includes('1B:A0:E8:5C:CB:63:16:50:B9:E8:D7:4C:D0:FE:17:13:9B:06:56:E9:91:9C:CB:16:8C:BC:67:7E:FF:8D:F6:0D'), 'Upload certificate');
 const sitemap = await readFile("dist/sitemap.xml", "utf8");
 for (const path of pages.keys()) assert(sitemap.includes(`<loc>https://elevencapital.ltd${path}</loc>`));
 console.log(

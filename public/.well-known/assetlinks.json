@@ -1,0 +1,17 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ltd.elevencapital.yawmana",
+      "sha256_cert_fingerprints": [
+        "9E:9C:2A:B4:A0:2D:2C:B0:CF:63:E7:63:11:E6:5C:51:51:2B:69:30:72:2D:9B:FE:FC:80:17:4A:EC:1B:BB:3F",
+        "8F:D7:98:67:ED:A0:E4:D2:3D:BA:22:FD:09:B5:C8:29:D3:D9:34:C1:2C:B3:82:EA:1C:61:2E:3D:75:0A:1A:A7",
+        "14:DC:A4:40:6C:CB:07:AD:FD:C1:F6:4A:45:D6:B1:BD:5F:1A:0E:35:FC:AF:91:1A:C5:9A:4F:30:2B:6D:DE:04",
+        "1B:A0:E8:5C:CB:63:16:50:B9:E8:D7:4C:D0:FE:17:13:9B:06:56:E9:91:9C:CB:16:8C:BC:67:7E:FF:8D:F6:0D"
+      ]
+    }
+  }
+]
