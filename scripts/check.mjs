@@ -2,7 +2,7 @@ import { yawmanaRoutes, yawmanaInviteRoutes, yawmanaTodayRoutes, todayPath, toda
 // 产品页各语言用的字体子集；希伯来语没有自带子集，用系统字体。
 const productFont = {en:'latin', de:'latin', fr:'latin', ar:'arabic', 'zh-Hant':'tc', 'zh-Hans':'sc', he:null, nl:'latin', sv:'latin', da:'latin', nb:'latin', fi:'latin'};
 const productLanguages = yawmanaLanguages.map(l => l.lang);
-import { initInvitePage, parseInviteFragment, inviteLink } from '../src/yawmana-invite.js';
+import { initInvitePage, parseInviteFragment, inviteLink, playLink, platformOf, pageLanguage, METRICS_URL } from '../src/yawmana-invite.js';
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 import { content, partners, partnerNames, languages } from "../src/content.mjs";
@@ -244,11 +244,13 @@ const openButton = new FakeElement({ disabled: true });
 const copyButton = new FakeElement({ disabled: true, dataset: { copied: 'copied', copyFailed: 'copy failed' } });
 const status = new FakeElement({ dataset: { invalid: 'invalid' } });
 const url = new FakeElement();
+const playAnchor = new FakeElement({ href: 'https://play.google.com/store/apps/details?id=ltd.elevencapital.yawmana' });
 const language = new FakeElement({ href: '/ar/yawmana/invite/' });
-const fakeDocument = { querySelector: selector => ({ '[data-invite-open]': openButton, '[data-invite-copy]': copyButton, '[data-invite-status]': status, '[data-invite-url]': url }[selector] || null), querySelectorAll: selector => selector === '[data-invite-language]' ? [language] : [], createRange: () => ({ selectNodeContents: () => {} }) };
+const fakeDocument = { querySelector: selector => ({ '[data-invite-open]': openButton, '[data-invite-copy]': copyButton, '[data-invite-status]': status, '[data-invite-url]': url, '[data-invite-play]': playAnchor }[selector] || null), querySelectorAll: selector => selector === '[data-invite-language]' ? [language] : [], createRange: () => ({ selectNodeContents: () => {} }) };
 const hashListeners = new Map();
 const clipboardWrites = [];
-const fakeWindow = { location: { origin: 'https://elevencapital.ltd', pathname: '/yawmana/invite/', hash: '', href: 'https://elevencapital.ltd/yawmana/invite/' }, navigator: { clipboard: { writeText: async value => clipboardWrites.push(value) } }, getSelection: () => ({ removeAllRanges: () => {}, addRange: () => {} }), addEventListener: (type, listener) => hashListeners.set(type, listener), fetch: () => { throw new Error('network must not be used'); } };
+const beacons = [];
+const fakeWindow = { location: { origin: 'https://elevencapital.ltd', pathname: '/yawmana/invite/', hash: '', href: 'https://elevencapital.ltd/yawmana/invite/' }, navigator: { userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X)', maxTouchPoints: 5, sendBeacon: (to, blob) => { beacons.push({ to, blob }); return true; }, clipboard: { writeText: async value => clipboardWrites.push(value) } }, getSelection: () => ({ removeAllRanges: () => {}, addRange: () => {} }), addEventListener: (type, listener) => hashListeners.set(type, listener), fetch: () => { throw new Error('network must not be used'); } };
 initInvitePage(fakeDocument, fakeWindow);
 assert(openButton.disabled && copyButton.disabled && status.textContent === 'invalid', 'Invalid invite must disable actions');
 fakeWindow.location.hash = validFragment;
@@ -262,6 +264,20 @@ await copyButton.click();
 assert.deepEqual(clipboardWrites, [`https://elevencapital.ltd/yawmana/invite/${validFragment}`], 'Copy must preserve the complete invitation URL');
 await language.click();
 assert.equal(language.href, `/ar/yawmana/invite/${validFragment}`, 'Language switch must preserve the fragment');
+// Play 按钮带上邀请作为安装来源，装好后首开直接加入；两次匿名计数里没有家庭编号和凭证。
+assert.equal(playAnchor.href, `https://play.google.com/store/apps/details?id=ltd.elevencapital.yawmana&referrer=${encodeURIComponent(`family=home_7&token=${testToken}`)}`, 'Play link carries the invitation as install referrer');
+await playAnchor.click();
+const counted = await Promise.all(beacons.map(async b => ({ to: b.to, type: b.blob.type, body: JSON.parse(await b.blob.text()) })));
+assert.deepEqual(counted.map(c => c.body.event), ['invite_page_opened', 'invite_play_clicked'], 'Page open and Play click are each counted once');
+for (const c of counted) {
+  assert.equal(c.to, METRICS_URL); assert.equal(c.type, 'text/plain');
+  assert.deepEqual(Object.keys(c.body).sort(), ['event', 'language', 'platform', 'schema']);
+  assert.deepEqual([c.body.platform, c.body.language], ['ios', 'en']);
+  assert(!JSON.stringify(c.body).includes(testToken) && !JSON.stringify(c.body).includes('home_7'), 'Counts never carry the invitation');
+}
+assert.equal(playLink('https://p/x?id=a&referrer=old', null), 'https://p/x?id=a');
+assert.deepEqual(['ios', 'ios', 'android', 'other'], [platformOf({ userAgent: 'iPad' }), platformOf({ userAgent: 'Macintosh', maxTouchPoints: 5 }), platformOf({ userAgent: 'Linux; Android 15' }), platformOf({ userAgent: 'Macintosh', maxTouchPoints: 0 })]);
+assert.deepEqual([pageLanguage('/yawmana/invite/'), pageLanguage('/zh-hans/yawmana/invite/'), pageLanguage('/xx/yawmana/invite/')], ['en', 'zh-hans', 'en']);
 for (const {lang, path} of yawmanaInviteRoutes) {
   const html = await readFile(`dist${path}index.html`, 'utf8');
   assert(html.includes('<meta name="robots" content="noindex, nofollow">') && html.includes('<meta name="referrer" content="no-referrer">'));
@@ -284,7 +300,8 @@ for (const {lang, path} of yawmanaTodayRoutes) {
   for (const [, asset] of html.matchAll(/(?:src|href)="(\/[^"#]*\.(?:css|js))"/g)) assert((await stat('dist' + asset)).isFile(), `Missing today asset ${asset}`);
 }
 const inviteScript = await readFile('src/yawmana-invite.js', 'utf8');
-assert(!/fetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket/.test(inviteScript), 'Invite page must not send invitation data');
+// 只许向统计地址发匿名计数（上面已逐条核对内容），不许别的网络请求。
+assert(!/XMLHttpRequest|WebSocket/.test(inviteScript) && [...inviteScript.matchAll(/(?:fetch|sendBeacon)\?*\.?\(([^,]+),/g)].every(m => m[1].trim() === 'METRICS_URL'), 'Invite page only sends anonymous counts');
 for(const [label,suffix] of yawmanaLanguages.filter(l=>productFont[l.lang]).map(l=>[l.label,productFont[l.lang]])) {
   const font=manifest.fonts.find(f=>f.file===`sans-${suffix}.woff2`);
   assert([...label].every(character=>font.characters.includes(character)),'Language label font coverage');
