@@ -1,4 +1,4 @@
-import { yawmanaRoutes, yawmanaInviteRoutes, yawmanaLanguages, yawmanaCopy, directionOf, productPath, invitePath, productSections, policySections, policies } from './yawmana.mjs';
+import { yawmanaRoutes, yawmanaInviteRoutes, yawmanaTodayRoutes, todayPath, todayPlayUrl, todayCopy, yawmanaLanguages, yawmanaCopy, directionOf, productPath, invitePath, productSections, policySections, policies } from './yawmana.mjs';
 // 产品页各语言用的字体子集；希伯来语没有自带子集，用系统字体。
 const productFont = {en:'latin', de:'latin', fr:'latin', ar:'arabic', 'zh-Hant':'tc', 'zh-Hans':'sc', he:null, nl:'latin', sv:'latin', da:'latin', nb:'latin', fi:'latin'};
 const productLanguages = yawmanaLanguages.map(l => l.lang);
@@ -271,6 +271,17 @@ for (const {lang, path} of yawmanaInviteRoutes) {
   assert(html.includes(`<html lang="${lang}" dir="${directionOf(lang)}">`), `Invite reading direction: ${path}`);
   assert(!/<form|fetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket/.test(html));
   for (const [, asset] of html.matchAll(/(?:src|href)="(\/[^"#]*\.(?:css|js))"/g)) assert((await stat('dist' + asset)).isFile(), `Missing invite asset ${asset}`);
+}
+// 「分享今天的分工」落地页：每种语言都有，不收录、无脚本，Play 按钮带 WhatsApp 来源。
+assert.equal(yawmanaTodayRoutes.length, yawmanaLanguages.length);
+for (const {lang, path} of yawmanaTodayRoutes) {
+  const html = await readFile(`dist${path}index.html`, 'utf8');
+  assert(html.includes('<meta name="robots" content="noindex, nofollow">'), `Today page noindex: ${path}`);
+  assert(html.includes(todayPlayUrl.replaceAll('&', '&amp;')) && todayPlayUrl.includes('referrer=utm_source%3Dwhatsapp'), `Today Play referrer: ${path}`);
+  assert(html.includes(`<html lang="${lang}" dir="${directionOf(lang)}">`) && html.includes(todayCopy[lang].title), `Today copy: ${path}`);
+  for (const other of productLanguages) assert(html.includes(`data-today-language href="${todayPath(other)}"`), `Today language continuity: ${path}`);
+  assert(!/<script|<form|fetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket/.test(html), `Today page stays static: ${path}`);
+  for (const [, asset] of html.matchAll(/(?:src|href)="(\/[^"#]*\.(?:css|js))"/g)) assert((await stat('dist' + asset)).isFile(), `Missing today asset ${asset}`);
 }
 const inviteScript = await readFile('src/yawmana-invite.js', 'utf8');
 assert(!/fetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket/.test(inviteScript), 'Invite page must not send invitation data');

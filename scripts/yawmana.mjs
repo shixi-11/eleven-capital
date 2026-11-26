@@ -1,6 +1,7 @@
 import { readFile, writeFile, mkdir, cp } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { extraCopy, extraInviteCopy } from '../src/yawmana-copy.mjs';
+import { todayCopy } from '../src/yawmana-today-copy.mjs';
 export const { policies, policySources } = JSON.parse(await readFile(new URL('../src/yawmana-content.json', import.meta.url), 'utf8'));
 export const policySections = ['local','account','shared','backup','purchases','birthday','notifications','sharing','security','diagnostics','legal','transfers','retention','rights','children','choices','contact'];
 export const productSections = ['support','privacy','account-deletion'];
@@ -25,6 +26,11 @@ export const productPath = (lang, section='support') => `${language(lang).prefix
 export const yawmanaRoutes = yawmanaLanguages.flatMap(({lang}) => productSections.map(section => ({lang,section,path:productPath(lang,section)})));
 export const invitePath = lang => `${language(lang).prefix}/yawmana/invite/`;
 export const yawmanaInviteRoutes = yawmanaLanguages.map(({lang}) => ({lang, path:invitePath(lang)}));
+export const todayPath = lang => `${language(lang).prefix}/yawmana/today/`;
+export const yawmanaTodayRoutes = yawmanaLanguages.map(({lang}) => ({lang, path:todayPath(lang)}));
+// Play 安装来源记到 WhatsApp 分享：Play 后台获客报表按 utm 显示。
+export const todayPlayUrl = 'https://play.google.com/store/apps/details?id=ltd.elevencapital.yawmana&referrer=utm_source%3Dwhatsapp%26utm_medium%3Dshare%26utm_campaign%3Dtoday_plan';
+export { todayCopy };
 const esc = text => String(text).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const email = 'yawmana@elevencapital.ltd';
 export const yawmanaCopy = {
@@ -117,6 +123,10 @@ function invitePage(lang, assets) {
   const url = 'https://play.google.com/store/apps/details?id=ltd.elevencapital.yawmana';
   return `<!doctype html><html lang="${lang}" dir="${directionOf(lang)}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(c.brand)} | ${esc(c.title)}</title><meta name="description" content="${esc(c.lead)}"><meta name="robots" content="noindex, nofollow"><meta name="referrer" content="no-referrer"><link rel="canonical" href="https://elevencapital.ltd${path}">${yawmanaLanguages.map(({lang:other})=>`<link rel="alternate" hreflang="${other}" href="https://elevencapital.ltd${invitePath(other)}">`).join('')}<link rel="alternate" hreflang="x-default" href="https://elevencapital.ltd${invitePath('en')}"><link rel="icon" href="/assets/yawmana-logo.png" type="image/png"><link rel="stylesheet" href="${assets.siteCss}"><link rel="stylesheet" href="${assets.css}"><link rel="stylesheet" href="${assets.inviteCss}"><script type="module" src="${assets.inviteJs}"></script></head><body class="yawmana-site yawmana-invite"><main class="invite-main"><header class="invite-header"><div class="invite-brand" aria-label="${esc(c.brand)}"><img class="invite-mark" src="/assets/yawmana-logo.png" width="48" height="48" alt=""><span>${esc(c.brand)}</span></div><nav class="invite-languages" aria-label="${esc(c.language)}">${languageMenu(lang,c.language,invitePath,'data-invite-language')}</nav></header><section class="invite-copy" aria-labelledby="invite-title"><p class="invite-eyebrow">${esc(c.eyebrow)}</p><h1 id="invite-title">${esc(c.title)}</h1><p class="invite-lead">${esc(c.lead)}</p><p class="invite-note">${esc(c.note)}</p><div class="invite-actions"><button class="invite-open" data-invite-open type="button" disabled>${esc(c.open)} <span aria-hidden="true">↗</span></button><a class="invite-play" href="${url}" target="_blank" rel="noopener noreferrer">${esc(c.play)} <span aria-hidden="true">↗</span></a><button class="invite-copy-button" data-invite-copy type="button" data-copied="${esc(c.copied)}" data-copy-failed="${esc(c.copyFailed)}" disabled>${esc(c.copy)}</button></div><p class="invite-status" data-invite-status data-invalid="${esc(c.invalid)}" role="status" aria-live="polite"></p><code class="invite-url" data-invite-url aria-label="${esc(c.urlLabel)}"></code></section></main><footer class="invite-footer"><p>${esc(c.footer)}</p></footer></body></html>`;
 }
+function todayPage(lang, assets) {
+  const c = todayCopy[lang], path = todayPath(lang);
+  return `<!doctype html><html lang="${lang}" dir="${directionOf(lang)}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(c.brand)} | ${esc(c.title)}</title><meta name="description" content="${esc(c.lead)}"><meta name="robots" content="noindex, nofollow"><link rel="canonical" href="https://elevencapital.ltd${path}">${yawmanaLanguages.map(({lang:other})=>`<link rel="alternate" hreflang="${other}" href="https://elevencapital.ltd${todayPath(other)}">`).join('')}<link rel="alternate" hreflang="x-default" href="https://elevencapital.ltd${todayPath('en')}"><link rel="icon" href="/assets/yawmana-logo.png" type="image/png"><link rel="stylesheet" href="${assets.siteCss}"><link rel="stylesheet" href="${assets.css}"><link rel="stylesheet" href="${assets.inviteCss}"></head><body class="yawmana-site yawmana-invite"><main class="invite-main"><header class="invite-header"><div class="invite-brand" aria-label="${esc(c.brand)}"><img class="invite-mark" src="/assets/yawmana-logo.png" width="48" height="48" alt=""><span>${esc(c.brand)}</span></div><nav class="invite-languages" aria-label="${esc(c.language)}">${languageMenu(lang,c.language,todayPath,'data-today-language')}</nav></header><section class="invite-copy" aria-labelledby="today-title"><p class="invite-eyebrow">${esc(c.eyebrow)}</p><h1 id="today-title">${esc(c.title)}</h1><p class="invite-lead">${esc(c.lead)}</p><div class="invite-actions"><a class="invite-play" href="${esc(todayPlayUrl)}" target="_blank" rel="noopener">${esc(c.play)} <span aria-hidden="true">↗</span></a></div><p class="invite-note">${esc(c.note)}</p></section></main><footer class="invite-footer"><p>${esc(c.footer)}</p></footer></body></html>`;
+}
 export async function buildYawmana(siteCss) {
   const hash=async file=>createHash('sha256').update(await readFile(file)).digest('hex').slice(0,12);
   const assets={siteCss,css:`/yawmana.${await hash('src/yawmana.css')}.css`,js:`/yawmana.${await hash('src/yawmana.js')}.js`,inviteCss:`/yawmana-invite.${await hash('src/yawmana-invite.css')}.css`,inviteJs:`/yawmana-invite.${await hash('src/yawmana-invite.js')}.js`};
@@ -124,5 +134,6 @@ export async function buildYawmana(siteCss) {
   await cp('src/yawmana-invite.css','dist'+assets.inviteCss);await cp('src/yawmana-invite.js','dist'+assets.inviteJs);
   for(const {lang,section,path} of yawmanaRoutes){await mkdir('dist'+path,{recursive:true});await writeFile('dist'+path+'index.html',page(lang,section,assets));}
   for(const {lang,path} of yawmanaInviteRoutes){await mkdir('dist'+path,{recursive:true});await writeFile('dist'+path+'index.html',invitePage(lang,assets));}
-  console.log(`Built ${yawmanaRoutes.length} Yawmana support, privacy and deletion-request pages and ${yawmanaInviteRoutes.length} invitation pages.`);
+  for(const {lang,path} of yawmanaTodayRoutes){await mkdir('dist'+path,{recursive:true});await writeFile('dist'+path+'index.html',todayPage(lang,assets));}
+  console.log(`Built ${yawmanaRoutes.length} Yawmana support, privacy and deletion-request pages, ${yawmanaInviteRoutes.length} invitation pages and ${yawmanaTodayRoutes.length} shared-day pages.`);
 }
